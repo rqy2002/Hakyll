@@ -18,7 +18,7 @@ btexPort :: Int
 btexPort = 1231
 
 btexPath :: String
-btexPath = "btex"
+btexPath = "/home/rqy/GitRepos/btex/dist/main.js"
 
 data BtexResult = BtexResult { btexHtml :: String, btexData :: String, btexErrors :: [String], btexWarnings :: [String] }
 instance FromJSON BtexResult where
@@ -72,6 +72,10 @@ hakyllMain = hakyll $ do
   match "css/*" $ do
     route   idRoute
     compile compressCssCompiler
+
+  match "js/*" $ do
+    route   idRoute
+    compile copyFileCompiler
 
   match "css/fonts/*" $ do
     route   idRoute
@@ -148,7 +152,7 @@ hakyllMain = hakyll $ do
 
 main :: IO ()
 main = withFile "/dev/null" WriteMode $ \devnull ->
-  withCreateProcess ((proc btexPath [show btexPort]) { std_in = NoStream, std_out = CreatePipe }) $ \_ (Just outp) _ _ -> do
+  withCreateProcess ((proc "node" [btexPath, show btexPort]) { std_in = NoStream, std_out = CreatePipe }) $ \_ (Just outp) _ _ -> do
   putStr "Starting btex server... "
   content <- hGetLine outp
   putStrLn "Done"

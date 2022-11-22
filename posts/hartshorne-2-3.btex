@@ -45,9 +45,10 @@ date: 2022-10-23
 \section{概形的基本性质}
 
 \begin{exercise}
-证明概形同态 $f \colon X \to Y$ 局部有限型当且仅当对 $Y$ 中\textit{任意}仿射开集 $V = \Spec B$,
+证明概形同态 $f \colon X \to Y$ 局部有限型当且仅当对 $Y$ 中\emph{任意}仿射开集 $V = \Spec B$,
 $f^{-1}(V)$ 都可以由若干仿射开集 $U_j = \Spec A_j$ 覆盖, 其中 $A_j$ 都是有限生成 $B$-代数.
 
+\end{exercise}
 \begin{proofc}
 充分性显然, 只需证明必要性.
 首先要证明：
@@ -63,13 +64,13 @@ $f^{-1}(V)$ 都可以由若干仿射开集 $U_j = \Spec A_j$ 覆盖, 其中 $A_j
 使得 $A_{ij}$ 是有限生成 $B_{b_i}$ 代数.
 因此它们也都是有限生成 $B$ 代数, 并且覆盖 $f^{-1}(V)$. 因此 $V$ 也满足条件.
 \end{proofc}
-\end{exercise}
 
 \begin{exercise}
 设 $f \colon X \to Y$ 是概形同态. 若 $Y$ 可以由若干仿射开集 $V_i$ 覆盖,
-且其中每个 $f^{-1}(V_i)$ 都拟紧, 就称 $f$\textit{拟紧}.
-证明 $f$ 拟紧当且仅当对\textit{任意}仿射开集 $V \subset Y$, $f^{-1} (V)$ 都拟紧.
+且其中每个 $f^{-1}(V_i)$ 都拟紧, 就称 $f$\emph{拟紧}.
+证明 $f$ 拟紧当且仅当对\emph{任意}仿射开集 $V \subset Y$, $f^{-1} (V)$ 都拟紧.
 
+\end{exercise}
 \begin{proofc}
 充分性显然, 只需证明必要性.
 显然, 概形中的开集拟紧当且仅当其可以被有限个仿射开集覆盖.
@@ -82,19 +83,19 @@ $f^{-1}(D(b))$ 可以被 $U_i \cap f^{-1}(D(b)) = \Spec (A_i)_{\bar{b}}$ 覆盖.
 再设 $V = \Spec B$ 是 $Y$ 中任意仿射开集, 则其可以有有限个基本开集 $D(b_i)$ 覆盖,
 其中每个 $f^{-1}(D(b_i))$ 拟紧. 因此 $f^{-1}(V) = \bigcup f^{-1}(D(b_i))$ 拟紧.
 \end{proofc}
-\end{exercise}
 
 \begin{exercise}
 \begin{enumerate}[label={(\alph*)}]
 \item 证明概形同态 $f \colon X \to Y$ 有限型当且仅当其局部有限型且拟紧.
-\item 由此说明 $f$ 有限型当且仅当对 $Y$ 中\textit{任意}仿射开集 $V = \Spec B$,
+\item 由此说明 $f$ 有限型当且仅当对 $Y$ 中\emph{任意}仿射开集 $V = \Spec B$,
    $f^{-1}(V)$ 都可以被有限个仿射开集 $U_j = \Spec A_j$ 覆盖,
    其中每个 $A_j$ 都是有限生成 $B$-代数.
-\item 证明如果 $f$ 有限型, 则对 $Y$ 中\textit{任意}仿射开集 $V = \Spec B$,
+\item 证明如果 $f$ 有限型, 则对 $Y$ 中\emph{任意}仿射开集 $V = \Spec B$,
    以及 $X$ 中任意仿射开集 $U = \Spec A \subseteq f^{-1}(V)$,
     $A$ 都是有限生成 $B$-代数.
 \end{enumerate}
 
+\end{exercise}
 \begin{proofc}
 \begin{enumerate}[label={(\alph*)}]
 \item 若 $f$ 有限型, 则其当然局部有限型.
@@ -120,13 +121,13 @@ $f^{-1}(D(b))$ 可以被 $U_i \cap f^{-1}(D(b)) = \Spec (A_i)_{\bar{b}}$ 覆盖.
 \qedhere
 \end{enumerate}
 \end{proofc}
-\end{exercise}
 
 
 \begin{exercise}
-证明：概形同态 $f \colon X \to Y$ 有限当且仅当对 $Y$ 中\textit{任意}仿射开集 $V = \Spec B$,
+证明：概形同态 $f \colon X \to Y$ 有限当且仅当对 $Y$ 中\emph{任意}仿射开集 $V = \Spec B$,
 $f^{-1}(V)$ 都是仿射开集, 且若记 $f^{-1}(V) = \Spec A$, 则 $A$ 在 $B$ 上有限.
 
+\end{exercise}
 \begin{proofc}
 充分性显然.
 
@@ -142,18 +143,18 @@ $f^{-1}(V)$ 都是仿射开集, 且若记 $f^{-1}(V) = \Spec A$, 则 $A$ 在 $B$
 则每个 $A_{a_i}$ 是有限 $B_{b_i}$ 模.
 接下来类似前一习题中的 (c) 易证 $A$ 是有限 $B$ 模.
 \end{proofc}
-\end{exercise}
 
 
 \begin{exercise}
 设 $f \colon X \to Y$ 是概形态射. 若对每个 $y \in Y$, $f^{-1}(y)$ 都是有限集,
-就称 $f$ _拟有限_ .
+就称 $f$ \emph{拟有限}.
 \begin{enumerate}[label={(\alph*)}]
 \item 证明有限态射也拟有限.
-\item 证明有限态射是\textit{闭映射}, 即其将任意闭子集映射到闭子集.
+\item 证明有限态射是\emph{闭映射}, 即其将任意闭子集映射到闭子集.
 \item 给出反例以证明有限型、拟有限、闭的满概形态射不一定是有限态射.
 \end{enumerate}
 
+\end{exercise}
 \begin{proofc}
 \begin{enumerate}[label={(\alph*)}]
 \item 若 $y \in Y$, 取包含 $y$ 的仿射开集 $V = \Spec B$.
@@ -171,29 +172,29 @@ $f^{-1}(V)$ 都是仿射开集, 且若记 $f^{-1}(V) = \Spec A$, 则 $A$ 在 $B$
 \qedhere
 \end{enumerate}
 \end{proofc}
-\end{exercise}
 
 
 \begin{exercise}
 设 $X$ 是整概形. 证明一般点 $\xi$ 处的局部环 $\cO_\xi$ 是域.
-其被称作 $X$ 的\textit{函数域}, 记作 $K(X)$.
+其被称作 $X$ 的\emph{函数域}, 记作 $K(X)$.
 证明如果 $U = \Spec A$ 是 $X$ 的任意仿射开集, 则 $K(X)$ 同构于 $A$ 的分式域.
 
+\end{exercise}
 \begin{proofc}
 设 $U = \Spec A$ 是任意仿射开集, 则 $\xi \in U$, 且 $\xi$ 也是 $U$ 的一般点.
 因此 $\xi$ 对应 $A$ 中的零理想, 从而 $\cO_\xi$ 同构于 $A$ 的分式域.
 \end{proofc}
-\end{exercise}
 
 
 \begin{exercise}
 设 $f \colon X \to Y$ 是概形同态, $Y$ 不可约,
-如果对 $Y$ 的一般点 $\eta$, $f^{-1}(\eta)$ 是有限集, 就称 $f$\textit{一般有限}.
-如果概形同态 $f \colon X \to Y$ 的像集 $f(X)$ 在 $Y$ 中稠密, 就称 $f$\textit{支配}.
+如果对 $Y$ 的一般点 $\eta$, $f^{-1}(\eta)$ 是有限集, 就称 $f$\emph{一般有限}.
+如果概形同态 $f \colon X \to Y$ 的像集 $f(X)$ 在 $Y$ 中稠密, 就称 $f$ \emph{支配}.
 现设 $f \colon X \to Y$ 是整概形之间的支配、一般有限、有限型同态.
 证明存在稠密开集 $U \subseteq Y$ 使得诱导映射 $f^{-1}(U) \to U$ 有限
 [提示：先证明 $X$ 的函数域是 $Y$ 的函数域的有限扩张].
 
+\end{exercise}
 \begin{proofc}
 设 $\xi, \eta$ 分别是 $X, Y$ 的一般点, $K, L$ 分别为 $X, Y$ 的函数域.
 任取 $Y$ 中的仿射开集 $V = \Spec A$,
@@ -227,18 +228,18 @@ $A \otimes_B L$ 在 $C$ 上整. 那么由上述一般有限性即知 $k = 0$,
 仿射, 且 $f \colon f^{-1}(V) \to V$ 有限.
 由于 $Y$ 不可约, $V$ 是开集, 从而稠密.
 \end{proofc}
-\end{exercise}
 
 \begin{exercise}[正规化]
-若一概形的所有局部环都整闭, 就称其 _正规_ .
+若一概形的所有局部环都整闭, 就称其\emph{正规}.
 令 $X$ 为整概形. 对每个仿射开集 $U = \Spec A$, 设 $\tilde{A}$ 是 $A$ 在其分式域中的整闭包,
 令 $\tilde{U} = \Spec \tilde{A}$. 证明这些 $\tilde{U}$ 可以粘接成一个正规概形 $\tilde{X}$,
-称为 $X$ 的 _正规化_ .
+称为 $X$ 的\emph{正规化}.
 再证明存在同态 $\tilde{X} \to X$ 满足如下泛性质：
 对任意正规概形 $Z$ 和同态 $f \colon Z \to X$, $f$ 都唯一地穿过 $\tilde{X}$.
 若 $X$ 在域 $k$ 上有限型, 则同态 $\tilde{X} \to X$ 有限.
 这推广了第一章习题 3.17.
 
+\end{exercise}
 \begin{proofc}
 仿照构造纤维积的办法, 可以如下证明：
 
@@ -261,7 +262,6 @@ $U$ 是 $X$ 的开子概形, 则 $g$ 在 $g^{-1}(U)$ 上的限制 $g^{-1}(U) \to
 且每个 $A_i$ 都是有限生成 $k$-代数；因此 $\tilde{A}_i$ 在 $A_i$ 上有限.
 所以 $\tilde{X} \to X$ 有限.
 \end{proofc}
-\end{exercise}
 
 
 \begin{exercise}
@@ -277,6 +277,7 @@ $U$ 是 $X$ 的开子概形, 则 $g$ 在 $g^{-1}(U)$ 上的限制 $g^{-1}(U) \to
    描述 $\Spec k(s) \times_{\Spec k} \Spec k(t)$.
 \end{enumerate}
 
+\end{exercise}
 \begin{proofc}
 \begin{enumerate}[label={(\alph*)}]
 \item 由定义, $\uA_k^1 \times_{\Spec k} \uA_k^1 = \Spec (k[x] \otimes_k k[x]) = \Spec k[x, y] = \uA_k^2$.
@@ -292,7 +293,6 @@ $U$ 是 $X$ 的开子概形, 则 $g$ 在 $g^{-1}(U)$ 上的限制 $g^{-1}(U) \to
 \qedhere
 \end{enumerate}
 \end{proofc}
-\end{exercise}
 
 \begin{exercise}[同态的纤维]
 \begin{enumerate}[label={(\alph*)}]
@@ -307,6 +307,7 @@ $U$ 是 $X$ 的开子概形, 则 $g$ 在 $g^{-1}(U)$ 上的限制 $g^{-1}(U) \to
    其剩余域是 $\eta$ 处剩余域的二次扩张 (假设 $k$ 代数闭).
 \end{enumerate}
 
+\end{exercise}
 \begin{proofc}
 \begin{enumerate}[label={(\alph*)}]
 \item 记同态 $g \colon X_y = X \otimes_Y \Spec k(y) \to X$,
@@ -335,7 +336,6 @@ $U$ 是 $X$ 的开子概形, 则 $g$ 在 $g^{-1}(U)$ 上的限制 $g^{-1}(U) \to
 \qedhere
 \end{enumerate}
 \end{proofc}
-\end{exercise}
 
 \begin{exercise}[闭子概形]
 \begin{enumerate}[label={(\alph*)}]
@@ -354,10 +354,11 @@ $U$ 是 $X$ 的开子概形, 则 $g$ 在 $g^{-1}(U)$ 上的限制 $g^{-1}(U) \to
    我们可以将此性质表达为: 既约诱导闭子概形结构是闭子集上最小的闭子概形结构.
 \item 令 $f \colon Z \to X$ 是概形同态. 则 $X$ 中存在唯一的闭子概形 $Y$ 使得:
    $f$ 穿过 $Y$; 且若 $f$ 也穿过另一个闭子概形 $Y'$, 则 $Y \to X$ 也穿过 $Y'$.
-   我们将 $Y$ 称为 $Z$ 的\textit{概形论像}.
+   我们将 $Y$ 称为 $Z$ 的\emph{概形论像}.
    若 $Z$ 既约, 证明 $Y$ 就是 $f(Z)$ 的闭包上的既约诱导闭子概形.
 \end{enumerate}
 
+\end{exercise}
 \begin{proofc}
 \begin{enumerate}
 我们先证明 (b).
@@ -404,7 +405,6 @@ $U$ 是 $X$ 的开子概形, 则 $g$ 在 $g^{-1}(U)$ 上的限制 $g^{-1}(U) \to
 \qedhere
 \end{enumerate}
 \end{proofc}
-\end{exercise}
 
 \begin{exercise}[$\mathit{Proj}\ S$ 的闭子概形]
 \begin{enumerate}[label={(\alph*)}]
@@ -421,6 +421,7 @@ $U$ 是 $X$ 的开子概形, 则 $g$ 在 $g^{-1}(U)$ 上的限制 $g^{-1}(U) \to
    都可以从 $S$ 某个齐次理想得来.
 \end{enumerate}
 
+\end{exercise}
 \begin{proofc}
 \begin{enumerate}[label={(\alph*)}]
 \item 回忆 $U = \{ \gp \in \Proj T \mid \gp \not\supseteq \varphi(S_+) \}$.
@@ -437,7 +438,6 @@ $U$ 是 $X$ 的开子概形, 则 $g$ 在 $g^{-1}(U)$ 上的限制 $g^{-1}(U) \to
 \qedhere
 \end{enumerate}
 \end{proofc}
-\end{exercise}
 
 \begin{exercise}[有限型同态的性质]
 \begin{enumerate}[label={(\alph*)}]
@@ -451,6 +451,7 @@ $U$ 是 $X$ 的开子概形, 则 $g$ 在 $g^{-1}(U)$ 上的限制 $g^{-1}(U) \to
 \item 若 $f \colon X \to Y$ 有限型, $Y$ Noether, 则 $X$ 也 Noether.
 \end{enumerate}
 
+\end{exercise}
 \begin{proofc}
 \begin{enumerate}[label={(\alph*)}]
 \item 若 $f \colon X \to Y$ 是闭浸入,
@@ -496,13 +497,13 @@ $U$ 是 $X$ 的开子概形, 则 $g$ 在 $g^{-1}(U)$ 上的限制 $g^{-1}(U) \to
 \qedhere
 \end{enumerate}
 \end{proofc}
-\end{exercise}
 
 
 \begin{exercise}
 若 $X$ 是域上的有限型概形, 证明 $X$ 的闭点稠密.
 给出反例说明这个结论对一般的概形并不成立.
 
+\end{exercise}
 \begin{proofc}
 我们断言: 若 $X$ 是域 $k$ 上的有限型概形,
 则点 $p \in X$ 是闭点当且仅当其剩余域是 $k$ 的有限扩张.
@@ -525,28 +526,28 @@ $k(p) = A / \gp$ 是 $k$ 的有限扩张.
 若去除 $X$ 的有限型条件, 则任取离散赋值环 $A$,
 那么 $\Spec A$ 即不满足条件 (因为存在非幂零但属于所有极大理想的元素).
 \end{proofc}
-\end{exercise}
 
 
 \begin{exercise}
 令 $X$ 为域 $k$ (不一定代数闭) 上有限型概形.
 \begin{enumerate}[label={(\alph*)}]
-\item 证明以下三个条件等价 (若它们成立, 则称 $X$\textit{几何不可约}):
+\item 证明以下三个条件等价 (若它们成立, 则称 $X$\emph{几何不可约}):
   \begin{enumerate}[label={(\alph*)}]
    1. $X \times_k \bar{k}$ 不可约, 其中 $\bar{k}$ 表示 $k$ 的代数闭包.
    2. $X \times_k k_s$ 不可约, 其中 $k_s$ 表示 $k$ 的可分闭包.
    3. 对 $k$ 的任意扩域 $K$, $X \times_k K$ 都不可约.
   \end{enumerate}
-\item 证明以下三个条件等价 (若它们成立, 则称 $X$\textit{几何既约}):
+\item 证明以下三个条件等价 (若它们成立, 则称 $X$\emph{几何既约}):
   \begin{enumerate}[label={(\alph*)}]
    1. $X \times_k \bar{k}$ 既约, 其中 $\bar{k}$ 表示 $k$ 的代数闭包.
    2. $X \times_k k_p$ 既约, 其中 $k_p$ 表示 $k$ 的完美闭包.
    3. 对 $k$ 的任意扩域 $K$, $X \times_k K$ 都既约.
   \end{enumerate}
-\item 如果 $X \times_k \bar{k}$ 整, 就说 $X$\textit{几何整}.
+\item 如果 $X \times_k \bar{k}$ 整, 就说 $X$ \emph{几何整}.
    给出一个既不几何不可约也不几何既约的整概形. % TODO: 不几何不可约?
 \end{enumerate}
 
+\end{exercise}
 \begin{proofc}
 \begin{enumerate}[label={(\alph*)}]
 \item 我们使用 Stacks 项目中的{{{stacks(引理, O37K)}}}:
@@ -587,7 +588,6 @@ $k(p) = A / \gp$ 是 $k$ 的有限扩张.
 \qedhere
 \end{enumerate}
 \end{proofc}
-\end{exercise}
 
 \begin{exercise}[Noether 归纳法]
 设 $X$ 为 Noether 拓扑空间, 并令 $\mathcal{P}$ 是对 $X$ 的闭集定义的性质.
@@ -595,14 +595,14 @@ $k(p) = A / \gp$ 是 $k$ 的有限扩张.
 则 $Y$ 也满足 $\mathcal{P}$ (特别地, 空集必定满足 $\mathcal{P}$).
 那么 $X$ 的所有闭子集都满足 $\mathcal{P}$.
 
+\end{exercise}
 \begin{proofc}
 反证. 若不然, 则由于 $X$ Noether, 存在极小的不满足 $\mathcal{P}$ 的闭子集, 矛盾.
 \end{proofc}
-\end{exercise}
 
 \begin{exercise}[Zariski 空间]
 若拓扑空间 $X$ 是 Noether 空间, 且其任意非空不可约闭集都有唯一的一般点,
-则称其为 /Zariski 空间/.
+则称其为\emph{Zariski 空间}.
 
 例如说, 令 $R$ 是离散赋值环, $T = \spp(\Spec R)$.
 则 $T$ 包含两个点 $t_0 = $ 极大理想, $t_1 = $ 零理想.
@@ -615,13 +615,13 @@ $k(p) = A / \gp$ 是 $k$ 的有限扩张.
 \item 证明 Zariski 空间满足 $T_0$ 公理: 任意两个点都可以用开集区分.
 \item 若 $X$ 是不可约 Zariski 空间, 则其一般点包含在任意非空开集中.
 \item 若 $x_0, x_1$ 是拓扑空间 $X$ 中的点, $x_0 \in \{x_1\}^-$,
-   就称 $x_0$ 是 $x_1$ 的\textit{特殊化}, 记作 $x_1 \spto x_0$.
-   我们也说 $x_1$\textit{特殊化为} $x_0$, 以及 $x_1$ 是 $x_0$ 的\textit{一般化}.
+   就称 $x_0$ 是 $x_1$ 的\emph{特殊化}, 记作 $x_1 \spto x_0$.
+   我们也说 $x_1$ \emph{特殊化为} $x_0$, 以及 $x_1$ 是 $x_0$ 的\emph{一般化}.
    现设 $X$ 是 Zariski 空间.
    证明由特殊化定义的偏序 ($x_1 > x_0$ 当且仅当 $x_1 \spto x_0$)
    中的极小点就是 $X$ 的不可约分支的一般点.
-   证明闭集包含其所有点的特殊化 (即\textit{对特殊化稳定}).
-   同理, 开集\textit{对一般化稳定}.
+   证明闭集包含其所有点的特殊化 (即\emph{对特殊化稳定}).
+   同理, 开集\emph{对一般化稳定}.
 \item 令 $t$ 是命题 (2.6) 中定义的拓扑空间的函子.[fn::
     若 $X$ 是任意拓扑空间, 则 $t(X)$ 是 $X$ 的所有不可约闭集构成的集合,
     $t(X)$ 中的闭集形如 $t(Y)$, 其中 $Y$ 是 $X$ 的闭集.]
@@ -629,6 +629,7 @@ $k(p) = A / \gp$ 是 $k$ 的有限扩张.
    进一步地, $X$ 是 Zariski 空间当且仅当 $\alpha \colon X \to t(X)$ 是同胚.
 \end{enumerate}
 
+\end{exercise}
 \begin{proofc}
 \begin{enumerate}[label={(\alph*)}]
 \item 概形的不可约闭集都有一般点, 因此是 Zariski 空间.
@@ -646,15 +647,14 @@ $k(p) = A / \gp$ 是 $k$ 的有限扩张.
 \qedhere
 \end{enumerate}
 \end{proofc}
-\end{exercise}
 
 \begin{exercise}[可构造集]
 令 $X$ 为 Zariski 空间.
 记 $\mathcal{F}$ 是包含 $X$ 的所有闭集且在有限交和取补集下封闭的最小集族.
-我们将 $\mathcal{F}$ 中的集合称为 $X$ 的\textit{可构造子集}.
+我们将 $\mathcal{F}$ 中的集合称为 $X$ 的\emph{可构造子集}.
 
 \begin{enumerate}[label={(\alph*)}]
-\item $X$ 中的开集与闭集的交集称为\textit{局部闭集}.
+\item $X$ 中的开集与闭集的交集称为\emph{局部闭集}.
    证明 $X$ 的一个子集可构造当且仅当它可以写成局部闭集的有限不交并.
 \item 证明 $X$ 中的某个可构造集稠密当且仅当它包含一般点.
    进一步地, 此时它一定包含某个非空开集.
@@ -664,6 +664,7 @@ $k(p) = A / \gp$ 是 $k$ 的有限扩张.
    则 $Y$ 的任意可构造子集的原像也是 $X$ 的可构造子集.
 \end{enumerate}
 
+\end{exercise}
 \begin{proofc}
 \begin{enumerate}[label={(\alph*)}]
 \item 集合 $S \subseteq X$ 可以写成局部闭集的有限不交并,
@@ -689,7 +690,6 @@ $k(p) = A / \gp$ 是 $k$ 的有限扩张.
 \qedhere
 \end{enumerate}
 \end{proofc}
-\end{exercise}
 
 
 \begin{exercise}
@@ -715,6 +715,7 @@ $k(p) = A / \gp$ 是 $k$ 的有限扩张.
    而 $f(X)$ 不开也不闭.
 \end{enumerate}
 
+\end{exercise}
 \begin{proofc}
 \begin{enumerate}[label={(\alph*)}]
 \item 设 $S \subseteq X$ 是构造集,
@@ -755,7 +756,6 @@ $k(p) = A / \gp$ 是 $k$ 的有限扩张.
 \qedhere
 \end{enumerate}
 \end{proofc}
-\end{exercise}
 
 \begin{exercise}[维数]
 令 $X$ 为域 $k$ (未必代数闭) 上的有限型整概形. 利用 (I, §1) 中的结果[fn::
@@ -770,6 +770,7 @@ $k(p) = A / \gp$ 是 $k$ 的有限扩张.
 \item 若 $U$ 是 $X$ 的非空开子集, 则 $\dim U = \dim X$.
 \item 若 $k' / k$ 是域扩张, 则 $X' = X \times_k k'$ 的每个不可约分支都具有和 $X$ 相同的维数.
 \end{enumerate}
+\end{exercise}
 \begin{proofc}
 \begin{enumerate}[label={(\alph*)}]
 \item 首先考虑到 $\dim X = \sup \{ n \mid V_0 \subsetneq V_1 \subsetneq \dots \subsetneq V_n \}$,
@@ -794,12 +795,12 @@ $k(p) = A / \gp$ 是 $k$ 的有限扩张.
 \qedhere
 \end{enumerate}
 \end{proofc}
-\end{exercise}
 
 \begin{exercise}
 令 $R$ 为离散赋值环, 且包含其剩余域 $k$.
 令 $X = \Spec R[t]$ 为 $\Spec R$ 上的仿射直线.
 证明习题 3.20 中的 (a), (d), (e) 对 $X$ 不成立.
+\end{exercise}
 \begin{proofc}
 设 $R$ 的素理想为 $(0), \gm = (\varpi)$.
 则 $R[t]$ 的素理想有 $(0), (f), (\varpi, g)$. 其中 $f$ 是 $R$ 上的不可约多项式,
@@ -814,7 +815,6 @@ $g$ 是 $k$ 上的不可约多项式. 因此 $\dim X = \dim R[t] = 2$.
 取 $U = D(\varphi)$, 则 $\cO|_U \cong \Spec F[t]$, 其中 $F = \Frac(R)$.
 因此 $\dim U = 1$, e 不成立.
 \end{proofc}
-\end{exercise}
 
 \begin{exercise}[态射纤维的维数]
 \begin{enumerate}[label={(\alph*)}]
@@ -822,7 +822,7 @@ $g$ 是 $k$ 上的不可约多项式. 因此 $\dim X = \dim R[t] = 2$.
 \item 令 $Y'$ 为 $Y$ 中的不可约闭子集, 其一般点 $\eta'$ 属于 $f(X)$.
    令 $Z$ 为 $f^{-1}(Y')$ 的不可约分支, 且 $\eta' \in f(Z)$,
    证明 $\codim(Z, X) \leq \codim(Y', Y)$.
-\item 令 $e = \dim X - \dim Y$ 为 $X$ 在 $Y$ 上的\textit{相对维数}.
+\item 令 $e = \dim X - \dim Y$ 为 $X$ 在 $Y$ 上的\emph{相对维数}.
    对任意 $y \in f(X)$, 证明纤维 $X_y$ 的不可约分支的维数不小于 $e$.
    [提示: 令 $Y' = \{y\}^-$, 使用 (a) 和习题 3.20 (b).]
 \item 证明存在 $X$ 的稠密开子集 $U$, 使得对任意 $y \in f(U)$,
@@ -846,10 +846,11 @@ $g$ 是 $k$ 上的不可约多项式. 因此 $\dim X = \dim R[t] = 2$.
    对任意整数 $h$, 令 $C_h = \{ y \in Y \mid \dim X_y = h \}$.
    则 $C_h$ 可构造, 且 $C_e$ 包含 $Y$ 的某个稠密开子集.
 \end{enumerate}
+\end{exercise}
 \begin{proofc}
 \begin{enumerate}[label={(\alph*)}]
 \item 按定义, $\codim(Z, X) =$ 以 $Z$ 的一般点 $\theta$ 结尾的最长特殊化序列长度,
-   $\codim(Y', Y)$ 同理. 而 $f$ 保持特殊化\textit{(连续映射都保持特殊化)},
+   $\codim(Y', Y)$ 同理. 而 $f$ 保持特殊化\emph{(连续映射都保持特殊化)},
    且 $\eta' \in f(Z) \implies f(\theta) \spto \eta'$. 因此即证.
 \item 作为拓扑空间, $X_y$ 同胚于 $f^{-1}(y)$.
    因此若 $Z$ 是 $X_y$ 的不可约分支,
@@ -887,7 +888,6 @@ $g$ 是 $k$ 上的不可约多项式. 因此 $\dim X = \dim R[t] = 2$.
 \qedhere
 \end{enumerate}
 \end{proofc}
-\end{exercise}
 
 \begin{exercise}
 设 $V, W$ 是代数闭域 $k$ 上的概形, $V \times W$ 是其乘积 (在 I, 习题 3.15, 3.16 中定义),

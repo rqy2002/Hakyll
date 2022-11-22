@@ -1,3 +1,54 @@
+@font-face {
+    font-family: PunctCJK;
+    src: url('fonts/PunctCJK.woff2') format('woff2'),
+         url('fonts/PunctCJK.woff') format('woff');
+}
+
+@font-face {
+    font-family: PunctCJK;
+    src: url('fonts/PunctCJK-Bold.woff2') format('woff2'),
+         url('fonts/PunctCJK-Bold.woff') format('woff');
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: PunctCJK;
+    src: url('fonts/PunctCJK-Italic.woff2') format('woff2'),
+         url('fonts/PunctCJK-Italic.woff') format('woff');
+    font-style: italic, oblique;
+}
+
+@font-face {
+    font-family: PunctCJK;
+    src: url('fonts/PunctCJK-BoldItalic.woff2') format('woff2'),
+         url('fonts/PunctCJK-BoldItalic.woff') format('woff');
+    font-weight: bold;
+    font-style: italic, oblique;
+}
+
+@font-face {
+    font-family: 'Cascadia Code';
+    src: url('fonts/Cascadia Code.woff2') format('woff2'),
+         url('fonts/Cascadia Code.woff') format('woff');
+}
+
+@font-face {
+    font-family: Lato_Bbb;
+    src: url('fonts/LatoBbb.woff2') format('woff2'),
+         url('fonts/LatoBbb.woff') format('woff');
+}
+
+@font-face {
+    font-family: FandolFang;
+    src: url('fonts/FandolFang-Regular.woff2') format('woff2'),
+         url('fonts/FandolFang-Regular.woff') format('woff');
+    font-style: italic;
+}
+
+i {
+    font-family: FandolFang, 'Noto Sans', Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Oxygen', 'Ubuntu', 'Cantarell', 'Helvetica Neue', 'Microsoft YaHei UI', 'Microsoft YaHei', 'Noto Sans CJK SC', 'Source Han Sans CN', sans-serif;
+}
+
 body {
     font-family: 'Noto Sans', Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Oxygen', 'Ubuntu', 'Cantarell', 'Helvetica Neue', 'Microsoft YaHei UI', 'Microsoft YaHei', 'Noto Sans CJK SC', 'Source Han Sans CN', sans-serif;
 }
@@ -285,7 +336,8 @@ main {
 
 .btex-output {
     text-align: justify;
-    hyphens: auto
+    hyphens: auto;
+    -webkit-hyphens: auto;
 }
 
 .btex-output p,
@@ -424,6 +476,18 @@ main {
 
 /* TODO theorem styles here */
 
+.btex-output .proof-header,
+.btex-output .proof-content > p:first-child,
+.btex-output .block.style-a > p:first-child,
+.btex-output .block.style-b > p:first-child,
+.btex-output .block.style-a > p:first-child,
+.btex-output .proof-content > .p:first-child,
+.btex-output .block.style-a > .p:first-child,
+.btex-output .block.style-b > .p:first-child,
+.btex-output .block.style-a > .p:first-child {
+    text-indent: 0
+}
+
 .btex-output .block.style-a {
     background: #f4fcff;
     border-color: #a0e0ff
@@ -489,6 +553,7 @@ main {
 .btex-output .proof-collapsible .proof-expander {
     position: absolute;
     cursor: pointer;
+    text-indent: 0;
     margin-left: -20px
 }
 
@@ -509,13 +574,13 @@ main {
 }
 
 /* ! Note that collapsed/expanded is reversed temporarily */
-.btex-output .proof-collapsible.proof-collapsible-expanded>.proof-content,
-.btex-output .proof-collapsible.proof-collapsible-expanded>.proof-expander-collapsing {
+.btex-output .proof-collapsible.proof-collapsible-collapsed>.proof-content,
+.btex-output .proof-collapsible.proof-collapsible-collapsed>.proof-expander-collapsing {
     display: none
 }
 
-.btex-output .proof-collapsible.proof-collapsible-collapsed>.proof-header,
-.btex-output .proof-collapsible.proof-collapsible-collapsed>.proof-expander-expanding {
+.btex-output .proof-collapsible.proof-collapsible-expanded>.proof-header,
+.btex-output .proof-collapsible.proof-collapsible-expanded>.proof-expander-expanding {
     display: none
 }
 
@@ -551,6 +616,7 @@ span.btex-diagram .katex {
 
 span.btex-diagram .katex span.rlap {
     user-select: none
+    -webkit-user-select: none
 }
 
 .wikitable {
