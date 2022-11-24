@@ -11,6 +11,7 @@ import GHC.IO.Handle (hDuplicateTo)
 import Data.Aeson (encode, object, (.=), FromJSON, parseJSON, decode, withObject, (.:))
 import System.Process
 import Network.HTTP.Client as HTTP
+import Data.List (intercalate)
 ------------------------------------------------------------------------------
 -- Btex compiler (assume btex running at http://127.0.0.1:btexPort)
 -- Here we use a modified btex that use its first arg as port instead of 7200
@@ -63,8 +64,26 @@ pandocCompiler' =
       { writerHighlightStyle   = Just pandocCodeStyle
       }
 
+repoUrl :: String
+repoUrl = "git@github.com:MenciStaticSites/rqy-blog.git"
+
+deployGit :: String
+deployGit = intercalate " && "
+                   [ "cd _site",
+                     "rm .git -rf",
+                     "git init",
+                     "git add -A",
+                     "git commit -m \"$(date +%F-%H:%M:%S)\"",
+                     "git push -u " ++ repoUrl ++ " HEAD:main --force",
+                     "rm .git -rf"
+                   ]
+
+hakyllConfiguration :: Configuration
+hakyllConfiguration = defaultConfiguration
+                        { deployCommand = deployGit }
+
 hakyllMain :: IO ()
-hakyllMain = hakyll $ do
+hakyllMain = hakyllWith hakyllConfiguration $ do
   match "images/*" $ do
     route   idRoute
     compile copyFileCompiler
