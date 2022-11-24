@@ -110,7 +110,7 @@ main {
 
 main div.info {
     width: 600px;
-    margin: auto 0 auto 100px;
+    margin: auto 0 auto 5%;
     line-height: 1em;
     text-transform: uppercase;
     font-weight: 700;
@@ -118,11 +118,12 @@ main div.info {
     color: #AAA;
     font-size: .8em;
     margin-bottom: 2em;
+    text-indent: 0;
 }
 
 main p, main div.p, main h1, main h2, main h3, main h4, main h5, main ol, main ul, main blockquote, main div.sourceCode {
     width: 600px;
-    margin-left: 100px;
+    margin-left: 5%;
     line-height: 1.75em;
 }
 
@@ -130,6 +131,7 @@ main h1, main h2, main h3, main h4, main h5, main ol, main ul{
     margin-top: 0.9em;
     margin-bottom: 0.5em;
     line-height: 2em;
+    text-indent: 0;
 }
 
 main p + p {
@@ -138,6 +140,10 @@ main p + p {
 
 main {
     text-indent: 2em;
+}
+
+ul, il {
+    text-indent: 0;
 }
 
 main img {
