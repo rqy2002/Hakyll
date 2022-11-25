@@ -818,8 +818,8 @@ date: 2022-10-23
 \end{proofc}
 
 \begin{exercise}[态射纤维的维数]
+  令 $f \colon X \to Y$ 为 $k$ 上有限型整概形之间的支配映射.
   \begin{enumerate}[label={(\alph*)}]
-          令 $f \colon X \to Y$ 为 $k$ 上有限型整概形之间的支配映射.
     \item 令 $Y'$ 为 $Y$ 中的不可约闭子集, 其一般点 $\eta'$ 属于 $f(X)$.
           令 $Z$ 为 $f^{-1}(Y')$ 的不可约分支, 且 $\eta' \in f(Z)$,
           证明 $\codim(Z, X) \leq \codim(Y', Y)$.
@@ -858,11 +858,15 @@ date: 2022-10-23
           因此若 $Z$ 是 $X_y$ 的不可约分支,
           则 $Z$ 同胚于 $\overline{f^{-1}(y)}$ 的某个不可约分支 $Z'$
           与 $f^{-1}(y)$ 的交集. 又由 3.20 (e),
-          $$\dim Z = \dim (Z' \cap f^{-1}(y))
-          = \dim \overline{Z' \cap f^{-1}(y)} = \dim Z'.$$
-          而由 (a) 与 3.20 (d), 取 $Y' = \overline{\{y\}}$
-          $$\dim Z' = \dim X - \codim(Z', X) \geq e + \dim Y - \codim(Y', Y)
-          = e + \dim Y' \geq y.$$
+          \[
+          \dim Z = \dim (Z' \cap f^{-1}(y))
+          = \dim \overline{Z' \cap f^{-1}(y)} = \dim Z'.
+          \]
+          而由 (a) 与 3.20 (d), 取 $Y' = \overline{\{y\}}$ 得
+          \[
+          \dim Z' = \dim X - \codim(Z', X) \geq e + \dim Y - \codim(Y', Y)
+          = e + \dim Y' \geq e.
+          \]
     \item 任取 $Y$ 中仿射开集和其原像中仿射开集以替换 $Y$ 和 $X$,
           则 $f$ 仍然支配, 且只要这种情况成立, 原命题显然成立.
           记 $X = \Spec A, Y = \Spec B$.
@@ -877,12 +881,41 @@ date: 2022-10-23
           那么若 $y \in f(U)$, 则 $U_y$ 在 $V_y$ 上有限且支配;
           而 $V_y$ 是 $\Spec k(y)[t_1, \dots t_e]$ 中的稠密开集,
           因此 $\dim U_y = \dim V_y = e$.
-    \item
-          \begin{enumerate}[label={\arabic*.}]
+    \item \begin{enumerate}[label={\arabic*.}]
             \item 由 (b), $E_e = X$.
             \item 由 (c), 若 $h > e$, 则 $E_h \subseteq X \setminus U$.
                   因此 $E_h$ 不稠密.
-            \item 暂且不会, 呜呜.
+            \item 我们对 $\dim X$ 做归纳.
+
+                  若 $h \leq e$, 则由 (a) 已证完.
+                  否则以 (c) 的方法取出一开集 $U \subseteq X$,
+                  则 $U \cap E_h = \emptyset$.
+                  由于 $X$ Noether, $X \setminus U$
+                  有有限个不可约分支 $\{X^j\}$, 只需证明对其中每个不可约分支,
+                  都有 $X^j \cap E_h$ 在 $X^j$ 中闭.
+
+                  我们赋予 $X^j$ 既约诱导闭子概形结构,
+                  记 $Y^j = \overline{f(X^j)}$, 也赋予既约诱导闭子概形结构.
+                  那么 $X^j, Y^j$ 也是 $k$ 上有限型整概形,
+                  且 $f|_{X^j} : X^j \to Y^j$ 支配.
+
+                  设把 $X, Y$ 替换为 $X^j, Y^j$ 后定义出的 $E_h$ 为 $E^j_h$,
+                  原本的 $E_h$ 仍记为 $E_h$.
+                  显然有 $E^j_h \subseteq X^j \cap E_h$.
+
+                  另一方面, 若 $x \in X^j \cap E_h$, 记 $y = f(x)$,
+                  则存在 $X_y$ 的包含 $x$ 的不可约分支 $Z$ 具有维数 $h$.
+                  若 $y \notin U$, 则 $X_y$ 是若干个 $X^k_y$ 的并,
+                  因此不可约分支 $Z$ 是 $X^j_y$ 的子集, 从而 $x \in E^j_h$.
+                  即使 $y \in U$, 也一定有 $Z \cap U_y = \emptyset$,
+                  否则 $\dim Z = \dim (Z \cap U_y) \leq \dim U_y = e$.
+                  接下来同上即知 $x \in E^j_h$.
+
+                  因此我们知道 $E_h \cap X^j = E^j_h$. 由于 $\dim X^j < \dim X$,
+                  按归纳假设知 $E_h \cap X^j$ 闭.
+                  因此由数学归纳法, 结论成立.
+
+                  [\emph{这里没有归纳起点, 因为 $\dim X = 0$ 的时候 $U = X = $ 单点集.}]
           \end{enumerate}
     \item 由于 $E_h$ 闭, 由 3.19, $C_h = f(E_h) \setminus f(E_{h + 1})$ 可构造.
           而 $Y$ 的一般点 $\in C_e$, 因此 $C_e$ 稠密.
