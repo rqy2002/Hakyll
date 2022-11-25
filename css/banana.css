@@ -14,6 +14,9 @@
     font-family: FandolSong;
     src: url('fonts/FandolSong-Regular.woff2') format('woff2'),
          url('fonts/FandolSong-Regular.woff') format('woff');
+    unicode-range: U+4E00-9FFF, U+3400-4DBF, U+20000-2A6DF, U+2A700-2B73F, U+2B740-2B81F,
+                   U+2B820-2CEAF, U+2CEB0-2EBEF, U+30000-3134F, U+31350-323AF, U+F900-FAFF, U+2F800-2FA1F,
+                   U+2F00-2FDF, U+2E80-2EFF, U+3000-303F
 }
 
 @font-face {
@@ -21,6 +24,9 @@
     src: url('fonts/FandolSong-Bold.woff2') format('woff2'),
          url('fonts/FandolSong-Bold.woff') format('woff');
     font-weight: bold;
+    unicode-range: U+4E00-9FFF, U+3400-4DBF, U+20000-2A6DF, U+2A700-2B73F, U+2B740-2B81F,
+                   U+2B820-2CEAF, U+2CEB0-2EBEF, U+30000-3134F, U+31350-323AF, U+F900-FAFF, U+2F800-2FA1F,
+                   U+2F00-2FDF, U+2E80-2EFF, U+3000-303F
 }
 
 @font-face {
@@ -28,10 +34,13 @@
     src: url('fonts/FandolFang-Regular.woff2') format('woff2'),
          url('fonts/FandolFang-Regular.woff') format('woff');
     font-style: italic;
+    unicode-range: U+4E00-9FFF, U+3400-4DBF, U+20000-2A6DF, U+2A700-2B73F, U+2B740-2B81F,
+                   U+2B820-2CEAF, U+2CEB0-2EBEF, U+30000-3134F, U+31350-323AF, U+F900-FAFF, U+2F800-2FA1F,
+                   U+2F00-2FDF, U+2E80-2EFF, U+3000-303F
 }
 
 i {
-    font-family: FandolFang, 'Noto Sans', Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Oxygen', 'Ubuntu', 'Cantarell', 'Helvetica Neue', 'Microsoft YaHei UI', 'Microsoft YaHei', 'Noto Sans CJK SC', 'Source Han Sans CN', sans-serif;
+    font-family: FandolFang, 'Times New Roman', Georgia, Garamond, -apple-system, BlinkMacSystemFont, serif;
 }
 
 body {
@@ -43,12 +52,13 @@ body {
     margin: 0 5%;
     /* padding: 0px 30px 30px 30px; */
     font-size: 18px;
-    font-family: FandolSong, 'Noto Sans', Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Oxygen', 'Ubuntu', 'Cantarell', 'Helvetica Neue', 'Microsoft YaHei UI', 'Microsoft YaHei', 'Noto Sans CJK SC', 'Source Han Sans CN', sans-serif;
+    font-family: FandolSong, 'Times New Roman', Georgia, Garamond, -apple-system, BlinkMacSystemFont, serif;
     letter-spacing: .015em
 }
 
 .b-page-body [lang]:not(:lang(zh)) {
-    font-family: 'Noto Sans', Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Oxygen', 'Ubuntu', 'Cantarell', 'Helvetica Neue', 'Microsoft YaHei UI', 'Microsoft YaHei', 'Noto Sans CJK SC', 'Source Han Sans CN', sans-serif;
+    font-family: 'Times New Roman', Georgia, Garamond, -apple-system, BlinkMacSystemFont, serif;
+    /* font-family: 'Noto Sans', Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Oxygen', 'Ubuntu', 'Cantarell', 'Helvetica Neue', 'Microsoft YaHei UI', 'Microsoft YaHei', 'Noto Sans CJK SC', 'Source Han Sans CN', sans-serif; */
     letter-spacing: normal
 }
 
