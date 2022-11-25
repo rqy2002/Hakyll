@@ -1,32 +1,4 @@
 @font-face {
-    font-family: PunctCJK;
-    src: url('fonts/PunctCJK.woff2') format('woff2'),
-         url('fonts/PunctCJK.woff') format('woff');
-}
-
-@font-face {
-    font-family: PunctCJK;
-    src: url('fonts/PunctCJK-Bold.woff2') format('woff2'),
-         url('fonts/PunctCJK-Bold.woff') format('woff');
-    font-weight: bold;
-}
-
-@font-face {
-    font-family: PunctCJK;
-    src: url('fonts/PunctCJK-Italic.woff2') format('woff2'),
-         url('fonts/PunctCJK-Italic.woff') format('woff');
-    font-style: italic, oblique;
-}
-
-@font-face {
-    font-family: PunctCJK;
-    src: url('fonts/PunctCJK-BoldItalic.woff2') format('woff2'),
-         url('fonts/PunctCJK-BoldItalic.woff') format('woff');
-    font-weight: bold;
-    font-style: italic, oblique;
-}
-
-@font-face {
     font-family: 'Cascadia Code';
     src: url('fonts/Cascadia Code.woff2') format('woff2'),
          url('fonts/Cascadia Code.woff') format('woff');

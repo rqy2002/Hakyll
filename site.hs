@@ -11,7 +11,8 @@ import GHC.IO.Handle (hDuplicateTo)
 import Data.Aeson (encode, object, (.=), FromJSON, parseJSON, decode, withObject, (.:))
 import System.Process
 import Network.HTTP.Client as HTTP
-import Data.List (intercalate)
+import Deploy
+
 ------------------------------------------------------------------------------
 -- Btex compiler (assume btex running at http://127.0.0.1:btexPort)
 -- Here we use a modified btex that use its first arg as port instead of 7200
@@ -52,7 +53,6 @@ btexCompiler = getResourceBody >>= withItemBody (\content -> do
       Just s -> return $ btexToHtml s)
 
 ------------------------------------------------------------------------------
-
 pandocCodeStyle :: Style
 pandocCodeStyle = pygments
 
@@ -64,23 +64,9 @@ pandocCompiler' =
       { writerHighlightStyle   = Just pandocCodeStyle
       }
 
-repoUrl :: String
-repoUrl = "git@github.com:MenciStaticSites/rqy-blog.git"
-
-deployGit :: String
-deployGit = intercalate " && "
-                   [ "cd _site",
-                     "rm .git -rf",
-                     "git init",
-                     "git add -A",
-                     "git commit -m \"$(date +%F-%H:%M:%S)\"",
-                     "git push -u " ++ repoUrl ++ " HEAD:main --force",
-                     "rm .git -rf"
-                   ]
-
 hakyllConfiguration :: Configuration
 hakyllConfiguration = defaultConfiguration
-                        { deployCommand = deployGit }
+                        { deploySite = deploy }
 
 hakyllMain :: IO ()
 hakyllMain = hakyllWith hakyllConfiguration $ do
@@ -108,27 +94,27 @@ hakyllMain = hakyllWith hakyllConfiguration $ do
     route   $ setExtension "html"
     compile $ pandocCompiler'
       >>= loadAndApplyTemplate "templates/default.html" defaultContext
-      >>= relativizeUrls
+      -- >>= relativizeUrls
 
   match "contact.html" $ do
     route   idRoute
     compile $ getResourceBody
         >>= loadAndApplyTemplate "templates/default.html" defaultContext
-        >>= relativizeUrls
+        -- >>= relativizeUrls
 
   match "posts/*.md" $ do
     route $ setExtension "html"
     compile $ pandocCompiler'
       >>= loadAndApplyTemplate "templates/post.html"  postCtx
       >>= loadAndApplyTemplate "templates/default.html" postCtx
-      >>= relativizeUrls
+      -- >>= relativizeUrls
 
   match "posts/*.btex" $ do
     route $ setExtension "html"
     compile $ btexCompiler
       >>= loadAndApplyTemplate "templates/btex-post.html"  postCtx
       >>= loadAndApplyTemplate "templates/default.html" postCtx
-      >>= relativizeUrls
+      -- >>= relativizeUrls
 
   create ["archive.html"] $ do
     route idRoute
@@ -141,7 +127,7 @@ hakyllMain = hakyllWith hakyllConfiguration $ do
       makeItem ""
         >>= loadAndApplyTemplate "templates/archive.html" archiveCtx
         >>= loadAndApplyTemplate "templates/default.html" archiveCtx
-        >>= relativizeUrls
+        -- >>= relativizeUrls
 
 
   match "index.html" $ do
@@ -154,7 +140,7 @@ hakyllMain = hakyllWith hakyllConfiguration $ do
       getResourceBody
         >>= applyAsTemplate indexCtx
         >>= loadAndApplyTemplate "templates/default.html" indexCtx
-        >>= relativizeUrls
+        -- >>= relativizeUrls
 
   match "templates/*" $ compile templateBodyCompiler
 
@@ -167,7 +153,7 @@ hakyllMain = hakyllWith hakyllConfiguration $ do
     route idRoute
     compile $ getResourceBody
       >>= loadAndApplyTemplate "templates/default.html" defaultContext
-      >>= relativizeUrls
+      -- >>= relativizeUrls
 
 main :: IO ()
 main = withFile "/dev/null" WriteMode $ \devnull ->
