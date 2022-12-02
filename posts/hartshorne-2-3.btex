@@ -37,7 +37,7 @@ date: 2022-10-23
 \def\trd{\operatorname{tr.d.}}
 \def\leq{\leqslant}
 \def\geq{\geqslant}
-\def\Stacks#1#2{\href{https://stacks.math.columbia.edu/tag/#2}{Stacks #1 #2}}
+\def\Stacks#1{\href{https://stacks.math.columbia.edu/tag/#1}{Stacks Project #1}}
 \def\clearfootnotes{\def\@printfootnotes{}}
 
 这里是 Hartshorne 第二章第三节习题.
@@ -545,7 +545,7 @@ date: 2022-10-23
 
 \begin{proofc}
   \begin{enumerate}[label={(\alph*)}]
-    \item 我们使用 Stacks 项目中的\Stacks{引理}{037K}:
+    \item 我们使用 Stacks Project 中的\Stacks{037K}:
           对于 $k$ 上的环 $R$, 若 $S \otimes_k k_p$ 的素谱不可约,
           则对任意扩域 $K / k$, $S \otimes_k K$ 的素谱不可约.
           也就是说 $X = \Spec R$ 时命题成立.
@@ -557,7 +557,7 @@ date: 2022-10-23
 
           而 $X \times_k K$ 不可约当且仅当每个 $V_i$ 都不可约并且 $V_i \cap V_j$ 都非空.
           因此即证.
-    \item 类似(a): 我们使用\Stacks{引理}{030V}:
+    \item 类似(a): 我们使用\Stacks{030V}:
           对于 $k$ 上的环 $S$, 若 $S \otimes_k k_s$ 既约,
           则对任意扩域 $K / k$, 都有 $S \otimes_k K$ 既约.
           换言之, 当 $X$ 仿射时, 命题成立.

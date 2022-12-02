@@ -1,0 +1,92 @@
+---
+title: Hartshorne 第二章第四节习题
+tag: 数学
+date: 2022-11-30
+---
+
+\newtheorem{exercise}{习题}
+
+\def\ga{\mathfrak{a}}
+\def\gp{\mathfrak{p}}
+\def\gq{\mathfrak{q}}
+\def\gm{\mathfrak{m}}
+\def\gn{\mathfrak{n}}
+\def\uA{\mathbf{A}}
+\def\bZ{\mathbb{Z}}
+\def\bF{\mathbb{F}}
+\def\bQ{\mathbb{Q}}
+\def\bR{\mathbb{R}}
+\def\bC{\mathbb{C}}
+\def\id{\mathrm{id}}
+\def\cO{\mathcal{O}}
+\def\Sch{\mathfrak{Sch}}
+\def\Rings{\mathfrak{Rings}}
+\def\spto{\rightsquigarrow}
+\def\red{\mathrm{red}}
+\def\spp{\operatorname{sp}}
+\def\Hom{\operatorname{Hom}}
+\def\Spec{\operatorname{Spec}}
+\def\Proj{\operatorname{Proj}}
+\def\Supp{\operatorname{Supp}}
+\def\coker{\operatorname{coker}}
+\def\im{\operatorname{im}}
+\def\dim{\operatorname{dim}}
+\def\codim{\operatorname{codim}}
+\def\height{\operatorname{height}}
+\def\Frac{\operatorname{Frac}}
+\def\trd{\operatorname{tr.d.}}
+\def\leq{\leqslant}
+\def\geq{\geqslant}
+\def\Stacks#1{\href{https://stacks.math.columbia.edu/tag/#1}{Stacks Project #1}}
+\def\clearfootnotes{\def\@printfootnotes{}}
+
+这里是 Hartshorne 第二章第四节习题. 目前还在做.
+
+\setcounter{section}{3}
+
+\section{可分与紧合态射}
+
+\begin{exercise}
+  证明有限态射紧合.
+\end{exercise}
+
+\begin{proofc}
+  设 $f \colon X \to Y$ 有限, 则对 $Y$ 中任意仿射开集 $U$,
+  都有 $f^{-1}(U)$ 仿射, 因此 $f^{-1}(U) \to U$ 分离.
+  因此 $f$ 分离.
+
+  按定义, $f$ 有限型.
+  由于有限态射的基变换仍然有限, 且有限态射总是闭映射 (习题 3.5),
+  即知 $f$ 泛闭.
+
+  因此 $f$ 紧合. \emph{因此易知有限当且仅当仿射且紧合}.
+\end{proofc}
+
+\begin{exercise}
+  令 $S$ 为概形, $X$ 是 $S$ 上的既约概形, $Y$ 是 $S$ 上的分离概形.
+  令 $f, g$ 都是 $X$ 到 $Y$ 上的 $S$-态射, 且在 $X$ 的某个稠密开集上一致.
+  证明 $f = g$.
+  给出反例说明在 $X$ 不既约或者 $Y$ 不分离的情况下都未必成立.
+  [\emph{提示: 给出 $X \to Y \times_S Y$ 的映射.}]
+\end{exercise}
+
+\begin{proofc}
+  设 $\varphi \colon X \to Y \times_S Y$ 是由 $f$ 和 $g$ 决定的映射.
+  设 $U \subseteq X$ 是稠密开集使得 $f|_U = g|_U$.
+  那么 $\varphi(U) \subseteq \Delta(Y) \subseteq Y \times_S Y$.
+  由于 $Y$ 在 $S$ 上分离, $\Delta(Y)$ 是闭子概型 (且配备).
+  因此 $\varphi(X) \subseteq \Delta(Y)$.
+  由于 $X$ 既约, $\varphi(X)$ (作为概形论像) 具有既约闭子概形结构.
+  从而 $\varphi$ 穿过 $\Delta(Y)$.
+  因此 $f = p_1 \circ \varphi = p_2 \circ \varphi = g$.
+
+  若 $X$ 不既约, 则 $\varphi(X) \subseteq \Delta(Y)$ 不蕴含 $\varphi$ 穿过 $\Delta(Y)$.
+  例如, 若 $Y$ 是仿射直线 $\Spec k[z]$, $X$ 是 $\Spec k[x, \epsilon] / (\epsilon^2, x\epsilon)$, 即仿射直线在原点处多出一个无穷小.
+  考虑 $z \mapsto x$ 和 $z \mapsto x + \epsilon$ 诱导的两个 $X \to Y$ 同态.
+  它们在 $X$ 去掉原点的稠密开集上一致, 但是却不相等.
+
+  若 $Y$ 不分离, 则未必有 $\varphi(X) \subseteq \Delta(Y)$.
+  例如, 若 $Y$ 是带有双原点的直线, $X$ 是 $Y \times_k Y$ 中 $\Delta(Y)$ 的闭包 (具有四个原点),
+  而 $f, g$ 是两个投影映射.
+  那么在去掉四个原点之后剩下的稠密开集上 $f$ 与 $g$ 一致. 但是 $f \neq g$.
+\end{proofc}
