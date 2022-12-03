@@ -14,8 +14,7 @@ import Network.HTTP.Client as HTTP
 import Deploy
 
 ------------------------------------------------------------------------------
--- Btex compiler (assume btex running at http://127.0.0.1:btexPort)
--- Here we use a modified btex that use its first arg as port instead of 7200
+-- Btex compiler
 btexPort :: Int
 btexPort = 1231
 
@@ -157,7 +156,7 @@ hakyllMain = hakyllWith hakyllConfiguration $ do
 
 main :: IO ()
 main = withFile "/dev/null" WriteMode $ \devnull ->
-  withCreateProcess ((proc "node" [btexPath, show btexPort]) { std_in = NoStream, std_out = CreatePipe }) $ \_ (Just outp) _ _ -> do
+  withCreateProcess ((proc "node" [btexPath, "-p", show btexPort]) { std_in = NoStream, std_out = CreatePipe }) $ \_ (Just outp) _ _ -> do
   putStr "Starting btex server... "
   content <- hGetLine outp
   putStrLn "Done"
