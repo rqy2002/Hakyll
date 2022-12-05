@@ -90,3 +90,166 @@ date: 2022-11-30
   而 $f, g$ 是两个投影映射.
   那么在去掉四个原点之后剩下的稠密开集上 $f$ 与 $g$ 一致. 但是 $f \neq g$.
 \end{proofc}
+
+\begin{exercise}
+  令 $X$ 是仿射概形 $S$ 上的分离概形. 若 $U$ 和 $V$ 为 $X$ 的仿射开集, 则 $U \cap V$ 亦仿射.
+  给出反例说明这在 $X$ 不分离的情况下未必成立.
+\end{exercise}
+
+\begin{proofc}
+  我们有 $\Delta(U \cap V) = (U \times_S V) \cap \Delta(X)$.
+  因此由 $X$ 分离, 即知 $\Delta(U \cap V)$ 是 $U \times_S V$ 的闭子概形.
+  事实上, 如下交换图是个拉回 (是个◰图!):
+  \[\begin{cd}
+      U \cap V \ar[r] \ar[d, "\Delta"] & X \ar[d, "\Delta"]\\
+      U \times_S V \ar[r] & X \times_S X.
+    \end{cd}\]
+  由于 $U \times_S V$ 是仿射概形, 其闭子概形 $U \cap V$ 也一定是仿射概形 (习题 3.11).
+
+  若 $X$ 未必分离, 可以取 $S = \Spec k$ 为带有两个原点的仿射平面,
+  $U, V$ 分别是去掉其中一个原点之后得到的仿射平面.
+  那么 $U \cap V$ 是去掉原点的仿射平面, 并不仿射.
+\end{proofc}
+
+\begin{exercise}
+  令 $f \colon X \to Y$ 为 Noether 概形 $S$ 上的有限型可分概形之间的态射.
+  设 $Z$ 是 $X$ 的闭子概形, 且 $Z$ 在 $S$ 上紧合.
+  证明 $f(Z)$ 在 $Y$ 中闭,
+  并且 $f(Z)$ 配备概形论像结构也在 $S$ 上紧合.
+  我们将这个结论称为``紧合概形的像紧合''.
+  [\emph{提示:将 $f$ 分解为图像 $\Gamma_f \colon X \to X \times_S Y$ 和投影 $p_2$ 的复合,
+    并证明 $\Gamma_f$ 是闭浸入.}]
+\end{exercise}
+
+\begin{proofc}
+  由于紧合蕴含有限型且可分, 可以直接将 $X$ 替换为 $Z$,
+  因此不妨假设 $X = Z$ 紧合.
+  众所周知, 如下``魔法交换图''
+  \[\begin{cd}
+      X \ar[r, equal] \ar[rr, bend left, "\Gamma_f"] & X \times_Y Y \ar[r] \ar[d] & X \times_S Y \ar[d] \\
+      & Y \ar[r, "\Delta"] & Y \times_S Y
+    \end{cd}\]
+  是拉回图. 因此由于 $Y \xrightarrow{\Delta} Y \times_S Y$ 是闭浸入, 即知 $\Gamma_f$ 也是闭浸入.
+  我们知道 $p_2 \colon X \times_S Y \to Y$ 是 $X \to S$ 的基变换, 因此也是闭映射.
+  综上, $f \colon X \to Y$ 是两个闭映射的复合, 从而也是闭映射, 因此 $X \to f(X)$ 是满同态.
+
+  任取 $S$ 上的概形 $Z$, 考虑 $X \times_S Z \xrightarrow{g} f(X) \times_S Z \xrightarrow{h} Z$.
+  其中 $g$ 依然是满射 (因为\emph{基变换保持满射}), $h \circ g$ 是闭映射.
+  因此 $h$ 一定是闭映射. 所以 $f(Z)$ 在 $S$ 上泛闭.
+
+  显然 $f(X)$ 在 $S$ 上分离且有限型. 因此 $f(X)$ 紧合.
+\end{proofc}
+
+\begin{exercise}
+  令 $X$ 为域 $k$ 上的有限型整概形, 其函数域为 $K$.
+  如果 $K / k$ 的某个赋值的赋值环支配局部环 $\cO_{x, X}$, 其中 $x \in X$,
+  就说此赋值具有\emph{中心} $x$.
+  \begin{enumerate}[label=(\alph*)]
+    \item 若 $X$ 在 $k$ 上分离, 则 $K / k$ 的每个赋值的中心(如果存在)一定唯一.
+    \item 若 $X$ 在 $k$ 上紧合, 则 $K / k$ 的每个赋值都存在唯一的中心.
+    \item 证明 (a) 和 (b) 的逆命题.
+          [\emph{提示: 虽然 (a) (b) 是赋值判别法的简单推论,
+          但是逆命题需要不同的域中的赋值之间的比较.}]
+    \item 若 $X$ 在 $k$ 上紧合, 且 $k$ 代数闭,
+          证明 $\Gamma(X, \cO_X) = k$.
+          这推广了 (I, 3.4a).
+          [\emph{提示: 令 $a \in \Gamma(X, \cO_X), a \notin k$,
+          证明存在 $K / k$ 的赋值环 $R$ 使得 $a^{-1} \in \gm_R$.
+          然后使用 (b) 得出矛盾.}]
+  \end{enumerate}
+  \textit{注意:} 若 $X$ 是 $k$ 上的代数簇, 则 (b) 有时会作为完备簇的定义.
+\end{exercise}
+
+\begin{proofc}
+  \begin{enumerate}[label=(\alph*)]
+    \item 若 $R$ 是 $K / k$ 的赋值环, 则自然有态射 $\Spec K \to \Spec R \to \Spec k$.
+          因此易知, 给出 $R$ 对应的赋值的中心等价于给出下图中虚线的映射:
+          \[\begin{cd}
+              \Spec K \ar[r] \ar[d] & X \ar[d] \\
+              \Spec R \ar[r] \ar[ur, dashed] & \Spec k.
+            \end{cd}\]
+          由赋值判别法, 若 $X$ 分离, 则这样的态射至多唯一, 因此中心唯一.
+    \item 同上, 由赋值判别法, 若 $X$ 紧合, 则这样的态射存在, 因此中心存在.
+    \item 考虑应用赋值判别法. 设 $L$ 是 $k$ 的扩域, $S$ 是 $L / k$ 的赋值环,
+          并且有如下交换图:
+          \[\begin{cd}
+              \Spec L \ar[r] \ar[d] & X \ar[d] \\
+              \Spec S \ar[r] & \Spec k.
+            \end{cd}\]
+          我们想给出 $\Spec S \to X$ 态射的唯一性或是存在唯一性.
+          (这里专指使得上述图图表交换的态射, 下同.)
+          若 $\Spec L$ 中的唯一的点映射到了 $X$ 的一般点,
+          则 $K$ 是 $L$ 的子域, 而 $R = S \cap K$ 是 $K$ 中的赋值环.
+          因此有交换图
+          \[\begin{cd}
+              \Spec L \ar[r] \ar[d] & \Spec K \ar[r] \ar[d] & X \ar[d] \\
+              \Spec S \ar[r] & \Spec R \ar[r] & \Spec k.
+            \end{cd}\]
+          由前提可知 $\Spec R \to X$ 的态射唯一 (或存在唯一).
+          若有 $f \colon \Spec S \to X$,
+          则 $f$ 将 $\Spec S$ 的闭点映射到 $x \in X$, 且 $S$ 支配 $\cO_{x, X}$.
+          由于 $\cO_{x, X} \subset K$, 即知 $R$ 支配 $\cO_{x, X}$.
+          因此 $\Spec S \to X$ 的态射与 $\Spec R \to X$ 的态射一一对应,
+          亦唯一 (或存在唯一).
+
+          若 $\Spec L$ 的点映射到任意的 $x \in X$,
+          则需考虑 $\{ x \}^{-}$ 上的既约闭子概形 $Z$;
+          $Z$ 显然是 $\Spec L$ 的概形论像, 因此只需将 $X$ 替换为 $Z$ 重复上述论证.
+
+          因此, 问题转化为若 $X$ 满足 (a) 或 (b) 中条件,
+          $Z$ 是 $X$ 的不可约闭子概形, 则 $Z$ 也满足相同条件.
+          我们首先需要一个引理:
+
+          \begin{lemma}
+            设 $X \to Y$ 是紧合支配态射 (或者说紧合满态射),
+            其中 $X, Y$ 都是域 $k$ 上的整概形.
+            则 $X$ 满足上述条件当且仅当 $Y$ 满足相同条件.
+          \end{lemma}
+
+          \begin{proof}
+            待补充. % TODO
+          \end{proof}
+
+          我们取 $X$ 的正规化 $\tilde{X}$ (习题 3.8),
+          则 $\tilde{X} \to X$ 有限, 因此紧合. 其显然是满射,
+          从而满足引理条件, 因此 $\tilde{X}$ 也满足相应条件.
+
+          设 $Z$ 是 $X$ 的不可约闭子概形, 考虑到基变换保持有限性和满射性,
+          即知 $Z \times_X \tilde{X} \to Z$ 也是有限满射, 从而也满足引理条件.
+          同时, 由于其紧合且 $Z$ 不可约, 一定存在 $Z \times_X \tilde{X}$ 的不可约分支 $Z'$
+          使得 $Z' \to Z$ 亦是满射.
+          为 $Z'$ 配备既约闭子概形结构, 则 $Z' \to Z$ 是紧合满射, 从而满足引理条件.
+          由于 $Z \times_X \tilde{X}$ 也是 $\tilde{X}$ 的闭子概形 (习题 3.11),
+          即知 $Z'$ 是 $\tilde{X}$ 的不可约闭子概形.
+
+          因此问题归约为: 若 $X$ 是域 $k$ 上的有限型正规整概形,
+          $Z$ 是其不可约闭子概形, $X$ 满足条件 (a) 或 (b),
+          那么 $Z$ 也满足相同的条件. 通过归纳, 我们不妨假设 $Z$ 在 $X$ 中具有余维数 $1$.
+          设 $Z$ 的一般点为 $z$, 则 $\cO_{z, X}$ 是一维整闭 Noether 局部整环,
+          因此是离散赋值环.
+
+          现在设 $S \subset K(Z) = k(z)$ 是赋值环, $k \subset S$.
+          令 $\pi \colon \cO_{z, X} \to K(Z)$ 为商同态, $R = \pi^{-1}(S)$.
+          则 $R$ 是 $K$ 中的赋值环: 任取 $u \in K$, 由于 $\cO_{z, X}$ 是离散赋值环,
+          $u \in \cO_{z, X}$ 或 $u^{-1} \in \cO_{z, X}$.
+          不妨设为前者. 若 $u \in \gm_z$, 则 $u \in R$;
+          否则 $\pi(u)$ 或 $\pi(u^{-1})$ 其中之一属于 $S$, 因此 $u \in R$ 或者 $u^{-1} \in R$.
+          综上, 对任意 $u \in K$, 必然有 $u \in R$ 或 $u^{-1} \in R$ 至少一条成立.
+          因此 $R$ 是赋值环.
+
+          设 $z' \in Z$ 是 $S$ 在 $Z$ 中的中心,
+          则 $\cO_{z', X} = \pi^{-1}(\cO_{z', Z})$ 被 $R$ 支配, 从而 $z'$ 也是 $R$ 在 $X$ 里的中心.
+          反之, 若 $z' \in X$ 是 $R$ 的中心,
+          则 $\cO_{z', X} \subseteq R \subseteq \cO_{z, X}$, 因此 $z' \in Z$,
+          且显然 $z'$ 也是 $Z$ 中 $S$ 的中心. 因此即证.
+    \item 设 $a \in \Gamma(X, \cO_X), a \notin k$.
+          由于 $k$ 代数闭, $k[a^{-1}]$ 是整环. 考虑
+          考虑 $A = k[a^{-1}]_{(a^{-1})} \subset K$.
+          由 Zorn 引理, 存在极大的支配 $A$ 的局部环 $R \subset K$,
+          即存在赋值环 $R$ 使得 $a^{-1} \in \gm_R$.
+
+          由 (b), 存在 $x \in X$ 使得 $R$ 支配 $\cO_{x, X}$.
+          因此 $a \in \Gamma(X, \cO_X) \subseteq \cO_{x, X} \subseteq R$.
+          但是这与 $a^{-1} \in \gm_R$ 矛盾. \qedhere
+  \end{enumerate}
+\end{proofc}
