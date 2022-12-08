@@ -12,11 +12,11 @@ date: 2022-08-22
 \def\gm{\mathfrak{m}}
 \def\gn{\mathfrak{n}}
 \def\uA{\mathbf{A}}
-\def\bZ{\mathbb{Z}}
-\def\bF{\mathbb{F}}
-\def\bQ{\mathbb{Q}}
-\def\bR{\mathbb{R}}
-\def\bC{\mathbb{C}}
+\def\Z{\mathbb{Z}}
+\def\F{\mathbb{F}}
+\def\Q{\mathbb{Q}}
+\def\R{\mathbb{R}}
+\def\C{\mathbb{C}}
 \def\id{\mathrm{id}}
 \def\cO{\mathcal{O}}
 \def\Sch{\mathfrak{Sch}}
@@ -125,16 +125,16 @@ date: 2022-08-22
 \end{proofc}
 
 \begin{exercise}
-  描述 $\Spec \bZ$, 并证明它是概形范畴中的终对象.
+  描述 $\Spec \Z$, 并证明它是概形范畴中的终对象.
 \end{exercise}
 
 \begin{proofc}
-  $\Spec \bZ$ 的底空间是以所有素数为点的有限补空间.
+  $\Spec \Z$ 的底空间是以所有素数为点的有限补空间.
   对一个开集 $U$, 设 $U$ 不包含的素数为 $p_1, \dots, p_k$,
-  则 $\Gamma(U, \Spec \bZ)$ 是所有分母仅有 $p_1, \dots, p_k$ 这些素因子的有理数构成的环.
+  则 $\Gamma(U, \Spec \Z)$ 是所有分母仅有 $p_1, \dots, p_k$ 这些素因子的有理数构成的环.
 
-  由习题 2.4 即知 $\Spec \bZ$ 是概形范畴的终对象,
-  因为 $\bZ$ 是环范畴的始对象.
+  由习题 2.4 即知 $\Spec \Z$ 是概形范畴的终对象,
+  因为 $\Z$ 是环范畴的始对象.
 \end{proofc}
 
 \begin{exercise}
@@ -188,30 +188,30 @@ date: 2022-08-22
 \end{proofc}
 
 \begin{exercise}
-  描述 $\Spec \bR[x]$. 其底空间与 $\bR$ 这个集合有何区别？与 $\bC$ 呢？
+  描述 $\Spec \R[x]$. 其底空间与 $\R$ 这个集合有何区别？与 $\C$ 呢？
 \end{exercise}
 
 \begin{proofc}
-  $\Spec \bR[x]$ 中有一般点 $(0)$, 还有若干闭点；闭点与 $\bR[x]$ 中的不可约多项式一一对应：
-  即对每个 $r \in \bR$, 有闭点 $(x - r)$；对任意 $b^2 - 4c < 0$, 有闭点 $(x^2 + bx + c)$.
+  $\Spec \R[x]$ 中有一般点 $(0)$, 还有若干闭点；闭点与 $\R[x]$ 中的不可约多项式一一对应：
+  即对每个 $r \in \R$, 有闭点 $(x - r)$；对任意 $b^2 - 4c < 0$, 有闭点 $(x^2 + bx + c)$.
   截面则与习题 2.5 类似.
 
-  其底空间比集合 $\bR$ 多出一般点以及二次多项式对应的闭点.
-  而与 $\bC$ 相比, 每个复数都与其复共轭等同起来了 (此外当然也多出了一般点).
+  其底空间比集合 $\R$ 多出一般点以及二次多项式对应的闭点.
+  而与 $\C$ 相比, 每个复数都与其复共轭等同起来了 (此外当然也多出了一般点).
 \end{proofc}
 
 \begin{exercise}
-  令 $k = \bF_p$ 是 $p$ 元有限域, 描述 $\Spec k[x]$. 其点处的剩余域是什么？
+  令 $k = \F_p$ 是 $p$ 元有限域, 描述 $\Spec k[x]$. 其点处的剩余域是什么？
   给定一个域, $\Spec k[x]$ 中有多少以其为剩余域的点？
 \end{exercise}
 
 \begin{proofc}
   $\Spec k[x]$ 的点有一个一般点 $(0)$, 以及若干闭点, 与首一不可约多项式一一对应.
   $(0)$ 处的剩余域是分式域 $k(x)$.
-  若 $f$ 是不可约多项式, 则 $(f)$ 处的多项式是 $k[x] / (f) \cong \bF_q$,
+  若 $f$ 是不可约多项式, 则 $(f)$ 处的多项式是 $k[x] / (f) \cong \F_q$,
   其中 $q = p^{\deg f}$.
 
-  若给定 $k$ 的有限扩域 $\bF_q, q = p^n$,
+  若给定 $k$ 的有限扩域 $\F_q, q = p^n$,
   则以其为剩余域的点的个数即为 $k[x]$ 中 $n$ 次首一不可约多项式的个数,
   由 Gauss 公式即为
   \[

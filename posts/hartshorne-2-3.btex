@@ -12,11 +12,11 @@ date: 2022-10-23
 \def\gm{\mathfrak{m}}
 \def\gn{\mathfrak{n}}
 \def\uA{\mathbf{A}}
-\def\bZ{\mathbb{Z}}
-\def\bF{\mathbb{F}}
-\def\bQ{\mathbb{Q}}
-\def\bR{\mathbb{R}}
-\def\bC{\mathbb{C}}
+\def\Z{\mathbb{Z}}
+\def\F{\mathbb{F}}
+\def\Q{\mathbb{Q}}
+\def\R{\mathbb{R}}
+\def\C{\mathbb{C}}
 \def\id{\mathrm{id}}
 \def\cO{\mathcal{O}}
 \def\Sch{\mathfrak{Sch}}
@@ -167,8 +167,8 @@ date: 2022-10-23
     \item 取“两个原点的直线”到直线的映射即可. 显然其有限型, 拟有限, 满且闭. % TODO: 没验证.
           但双原点的直线并不仿射, 因此这个映射并不有限.
 
-          又或者令 $X = \Spec \bZ[i]_{(1+2i)}$, 其中 $i^2 = -1$.
-          则 $X \to \Spec \bZ$ 有限型, 拟有限, 满且闭. 然而其不有限.
+          又或者令 $X = \Spec \Z[i]_{(1+2i)}$, 其中 $i^2 = -1$.
+          则 $X \to \Spec \Z$ 有限型, 拟有限, 满且闭. 然而其不有限.
           \qedhere
   \end{enumerate}
 \end{proofc}
@@ -564,20 +564,20 @@ date: 2022-10-23
 
           当 $X$ 是任意概形时, 类似于 (a), 并且此时 $X$ 既约当且仅当其可以被既约开子概形覆盖.
           因此即证.
-    \item 设 $k = \bF_p(x), A = \bF_q(x^{1/p}), X = \Spec A$,
+    \item 设 $k = \F_p(x), A = \F_q(x^{1/p}), X = \Spec A$,
           其中 $p$ 是素数, $q = p^2$.
           则 $A$ 是整环, 因此 $X$ 是整概形.
 
-          那么 $X \times_k \bF_p(x^{1/p}) = \Spec (A \otimes_k \bF_p(x^{1/p}))$,
+          那么 $X \times_k \F_p(x^{1/p}) = \Spec (A \otimes_k \F_p(x^{1/p}))$,
           而
           \[
-          A \otimes_k \bF_p(x^{1/p}) \cong \bF_q(y, z) / (y^p - z^p)
-          \cong \bF_q(y, z) / ((y - z)^p)
+          A \otimes_k \F_p(x^{1/p}) \cong \F_q(y, z) / (y^p - z^p)
+          \cong \F_q(y, z) / ((y - z)^p)
           \]
           不既约, 因此 $X$ 不既约.
 
-          而 $X \times_k \bF_q = \Spec (A \otimes_k \bF_q)$,
-          其中 $A \otimes_k \bF_q \cong (\bF_q \otimes_k \bF_q)(x) \cong (\bF_q \oplus \bF_q)(x)$ 并非不可约,
+          而 $X \times_k \F_q = \Spec (A \otimes_k \F_q)$,
+          其中 $A \otimes_k \F_q \cong (\F_q \otimes_k \F_q)(x) \cong (\F_q \oplus \F_q)(x)$ 并非不可约,
           因此 $X$ 并不几何不可约.
           \qedhere
   \end{enumerate}

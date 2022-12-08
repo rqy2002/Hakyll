@@ -478,11 +478,11 @@ main {
 .btex-output .proof-content > p:first-child,
 .btex-output .block.style-a > p:first-child,
 .btex-output .block.style-b > p:first-child,
-.btex-output .block.style-a > p:first-child,
+.btex-output .block.style-c > p:first-child,
 .btex-output .proof-content > .p:first-child,
 .btex-output .block.style-a > .p:first-child,
 .btex-output .block.style-b > .p:first-child,
-.btex-output .block.style-a > .p:first-child {
+.btex-output .block.style-c > .p:first-child {
     text-indent: 0
 }
 
