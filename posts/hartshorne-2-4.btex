@@ -14,8 +14,8 @@ date: 2022-11-30
 \def\gq{\mathfrak{q}}
 \def\gm{\mathfrak{m}}
 \def\gn{\mathfrak{n}}
-\def\A{\mathbf{A}}
-\def\P{\mathbf{P}}
+\def\A{\mathbb{A}}
+\def\P{\mathbb{P}}
 \def\Z{\mathbb{Z}}
 \def\F{\mathbb{F}}
 \def\Q{\mathbb{Q}}
@@ -313,7 +313,7 @@ date: 2022-11-30
       X \ar[d] \ar[r, "\sigma"] & X \ar[d] \\
       \Spec \C \ar[r, "\alpha"] & \Spec \C.
     \end{cd}\]
-  由于 $\sigma^2 = \mathrm{id}$, 我们将 $\sigma$ 称为\emph{对合}.
+  由于 $\sigma^2 = \id$, 我们将 $\sigma$ 称为\emph{对合}.
   \begin{enumerate}[label=(\alph*)]
     \item 设 $X$ 为 $\C$ 上的有限型可分概形, $\sigma$ 为其上的半线性对合,
           并且假设对任意 $x_1, x_2 \in X$, 都存在包含它们的仿射开集
@@ -336,7 +336,7 @@ date: 2022-11-30
 \begin{proofc}
   \begin{enumerate}[label=(\alph*)]
     \item 首先考虑 $X$ 仿射的情况. 若 $X = \Spec A$, 则 $\sigma$ 诱导 $f \colon A \to A$.
-          取 $B = \ker (f - \mathrm{id}), X_0 = \Spec B$, 不难验证其满足条件.
+          取 $B = \ker (f - \id), X_0 = \Spec B$, 不难验证其满足条件.
 
           若 $X$ 任意, 我们先给出 $X_0$ 的底空间.
           $X_0$ 的底空间即为 $X$ 的底空间商去 $p \sim \sigma(p)$ 得到的商空间.
@@ -380,13 +380,160 @@ date: 2022-11-30
           反之若 $X = \Spec A$, 则由唯一性知 $X_0 \cong \Spec \{ x \in A \mid x = \bar x \}$,
           其中 $x \mapsto \bar{x}$ 是 $\sigma$ 诱导的共轭映射.
     \item 只需在仿射开集上验证. 显然.
-    \item 若 $f$ 是 $\C[x]$ 到自身的同构, $f^2 = \mathrm{id}$, 且 $f$ 限制在 $\C$ 上是共轭映射,
-          设 $f(x) = g(x) \in \C[x]$, 则 $x = f(f(x)) = \bar{g}(g(x))$.
-          因此只可能 $g(x) = wx, \lvert w \rvert = 1$.
-          从而若 $X = \A_\C^1$, 则 $X$ 上的对合只可能是 $x \mapsto wx$ 诱导的对合.
-          对应的, $X_0$ 即为子环 $B = \{ g(x) \in \C[x] \mid \bar{g}(wx) = g(x) \}$ 的素谱
-          取 $u \in \C$ 使得 $w = \frac{\bar{u}}{u}$, 则 $g(x) \mapsto g(ux)$
-          给出了 $B$ 到 $\R[x]$ 的同构. 因此 $X_0 \cong \A_\R^1$.
-    \item 待证.
+    \item 若 $\varphi$ 是 $\C[x]$ 到自身的同构,
+          $\varphi^2 = \id$, 且 $\varphi$ 限制在 $\C$ 上是共轭映射,
+          设 $\varphi(x) = g(x) \in \C[x]$, 则 $x = \varphi(\varphi(x)) = \bar{g}(g(x))$.
+          因此只可能 $g(x) = wx + ik(1 + w), \lvert w \rvert = 1, k \in \R$.
+          从而若 $X = \A_\C^1$, 则 $X$ 上的对合只可能是 $x \mapsto wx + ik(1 + w)$ 诱导的对合.
+          对应的,
+          $X_0$ 即为子环 $B = \{ g(x) \in \C[x] \mid \bar{g}(wx + ik(1 + w)) = g(x) \}$ 的素谱.
+          设 $w = e^{2it}$, 则 $x \mapsto e^{it}x + ike^{it}$
+          给出了 $\R[x]$ 到 $B$ 的同构. 因此 $X_0 \cong \A_\R^1$.
+    \item 设 $\sigma \colon \P_\C^1 \to \P_\C^1$ 是满足条件的对合.
+          \begin{itemize}
+            \item 若存在闭点 $p$ 使得 $\sigma(p) = p$,
+                  则 $\sigma$ 限制在 $U = \P_\C^1 \setminus \{p\}$ 上给出了 $U \to U$ 的对合.
+                  而 $U \cong \A_\C^1$, 因此由 (d) 易知存在 $q \in U$ 使得 $\sigma(q) = q$.
+                  再设 $V = \P_\C^1 \setminus \{q\}$.
+                  则由 (d) 可以得到 $U_0, V_0$ 使得 $U = U_0 \times_\R \C, V = V_0 \times_\R \C$,
+                  $U_0, V_0 \cong \A_\R^1$.
+                  且 $\sigma|_U, \sigma|_V$ 恰好是这样诱导的对合.
+                  而由 (c) 即知 $U_0$ 和 $V_0$ 可以粘接为 $X_0$.
+                  显然 $X_0 \cong \P_\R^1$.
+            \item 若不然, 任取闭点 $p$. 通过坐标变换, 不妨设 $p = 0, \sigma(p) = \infty$
+                  (即 $p = [0 : 1], \sigma(p) = [1 : 0]$).
+                  则 $\sigma$ 固定 $\P_\C^1 \setminus \{ 0, \infty \} \cong \Spec \C[z, z^{-1}]$,
+                  设其对应的 $\Spec \C[z, z^{-1}]$ 的环自同构为 $\varphi$.
+                  类似于 (d), 不难说明在一定的坐标变换后 $\varphi(z) = z$ 或 $\varphi(z) = -z^{-1}$.
+                  但是 $\sigma$ 没有不动点, 因此只能 $\varphi(z) = -z^{-1}$.
+                  从而对应的不变子代数为
+                  $\R[z - z^{-1}, iz + iz^{-1}] \cong \R[x, y] / (x^2 + y^2 + 1)$.
+                  也就对应了 $\P_\R^2$ 中的三次曲线 $x^2 + y^2 + z^2 = 0$. \qedhere
+          \end{itemize}
   \end{enumerate}
 \end{proofc}
+
+\begin{exercise}
+  \def\PP{\mathscr{P}}
+  设 $\PP$ 为概形态射的某种性质, 满足:
+  \begin{enumerate}[label=(\alph*)]
+    \item 闭浸入都满足 $\PP$.
+    \item 两个 $\PP$ 态射的复合也满足 $\PP$.
+    \item $\PP$ 态射的基变换也满足 $\PP$.
+  \end{enumerate}
+  证明:
+  \begin{enumerate}[label=(\alph*)]
+          \setcounter{enum-{list-level}}{3}
+    \item $\PP$ 态射的乘积也满足 $\PP$.
+    \item 若 $f \colon X \to Y, g \colon Y \to Z$ 使得 $g \circ f$ 满足 $\PP$
+          且 $g$ 分离, 则 $f$ 也满足 $\PP$.
+    \item 若 $f \colon X \to Y$ 满足 $\PP$,
+          则 $f_\red \colon X_\red \to Y_\red$ 也满足 $\PP$.
+  \end{enumerate}
+  [\emph{提示: 对于 (e), 考虑像态射 $\Gamma_f \colon X \to X \times_Z Y$,
+    并注意其可以由 $\Delta \colon Y \to Y \times_Z Y$ 基变换得到.}]
+\end{exercise}
+
+\begin{proofc}
+  \def\PP{\mathscr{P}}
+  \begin{enumerate}[label=(\alph*)]
+          \setcounter{enum-{list-level}}{3}
+    \item 设 $f_i \colon X_i \to Y_i$ 都满足 $\PP$, 其中 $i = 1, 2$.
+          则 $X_1 \times X_2 \xrightarrow{(f_1, \id)} Y_1 \times X_2
+          \xrightarrow{(\id, f_2)} Y_1 \times Y_2$.
+          因此只需考虑 $f_2 = \id$ 的情况.
+          即需要证明若 $f \colon X \to Y$ 满足 $\PP$,
+          则 $X \times Z \to Y \times Z$ 也满足 $\PP$.
+          但是由泛性质易知下面的图表是拉回图:
+          \[\begin{cd}
+              X \times Z \ar[r] \ar[d] & X \ar[d] \\
+              Y \times Z \ar[r] & Y.
+            \end{cd}\]
+          因此即证.
+    \item 正如习题 4.4, 如下``魔法交换图''
+          \[\begin{cd}
+              X \ar[r, equal] \ar[rr, bend left, "\Gamma_f"] & X \times_Y Y \ar[r] \ar[d] & X \times_Z Y \ar[d] \\
+              & Y \ar[r, "\Delta"] & Y \times_Z Y
+            \end{cd}\]
+          是拉回图, 因此 $\Gamma_f \colon X \to X \times_Z Y$ 是闭浸入, 从而满足 $\PP$.
+          另一方面, $X \times_Z Y \to Y$ 是 $X \to Z$ 的基变换, 因此也满足 $\PP$.
+          所以其复合 $f \colon X \to Y$ 满足 $\PP$.
+    \item 由于 $X_\red \to X$ 是闭浸入, 所以 $X_\red \to X \to Y$ 作为复合也满足 $\PP$.
+          $Y_\red \to Y$ 也是闭浸入, 因此分离.
+          因此由 (e) 即知 $X_\red \to Y_\red$ 满足 $\PP$. \qedhere
+  \end{enumerate}
+\end{proofc}
+
+\begin{exercise}
+  证明射影态射的复合也射影.
+  [\emph{提示: 使用 (I, Ex 2.14) 中的 Segre 嵌入,
+    并证明其给出了 $\P^r \times \P^s \to \P^{rs + r + s}$ 的闭浸入.}]
+  由此推断射影态射满足上述习题 4.8 中的 (a)-(f) 所有性质.
+\end{exercise}
+
+\begin{proofc}
+  考虑到 $\P^r$ 可以由 $r + 1$ 个开集 $U_i, i = 0, \dots, r$ 覆盖,
+  且 $\P^s$ 可以由 $s + 1$ 个开集 $V_i, i = 0, \dots, s$ 覆盖.
+  因此 $\P^r \times_\Z \P^s$ 可以由 $U_i \times_\Z V_j$ 覆盖.
+  对每个 $U_i \times_\Z V_j \cong \Spec \Z[\frac{x_{k}}{x_i}, \frac{y_{l}}{y_j}]$,
+  考虑同态
+  \begin{align*}
+    \Z\Bigl[\frac{z_{kl}}{z_{ij}}\Bigr] & \to \Z\Bigl[\frac{x_k}{x_i}, \frac{y_l}{y_j}\Bigr], \\
+    \frac{z_{kl}}{z_{ij}} & \mapsto \frac{x_k}{x_i} \frac{y_l}{y_j}.
+  \end{align*}
+  显然此同态是满射, 且其给出了 $U_i \times_\Z V_j \to W_{ij} \subset \P^{rs + r + s}$ 的态射
+  (我们将后者的坐标记作 $\{z_{ij}\}_{\substack{i = 0, \dots, r \\ j = 0, \dots, s}}$).
+  这些态射可以粘接为 $\varphi \colon \P^r \times_\Z \P^s \to \P^{rs + r + s}$.
+  由于对每个 $W_{ij}$, 都有 $U_i \times_\Z V_j = \varphi^{-1}(W_{ij}) \to W_{ij}$ 是闭浸入
+  (因为上述环同态是满射). 从而 $\varphi$ 也是闭浸入.
+
+  现在我们证明射影态射的复合射影.
+  由上述结论, 对于任意概形 $X$, 有 $\P_{\P_X^s}^r = \P^r \times \P^s \times X$,
+  因此其是 $\P^{rs + r + s}_X$ 的闭子概形.
+  因此若 $X \to Y, Y \to Z$ 都射影, 设 $X$ 是 $\P_Y^r$ 的闭子概形, $Y$ 是 $\P_Z^s$ 的闭子概形.
+  则 $X \to \P_Y^r \to \P_{\P_Z^s}^r \to \P^{rs + r + s}_Z$ 是闭浸入的复合, 也是闭浸入.
+  因此 $X \to Z$ 射影.
+
+  显然射影性还满足习题 4.8 的 (a) (c), 因此它也满足 (d) (e) (f).
+\end{proofc}
+
+\begin{exercise}[周引理]
+  这个结论告诉我们紧合态射几乎就是射影态射.
+  令 $X$ 是 Noether 概形 $S$ 上的紧合概形,
+  那么存在 $X'$ 以及态射 $g \colon X' \to X$,
+  使得 $X'$ 在 $S$ 上投射, 并且存在稠密开集 $U \subseteq X$, $g^{-1}(U) \to U$ 是同构.
+  依照下列步骤证明此结论.
+  \begin{enumerate}[label=(\alph*)]
+    \item 归约到 $X$ 不可约的情形.
+    \item 证明 $X$ 可以由有限多个开集 $U_i, i = 1, \dots, n$ 覆盖,
+          其中每个 $U_i$ 都在 $S$ 上拟射影.
+          令 $U_i \to P_i$ 为从 $U_i$ 到 $S$ 上的射影概形 $P_i$ 的开浸入.
+    \item 令 $U = \bigcap U_i$, 考虑由 $U \to X$ 以及 $U \to P_i$ 给出的态射
+          \[
+            f \colon U \to X \times_S P_1 \times \cdots \times P_n.
+          \]
+          令 $X'$ 为概形论像 $\overline{f(U)}$.
+          令 $g \colon X' \to X$ 为其向第一个分量的投影态射,
+          并令 $h \colon X' \to P = P_1 \times \cdots \times P_n$ 为到剩余的分量的投影态射.
+          证明 $h$ 是闭浸入, 因此 $X'$ 在 $S$ 上射影.
+    \item 证明 $g^{-1}(U) \to U$ 是同构, 从而完成证明.
+  \end{enumerate}
+\end{exercise}
+
+% \begin{proofc}
+%   \begin{enumerate}[label=(\alph*)]
+%     \item 归约到 $X$ 不可约的情形.
+%     \item 证明 $X$ 可以由有限多个开集 $U_i, i = 1, \dots, n$ 覆盖,
+%           其中每个 $U_i$ 都在 $S$ 上拟射影.
+%           令 $U_i \to P_i$ 为从 $U_i$ 到 $S$ 上的射影概形 $P_i$ 的开浸入.
+%     \item 令 $U = \bigcap U_i$, 考虑由 $U \to X$ 以及 $U \to P_i$ 给出的态射
+%           \[
+%             f \colon U \to X \times_S P_1 \times \cdots \times P_n.
+%           \]
+%           令 $X'$ 为概形论像 $\overline{f(U)}$.
+%           令 $g \colon X' \to X$ 为其向第一个分量的投影态射,
+%           并令 $h \colon X' \to P = P_1 \times \cdots \times P_n$ 为到剩余的分量的投影态射.
+%           证明 $h$ 是闭浸入, 因此 $X'$ 在 $S$ 上射影.
+%     \item 证明 $g^{-1}(U) \to U$ 是同构, 从而完成证明.
+%   \end{enumerate}
+% \end{proofc}
