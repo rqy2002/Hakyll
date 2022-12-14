@@ -106,7 +106,7 @@ date: 2022-11-30
   事实上, 如下交换图是个拉回 (是个◰图!):
   \[\begin{cd}
       U \cap V \ar[r] \ar[d, "\Delta"] & X \ar[d, "\Delta"]\\
-      U \times_S V \ar[r] & X \times_S X.
+      U \times_S V \ar[r] & X \times_S X\rlap{.}
     \end{cd}\]
   由于 $U \times_S V$ 是仿射概形, 其闭子概形 $U \cap V$ 也一定是仿射概形 (习题 3.11).
 
@@ -130,8 +130,8 @@ date: 2022-11-30
   因此不妨假设 $X = Z$ 紧合.
   众所周知, 如下``魔法交换图''
   \[\begin{cd}
-      X \ar[r, equal] \ar[rr, bend left, "\Gamma_f"] & X \times_Y Y \ar[r] \ar[d] & X \times_S Y \ar[d] \\
-      & Y \ar[r, "\Delta"] & Y \times_S Y
+      \llap{$X \cong {}$} X \times_Y Y \ar[r, "\Gamma_f"] \ar[d] & X \times_S Y \ar[d] \\
+      Y \ar[r, "\Delta"] & Y \times_S Y\rlap{.}
     \end{cd}\]
   是拉回图. 因此由于 $Y \xrightarrow{\Delta} Y \times_S Y$ 是闭浸入, 即知 $\Gamma_f$ 也是闭浸入.
   我们知道 $p_2 \colon X \times_S Y \to Y$ 是 $X \to S$ 的基变换, 因此也是闭映射.
@@ -170,7 +170,7 @@ date: 2022-11-30
           因此易知, 给出 $R$ 对应的赋值的中心等价于给出下图中虚线的映射:
           \[\begin{cd}
               \Spec K \ar[r] \ar[d] & X \ar[d] \\
-              \Spec R \ar[r] \ar[ur, dashed] & \Spec k.
+              \Spec R \ar[r] \ar[ur, dashed] & \Spec k\rlap{.}
             \end{cd}\]
           由赋值判别法, 若 $X$ 分离, 则这样的态射至多唯一, 因此中心唯一.
     \item 同上, 由赋值判别法, 若 $X$ 紧合, 则这样的态射存在, 因此中心存在.
@@ -178,7 +178,7 @@ date: 2022-11-30
           并且有如下交换图:
           \[\begin{cd}
               \Spec L \ar[r] \ar[d] & X \ar[d] \\
-              \Spec S \ar[r] & \Spec k.
+              \Spec S \ar[r] & \Spec k\rlap{.}
             \end{cd}\]
           我们想给出 $\Spec S \to X$ 态射的唯一性或是存在唯一性.
           (这里专指使得上述图图表交换的态射, 下同.)
@@ -187,7 +187,7 @@ date: 2022-11-30
           因此有交换图
           \[\begin{cd}
               \Spec L \ar[r] \ar[d] & \Spec K \ar[r] \ar[d] & X \ar[d] \\
-              \Spec S \ar[r] & \Spec R \ar[r] & \Spec k.
+              \Spec S \ar[r] & \Spec R \ar[r] & \Spec k\rlap{.}
             \end{cd}\]
           由前提可知 $\Spec R \to X$ 的态射唯一 (或存在唯一).
           若有 $f \colon \Spec S \to X$,
@@ -223,7 +223,7 @@ date: 2022-11-30
             因此我们有交换图
             \[\begin{cd}
                 \Spec K(X) \ar[r] \ar[d] & X \ar[d] \\
-                \Spec R' \ar[r]          & Y.
+                \Spec R' \ar[r]          & Y\rlap{.}
               \end{cd}\]
             因此由于 $X \to Y$ 紧合, 就可以将 $\Spec R' \to Y$ 的映射唯一地提升到 $\Spec R' \to X$.
             也就是说对于 $R$ 在 $Y$ 中任意一个中心, 都存在恰好一个 $R'$ 在 $X$ 中的中心如此对应.
@@ -236,7 +236,7 @@ date: 2022-11-30
             \[\begin{cd}
                 & \Spec R' \ar[rr] \ar[dd] & & \Spec R \ar[dd] \\
                 \Spec K(X) \ar[ru] \ar[rd] \ar[rr] & & \Spec K(Y) \ar[ru] \ar[rd] & \\
-                & X \ar[rr] & & Y.
+                & X \ar[rr] & & Y\rlap{.}
               \end{cd}\]
             因此即证.
           \end{proofc}
@@ -311,7 +311,7 @@ date: 2022-11-30
   那么 $X$ 是 $\C$ 上的概形, $\sigma$ 是其\emph{半线性}自同态, 即有交换图
   \[\begin{cd}
       X \ar[d] \ar[r, "\sigma"] & X \ar[d] \\
-      \Spec \C \ar[r, "\alpha"] & \Spec \C.
+      \Spec \C \ar[r, "\alpha"] & \Spec \C\rlap{.}
     \end{cd}\]
   由于 $\sigma^2 = \id$, 我们将 $\sigma$ 称为\emph{对合}.
   \begin{enumerate}[label=(\alph*)]
@@ -447,13 +447,13 @@ date: 2022-11-30
           但是由泛性质易知下面的图表是拉回图:
           \[\begin{cd}
               X \times Z \ar[r] \ar[d] & X \ar[d] \\
-              Y \times Z \ar[r] & Y.
+              Y \times Z \ar[r] & Y\rlap{.}
             \end{cd}\]
           因此即证.
     \item 正如习题 4.4, 如下``魔法交换图''
           \[\begin{cd}
-              X \ar[r, equal] \ar[rr, bend left, "\Gamma_f"] & X \times_Y Y \ar[r] \ar[d] & X \times_Z Y \ar[d] \\
-              & Y \ar[r, "\Delta"] & Y \times_Z Y
+              \llap{$X \cong {}$} X \times_Y Y \ar[r, "\Gamma_f"] \ar[d] & X \times_Z Y \ar[d] \\
+              Y \ar[r, "\Delta"] & Y \times_Z Y\rlap{.}
             \end{cd}\]
           是拉回图, 因此 $\Gamma_f \colon X \to X \times_Z Y$ 是闭浸入, 从而满足 $\PP$.
           另一方面, $X \times_Z Y \to Y$ 是 $X \to Z$ 的基变换, 因此也满足 $\PP$.
@@ -510,30 +510,122 @@ date: 2022-11-30
           令 $U_i \to P_i$ 为从 $U_i$ 到 $S$ 上的射影概形 $P_i$ 的开浸入.
     \item 令 $U = \bigcap U_i$, 考虑由 $U \to X$ 以及 $U \to P_i$ 给出的态射
           \[
-            f \colon U \to X \times_S P_1 \times \cdots \times P_n.
+            f \colon U \to X \times_S P_1 \times_S \cdots \times_S P_n.
           \]
-          令 $X'$ 为概形论像 $\overline{f(U)}$.
+          令 $X'$ 为概形论像 $f(U)^-$.
           令 $g \colon X' \to X$ 为其向第一个分量的投影态射,
-          并令 $h \colon X' \to P = P_1 \times \cdots \times P_n$ 为到剩余的分量的投影态射.
+          并令 $h \colon X' \to P = P_1 \times_S \cdots \times_j P_n$ 为到剩余的分量的投影态射.
           证明 $h$ 是闭浸入, 因此 $X'$ 在 $S$ 上射影.
     \item 证明 $g^{-1}(U) \to U$ 是同构, 从而完成证明.
   \end{enumerate}
 \end{exercise}
 
-% \begin{proofc}
-%   \begin{enumerate}[label=(\alph*)]
-%     \item 归约到 $X$ 不可约的情形.
-%     \item 证明 $X$ 可以由有限多个开集 $U_i, i = 1, \dots, n$ 覆盖,
-%           其中每个 $U_i$ 都在 $S$ 上拟射影.
-%           令 $U_i \to P_i$ 为从 $U_i$ 到 $S$ 上的射影概形 $P_i$ 的开浸入.
-%     \item 令 $U = \bigcap U_i$, 考虑由 $U \to X$ 以及 $U \to P_i$ 给出的态射
-%           \[
-%             f \colon U \to X \times_S P_1 \times \cdots \times P_n.
-%           \]
-%           令 $X'$ 为概形论像 $\overline{f(U)}$.
-%           令 $g \colon X' \to X$ 为其向第一个分量的投影态射,
-%           并令 $h \colon X' \to P = P_1 \times \cdots \times P_n$ 为到剩余的分量的投影态射.
-%           证明 $h$ 是闭浸入, 因此 $X'$ 在 $S$ 上射影.
-%     \item 证明 $g^{-1}(U) \to U$ 是同构, 从而完成证明.
-%   \end{enumerate}
-% \end{proofc}
+\begin{proofc}
+  事实上可以进一步要求 $g$ 是满射.
+  \begin{enumerate}[label=(\alph*)]
+    \item 设 $X$ 中不可约分支为 $Z_i$.
+          记 $U_i = X \setminus \bigcup_{j \neq i} Z_j$, 是 $X$ 的开子概形.
+          记 $Y_i$ 是 $U_i$ 在 $X$ 中的概形论像.
+          由于 $X$ Noether, 通过考虑 $X$ 中每个仿射开集,
+          易知 $p_i \colon Y_i \to X$ 映射中 $p_i^{-1}(U_i) \to U_i$ 是同构.
+          且显然 $Y_i \subseteq Z_i$ 不可约, 并且 $Y_i$ 在 $S$ 上紧合.
+          若命题对不可约紧合概形成立, 则对每个 $Y_i$,
+          存在射影概形 $P_i$ 与映射 $f_i \colon P_i \to Y_i$.
+          取 $X' = \coprod P_i$, 则显然 $X' \to X$ 满足条件.
+          (射影概形的不交并可以嵌入到射影空间的乘积中, 因此由 Serge 嵌入即知其仍然射影.)
+    \item 设 $S$ 可以由仿射开集 $V_i \cong \Spec A_i$ 覆盖,
+          而 $V_i$ 在 $X$ 中的原像可以由仿射开集 $U_{ij} \cong \Spec B_{ij}$ 覆盖.
+          由于 $X$ 在 $S$ 上紧合, 即知 $B_{ij}$ 是有限生成 $A_i$ 代数.
+          因此 $U_{ij}$ 可以闭浸入到 $\A_{A_i}^n$,
+          再开浸入到 $\P_{A_i}^n$, 然后再开浸入到 $\P_S^n$.
+
+          为了说明 $U_{ij}$ 在 $S$ 上投射, 我们需要引理:
+
+          \begin{lemma*}
+            若 $i \colon X \to Y$ 是浸入, 即存在 $Z$ 使得 $i$ 可以分解为闭浸入 $X \to U$
+            复合开浸入 $U \to Y$, 并且 $X$ 既约, 或者 $i$ 拟紧,
+            那么 $i$ 就可以分解为开浸入 $X \to Z$ 复合闭浸入 $Z \to Y$,
+            其中 $Z$ 是 $i$ 的概形论像.
+          \end{lemma*}
+
+          \begin{proofc}
+            若 $X$ 既约, 可以取 $Z$ 为 $\overline{i(X)}$ 上的既约闭子概形.
+            若 $i$ 拟紧, 由于其分离, 即知 $i_*\cO_X$ 是 $Y$ 上的拟凝聚层,
+            从而 $\mathcal{I} = \ker(\cO_Y \to i_*\cO_X)$ 是拟凝聚理想层.
+            设 $Z$ 为 $\mathcal{I}$ 对应的闭子概形.
+            在两种情况下, 都易知 $Z$ 是 $i$ 的概形论像, 并且 $X \cong Z \times_Y U$:
+            既约的情形可以由泛性质立得, 而拟紧的情形可以在局部上验证.
+            因此 $X \to Z$ 是开浸入 $U \to Y$ 的基变换, 亦是开浸入.
+          \end{proofc}
+
+          因此 $U_{ij}$ 是 $\P_S^n$ 的闭子概形的开子概形, 从而在 $S$ 上拟射影.
+    \item 记 $p_i \colon P \to P_i$.
+          定义
+          \begin{align*}
+            V_i &= p_i^{-1}(U_i) \subset P, \\
+            U'_i &= g^{-1}(U_i) \subset X', \\
+            V'_i &= h^{-1}(V_i) \subset X'.
+          \end{align*}
+          我们希望证明 $U'_i \subseteq V'_i$, 即 $p_i(h(U'_i)) \subseteq U_i \subset P$.
+          为此, 只需要证明 (作为底空间的映射) $p_i \circ h|_{U'_i} = \varphi_i \circ g|_{U'_i}$,
+          其中 $\varphi_i \colon U_i \to P_i$.
+          然而这两个映射在 $f(U) \subset X$ 上相等, 且 $f(U)$ 在 $U'_i$ 中稠密,
+          因此确有 $U'_i \subseteq V'_i$. 而 $U_i$ 覆盖 $X$, 因此 $U'_i$ 覆盖 $X'$,
+          所以 $V'_i$ 也覆盖 $X'$. 为了证明 $X' \to P$ 是闭浸入,
+          只需证明每个 $V'_i \to V_i$ 是闭浸入.
+
+          由于这里讨论的一切概形都 Noether, 所以一切态射都拟紧.
+          因此类似于上面的引理, 概形论像总是某个拟凝聚层对应的闭子概形.
+          由于取拟凝聚层对应的闭子概形的操作与取开子概形兼容,
+          即有概形论像的开子概形同构于开子概形的概形论像.
+          这里 $X'$ 为 $U$ 在 $X \times_S P$ 中的概形论像.
+          而 $V_i$ 是 $P$ 的开子概形, 从而 $X \times_S V_i$ 是 $X \times_S P$ 的开子概形.
+          显然 $U \to X \times_S P$ 穿过 $X \times_S V_i$.
+          因此 $V_i'$ 同构于 $U$ 在 $X \times_S V_i$ 中的概形论像.
+          只需证明其到 $V_i$ 是闭浸入.
+
+          考虑到 $p_i(V_i) = U_i \subset P_i$, 就有态射 $v_i \colon V_i \to X$,
+          从而有像态射 $\Gamma_{v_i} \colon V_i \to X \times_S V_i$.
+          显然态射 $U \to X \times_S V_i$ 穿过 $\Gamma_{v_i}(V_i)$
+          (因为 $U \to X$ 穿过 $V_i$).
+          而 $V_i'$ 是此态射的概形论像, 从而依定义即知 $V_i' \to X \times_S V_i$
+          也穿过 $\Gamma_{v_i}(V_i)$, 并且是闭浸入.
+          但是 $\Gamma_{v_i}(V_i)$ 通过投影同构于 $V_i$. 因此 $V_i'$ 闭浸入到 $V_i$.
+          命题即证.
+    \item 同 (c), $g^{-1}(U)$ 同构于 $U$ 在 $U \times_S P$ 中的概形论像.
+          但是 $U \to U \times_S P$ 是闭浸入 (这是 $U \to P$ 的像态射),
+          所以这就同构于 $U$. \qedhere
+  \end{enumerate}
+\end{proofc}
+
+\begin{exercise}
+  如果可以证明一些困难的交换代数命题, 并且只考虑 Noether 概形,
+  那么我们可以只用\emph{离散}赋值环来叙述赋值判别法.
+  \begin{enumerate}[label=(\alph*)]
+    \item 设 $\cO, \gm$ 是 Noether 局部整环, 其剩余域为 $K$,
+          且 $L$ 是 $K$ 上有限生成域扩张,
+          那么存在 $L$ 的离散赋值环 $R$ 支配 $\cO$.
+          按以下步骤证明这个结论:
+          首先取 $\cO$ 的多项式环, 归约到 $L$ 是 $K$ 的有限扩域的情形.
+          接下来证明可以取 $\gm$ 的一组合适的生成元 $x_1, \dots, x_n$,
+          使得 $\cO' = \cO[x_2 / x_1, \dots, x_n / x_1]$ 中 $\ga = (x_1)$ 是真子理想.
+          接下来令 $\gp$ 为 $\ga$ 的一个极小素理想, 并设 $\cO'_\gp$ 为 $\cO'$ 在 $\gp$ 的局部化.
+          它是支配 $\cO$ 的一维 Noether 局部整环.
+          令 $\tilde{\cO}'_\gp$ 为 $\cO'_\gp$ 在 $L$ 中的整闭包.
+          使用 Krull--Akizuki 定理 (见 Nagata [7, p. 115])
+          证明 $\tilde{\cO}'_\gp$ 也是一维 Noether 整环.
+          最后取 $\tilde{\cO}'_\gp$ 在任意极大理想处的局部化.
+    \item 令 $f \colon X \to Y$ 为 Noether 概形之间的有限型态射.
+          证明 $f$ 分离 (或紧合) 当且仅当赋值判别法对一切\emph{离散}赋值环成立.
+  \end{enumerate}
+\end{exercise}
+
+\begin{exercise}[赋值环的例子]
+  令 $k$ 为代数闭域.
+  \begin{enumerate}[label=(\alph*)]
+    \item 若 $K$ 是 $k$ 上的一维函数域 (I, \S6),
+          则 $K/k$ 的任意赋值环 (除了 $K$ 本身) 都是离散赋值环.
+          因此它们构成的集合恰好就是 (I, \S6) 中所有的抽象非奇异曲线 $C_K$.
+
+  \end{enumerate}
+\end{exercise}
