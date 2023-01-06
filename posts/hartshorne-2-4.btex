@@ -602,7 +602,7 @@ date: 2022-11-30
   如果可以证明一些困难的交换代数命题, 并且只考虑 Noether 概形,
   那么我们可以只用\emph{离散}赋值环来叙述赋值判别法.
   \begin{enumerate}[label=(\alph*)]
-    \item 设 $\cO, \gm$ 是 Noether 局部整环, 其剩余域为 $K$,
+    \item 设 $\cO, \gm$ 是 Noether 局部整环, 其分式域为 $K$,
           且 $L$ 是 $K$ 上有限生成域扩张,
           那么存在 $L$ 的离散赋值环 $R$ 支配 $\cO$.
           按以下步骤证明这个结论:
@@ -620,12 +620,22 @@ date: 2022-11-30
   \end{enumerate}
 \end{exercise}
 
+\begin{proofc}
+  对于 (a). 首先, 显然该命题若对 $L / F$ 和 $F / K$ 都成立, 则它也对 $L / K$ 成立.
+  因此对任意 $L / K$, 取其中一组超越基 $x_1, \dots, x_n \in L$, 考虑 $K_m = K(x_1, \dots, x_m), K_0 = K$.
+  对于 $K_m / K_{m - 1}$, 只需对 $\cO_{m - 1} \subset K_{m - 1}$, 定义 $\cO_m = \cO[x_m]_{(x_m)}$ 即可.
+  也就是说, 只需要考虑 $L / K_m$, 即域扩张有限的情况.
+
+  下面设 $L / K$ 有限. 待证.
+\end{proofc}
+
 \begin{exercise}[赋值环的例子]
   令 $k$ 为代数闭域.
   \begin{enumerate}[label=(\alph*)]
     \item 若 $K$ 是 $k$ 上的一维函数域 (I, \S6),
           则 $K/k$ 的任意赋值环 (除了 $K$ 本身) 都是离散赋值环.
           因此它们构成的集合恰好就是 (I, \S6) 中所有的抽象非奇异曲线 $C_K$.
-
   \end{enumerate}
+
+  待续.
 \end{exercise}

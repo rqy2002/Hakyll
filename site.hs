@@ -89,6 +89,10 @@ hakyllMain = hakyllWith hakyllConfiguration $ do
     route   $ gsubRoute "Hugo/public/" (const "OI/")
     compile copyFileCompiler
 
+  match "favicons/*" $ do
+    route   $ gsubRoute "favicons/" (const "")
+    compile copyFileCompiler
+
   match "about.md" $ do
     route   $ setExtension "html"
     compile $ pandocCompiler'

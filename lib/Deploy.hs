@@ -29,23 +29,27 @@ staticFileExtensions = [".js", ".css", ".png", ".jpg", -- ".woff", ".woff2"
 urlFileExtensions :: [String]
 urlFileExtensions = [".html", ".xml"]
 
-insertHash :: FilePath -> FilePath -> IO FilePath
-insertHash top file
+insertHash :: FilePath -> FilePath -> (FilePath -> IO Bool) -> IO FilePath
+insertHash top file ignore
   | takeExtension file `elem` staticFileExtensions = do
-    content <- B.readFile (top </> file)
-    let hashInt = hashWithSalt theAnswerToTheUniverse content
-    let hashUnsigned = fromIntegral hashInt + if hashInt < 0 then intRange else 0
-    let hashStr = showIntAtBase 36 base36 hashUnsigned ""
-    return $ dropExtension file ++ "_" ++ hashStr ++ takeExtension file
+    ignored <- ignore file
+    if ignored
+      then return file
+      else do
+        content <- B.readFile (top </> file)
+        let hashInt = hashWithSalt theAnswerToTheUniverse content
+        let hashUnsigned = fromIntegral hashInt + if hashInt < 0 then intRange else 0
+        let hashStr = showIntAtBase 36 base36 hashUnsigned ""
+        return $ dropExtension file ++ "_" ++ hashStr ++ takeExtension file
   | otherwise = return file
     where
       intRange = - 2 * fromIntegral (minBound :: Int)
       base36 i = chr (i + if i < 10 then 48 else 87)
 
-getStaticFileMaps :: FilePath -> IO (M.Map FilePath FilePath)
-getStaticFileMaps top = do
+getStaticFileMaps :: FilePath -> (FilePath -> IO Bool) -> IO (M.Map FilePath FilePath)
+getStaticFileMaps top ignore = do
   content <- getRecursiveContents (\_ -> return False) top
-  newContent <- mapM (\f -> ((,) f) <$> insertHash top f) content
+  newContent <- mapM (\f -> ((,) f) <$> insertHash top f ignore) content
   return $ M.fromList newContent
 
 modifyUrls :: M.Map FilePath FilePath -> FilePath -> String -> String
@@ -64,7 +68,7 @@ modifyUrls files file = withUrls modify where
 
 genDeployFiles :: FilePath -> FilePath -> (FilePath -> IO Bool) -> IO ()
 genDeployFiles top deployTop ignore = do
-  files <- getStaticFileMaps top
+  files <- getStaticFileMaps top ignore
   mapM_ (genDeployFile top deployTop files) $ M.assocs files
   where
     genDeployFile top deployTop files (file, file') = do
