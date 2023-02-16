@@ -110,7 +110,7 @@ date: 2022-11-30
     \end{cd}\]
   由于 $U \times_S V$ 是仿射概形, 其闭子概形 $U \cap V$ 也一定是仿射概形 (习题 3.11).
 
-  若 $X$ 未必分离, 可以取 $S = \Spec k$ 为带有两个原点的仿射平面,
+  若 $X$ 未必分离, 可以取 $S = \Spec k$, $X$ 为带有两个原点的仿射平面,
   $U, V$ 分别是去掉其中一个原点之后得到的仿射平面.
   那么 $U \cap V$ 是去掉原点的仿射平面, 并不仿射.
 \end{proofc}
@@ -612,7 +612,7 @@ date: 2022-11-30
           接下来令 $\gp$ 为 $\ga$ 的一个极小素理想, 并设 $\cO'_\gp$ 为 $\cO'$ 在 $\gp$ 的局部化.
           它是支配 $\cO$ 的一维 Noether 局部整环.
           令 $\tilde{\cO}'_\gp$ 为 $\cO'_\gp$ 在 $L$ 中的整闭包.
-          使用 Krull--Akizuki 定理 (见 Nagata [7, p. 115])
+          使用 Krull--秋月(Akizuki) 定理 (见 Nagata [7, p. 115])
           证明 $\tilde{\cO}'_\gp$ 也是一维 Noether 整环.
           最后取 $\tilde{\cO}'_\gp$ 在任意极大理想处的局部化.
     \item 令 $f \colon X \to Y$ 为 Noether 概形之间的有限型态射.
@@ -624,9 +624,27 @@ date: 2022-11-30
   对于 (a). 首先, 显然该命题若对 $L / F$ 和 $F / K$ 都成立, 则它也对 $L / K$ 成立.
   因此对任意 $L / K$, 取其中一组超越基 $x_1, \dots, x_n \in L$, 考虑 $K_m = K(x_1, \dots, x_m), K_0 = K$.
   对于 $K_m / K_{m - 1}$, 只需对 $\cO_{m - 1} \subset K_{m - 1}$, 定义 $\cO_m = \cO[x_m]_{(x_m)}$ 即可.
-  也就是说, 只需要考虑 $L / K_m$, 即域扩张有限的情况.
+  也就是说, 只需要考虑 $L / K_n$, 即域扩张有限的情况.
 
-  下面设 $L / K$ 有限. 待证.
+  下面设 $L / K$ 有限.
+  任取 $\gm$ 的一组生成元 $x_1, \dots, x_n$, 我们断言某个 $x_i$ 满足对任意 $k$ 都有 $x_i^k \notin \gm^{k+1}$.
+  否则存在一个 $k$ 使得对每个 $i$ 都有 $x_i^k \in \gm^{k + 1}$,
+  因此不难知道 $\gm^{nk} = (x_1, \dots, x_n)^{nk} \subseteq \gm^{nk+1}$, 矛盾.
+
+  不妨设 $x_1$ 满足上述性质. 设 $\cO' = \cO[\frac{x_2}{x_1}, \dots, \frac{x_n}{x_1}]$,
+  不难发现上述条件蕴含 $\ga = (x_1) \subsetneq \cO'$.
+  令 $\gp$ 为 $\ga$ 的某个极小素理想, $\cO'_\gp$ 为对应的局部化, 则其是支配 $\cO$ 的一维\footnote{Krull 维数.} Noether 局部环.
+
+  令 $\tilde{\cO}'_\gp$ 为 $\cO'_\gp$ 在 $L$ 中的整闭包. 由 Krull--秋月(Akizuki)定理
+  \footnote{若 $A$ 是一维既约 Noether 环, $K$ 为其全分式环, $L$ 为 $K$ 的有限扩张, $B$ 是 $L$ 中包含 $A$ 的子环, 那么 $B$ 也是一维 Noether 环.},
+  $\tilde{\cO}'_\gp$ 也是一维 Noether 环.
+  取 $R$ 为其在任一极大理想处的局部化, 则 $R$ 即为所需的离散赋值环.
+
+  对于 (b), ``仅当''的部分比原本的赋值判别法弱, 因此立即成立.
+  对于``当''的部分, 只需重复赋值判别法的证明
+  \footnote{如\href{https://www.bananaspace.org/wiki/赋值判别法}{香蕉空间: 赋值判别法}.}即可.\qedhere
+  \printfootnotes
+  \clearfootnotes
 \end{proofc}
 
 \begin{exercise}[赋值环的例子]
@@ -635,7 +653,21 @@ date: 2022-11-30
     \item 若 $K$ 是 $k$ 上的一维函数域 (I, \S6),
           则 $K/k$ 的任意赋值环 (除了 $K$ 本身) 都是离散赋值环.
           因此它们构成的集合恰好就是 (I, \S6) 中所有的抽象非奇异曲线 $C_K$.
+    \item 若 $K/k$ 是二维函数域, 那么有若干种类赋值. 设 $X$ 是函数域为 $K$ 的完备非奇异曲面.
+          \begin{enumerate}[label=(\arabic*)]
+            \item 若 $Y$ 是 $X$ 上的不可约曲线, 其一般点为 $x_1$, 那么局部环 $R = \cO_{x_1, X}$ 是 $K/k$ 中的离散赋值环, 其中心为 (非闭点) $x_1$.
+            \item 若 $f \colon X' \to X$ 为双有理态射, $Y'$ 是 $X'$ 中的不可约曲线, 其在 $X$ 中的像为闭点 $x_0$,
+                  那么 $Y'$ 的一般点处的局部环 $R$ 是 $K/k$ 中的离散赋值环, 其中心为 $x_0$.
+            \item 令 $x_0 \in X$ 为一闭点. 设 $f \colon X_1 \to X$ 为 $x_0$ 处的爆破 (I, \S4), 而 $E_1 = f^{-1}(E_0)$ 为例外曲线.
+                  在 $E_1$ 中择一闭点 $x_1$, 令 $f_2 \colon X_2 \to X_1$ 为 $x_1$ 处的爆破, $E_2 = f_2^{-1}(x_1)$ 为例外曲线.
+                  重复这个过程, 我们得到一系列概形 $X_i$ 以及其中选定的闭点 $x_i$, 并且对任意 $i$, 局部环 $\cO_{x_{i+1}, X_{i+1}}$ 支配 $\cO_{x_i, X_i}$.
+                  令 $R_0 = \bigcup_{i = 0}^\infty \cO_{x_i, X_i}$. 则 $R_0$ 也是局部环, 因此其被 $K/k$ 中某个赋值环 $R$ 所支配 (I, 6.1A).
+                  证明 $R$ 在 $X$ 上以 $x_0$ 为中心. $R$ 何时是离散赋值环?
+          \end{enumerate}
   \end{enumerate}
-
-  待续.
+  \textit{注意:} 我们之后 (V, 习题5.6) 将会看到 (3) 中的 $R_0$ 本身已经是赋值环, 所以 $R_0 = R$. 更进一步, $K/k$ 的所有赋值环 (除了 $K$ 本身) 都形如这三种类型之一.
 \end{exercise}
+
+\begin{proof}
+  待证. \def\qedsymbol{}
+\end{proof}
