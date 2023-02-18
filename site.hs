@@ -1,5 +1,5 @@
 --------------------------------------------------------------------------------
-{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE OverloadedStrings, CPP #-}
 import           Data.Monoid (mappend)
 import           Hakyll
 
@@ -19,7 +19,14 @@ btexPort :: Int
 btexPort = 1231
 
 btexPath :: String
+#ifdef WINDOWS
+btexPath = "C:\\Users\\rqy\\GitRepos\\btex\\dist\\main.js"
+#elif UNIX
 btexPath = "/home/rqy/GitRepos/btex/dist/main.js"
+#else
+btexPath = error "btexPath"
+#endif
+
 
 data BtexResult = BtexResult { btexHtml :: String, btexData :: String, btexErrors :: [String], btexWarnings :: [String] }
 instance FromJSON BtexResult where
@@ -158,8 +165,18 @@ hakyllMain = hakyllWith hakyllConfiguration $ do
       >>= loadAndApplyTemplate "templates/default.html" defaultContext
       -- >>= relativizeUrls
 
+-- From `silently`
+mNullDevice :: FilePath
+#ifdef WINDOWS
+mNullDevice = "\\\\.\\NUL"
+#elif UNIX
+mNullDevice = "/dev/null"
+#else
+mNullDevice = error "null device"
+#endif
+
 main :: IO ()
-main = withFile "/dev/null" WriteMode $ \devnull ->
+main = withFile mNullDevice WriteMode $ \devnull ->
   withCreateProcess ((proc "node" [btexPath, "-p", show btexPort]) { std_in = NoStream, std_out = CreatePipe }) $ \_ (Just outp) _ _ -> do
   putStr "Starting btex server... "
   content <- hGetLine outp

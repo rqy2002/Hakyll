@@ -4,3 +4,4 @@ dist-newstyle/
 _site/
 _posts/
 _deploy/
+.stack-work/
