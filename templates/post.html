@@ -1,7 +1,10 @@
 <div class="info">
-    $date$ 发布
     $if(author)$
-        由 $author$
+        由 $author$ 于
+    $endif$
+    $date$发布.
+    $if(source)$
+        &emsp; 源代码: <a href="$source_url$" class="source"> $source$ </a>
     $endif$
 </div>
 

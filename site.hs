@@ -7,6 +7,7 @@ import Text.Pandoc.Highlighting (Style, pygments, styleToCss)
 import Text.Pandoc.Options      (ReaderOptions (..), WriterOptions (..))
 
 import System.IO
+import System.FilePath (takeFileName)
 import GHC.IO.Handle (hDuplicateTo)
 import Data.Aeson (encode, object, (.=), FromJSON, parseJSON, decode, withObject, (.:))
 import System.Process
@@ -112,24 +113,28 @@ hakyllMain = hakyllWith hakyllConfiguration $ do
         >>= loadAndApplyTemplate "templates/default.html" defaultContext
         -- >>= relativizeUrls
 
+  match "posts/*" $ version "raw" $ do
+    route idRoute
+    compile getResourceBody
+
   match "posts/*.md" $ do
     route $ setExtension "html"
     compile $ pandocCompiler'
-      >>= loadAndApplyTemplate "templates/post.html"  postCtx
+      >>= loadAndApplyTemplate "templates/post.html" postCtx
       >>= loadAndApplyTemplate "templates/default.html" postCtx
       -- >>= relativizeUrls
 
   match "posts/*.btex" $ do
     route $ setExtension "html"
     compile $ btexCompiler
-      >>= loadAndApplyTemplate "templates/btex-post.html"  postCtx
+      >>= loadAndApplyTemplate "templates/post.html" postCtx
       >>= loadAndApplyTemplate "templates/default.html" postCtx
       -- >>= relativizeUrls
 
   create ["archive.html"] $ do
     route idRoute
     compile $ do
-      posts <- recentFirst =<< loadAll "posts/*"
+      posts <- recentFirst =<< loadAll ("posts/*" .&&. hasNoVersion)
       let archiveCtx = listField "posts" postCtx (return posts) `mappend`
                        constField "title" "归档" `mappend`
                        defaultContext
@@ -143,7 +148,7 @@ hakyllMain = hakyllWith hakyllConfiguration $ do
   match "index.html" $ do
     route idRoute
     compile $ do
-      posts <- recentFirst =<< loadAll "posts/*"
+      posts <- recentFirst =<< loadAll ("posts/*" .&&. hasNoVersion)
       let indexCtx = listField "posts" postCtx (return posts) `mappend`
                      defaultContext
 
@@ -187,5 +192,7 @@ main = withFile mNullDevice WriteMode $ \devnull ->
 --------------------------------------------------------------------------------
 postCtx :: Context String
 postCtx =
-    dateField "date" "%Y 年 %m 月 %e 日" `mappend`
-    defaultContext
+  mapContext takeFileName (pathField "source") `mappend`
+  mapContext toUrl (pathField "source_url") `mappend`
+  dateField "date" "%Y 年 %m 月 %e 日" `mappend`
+  defaultContext

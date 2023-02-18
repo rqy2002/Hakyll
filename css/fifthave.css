@@ -121,6 +121,11 @@ main div.info {
     text-indent: 0;
 }
 
+main div.info a.source {
+    text-transform: none;
+    color: #FAA;
+}
+
 main p, main div.p, main h1, main h2, main h3, main h4, main h5, main ol, main ul, main blockquote, main div.sourceCode {
     width: 600px;
     margin-left: 5%;
