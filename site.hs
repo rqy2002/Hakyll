@@ -183,6 +183,7 @@ mNullDevice = error "null device"
 main :: IO ()
 main = withFile mNullDevice WriteMode $ \devnull ->
   withCreateProcess ((proc "node" [btexPath, "-p", show btexPort]) { std_in = NoStream, std_out = CreatePipe }) $ \_ (Just outp) _ _ -> do
+  hSetBuffering stdout LineBuffering -- change buffering to line buffering to work correctly in emacs shell
   putStr "Starting btex server... "
   content <- hGetLine outp
   putStrLn "Done"
