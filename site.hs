@@ -25,7 +25,7 @@ btexPath = "C:\\Users\\rqy\\GitRepos\\btex\\dist\\main.js"
 #elif UNIX
 btexPath = "/home/rqy/GitRepos/btex/dist/main.js"
 #else
-btexPath = error "btexPath"
+#error "need -DWINDOWS or -DUNIX"
 #endif
 
 
@@ -177,7 +177,7 @@ mNullDevice = "\\\\.\\NUL"
 #elif UNIX
 mNullDevice = "/dev/null"
 #else
-mNullDevice = error "null device"
+#error "need -DWINDOWS or -DUNIX"
 #endif
 
 main :: IO ()

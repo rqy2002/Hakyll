@@ -98,10 +98,10 @@ repoUrl = "git@github.com:MenciStaticSites/rqy-blog.git"
 deployGitCommands :: String
 deployGitCommands = intercalate " && "
                       [ "cd " ++ deployDir,
-                        "git init",
-                        "git add -A",
-                        "git commit -m \"$(date +%F-%H:%M:%S)\"",
-                        "git push -u " ++ repoUrl ++ " HEAD:main --force"
+                        "git.exe init",
+                        "git.exe add -A",
+                        "git.exe commit -m \"$(date +%F-%H:%M:%S)\"",
+                        "git.exe push -u " ++ repoUrl ++ " HEAD:main --force"
                       ]
 
 deploy :: Configuration -> IO ExitCode
