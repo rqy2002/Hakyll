@@ -1,7 +1,7 @@
+{-# LANGUAGE OverloadedStrings, CPP #-}
 module Deploy (deploy) where
 
 --------------------------------------------------------------------------------
-{-# LANGUAGE OverloadedStrings #-}
 import           Data.Monoid (mappend)
 import           Hakyll
 
@@ -48,7 +48,12 @@ insertHash top file ignore
 
 getStaticFileMaps :: FilePath -> (FilePath -> IO Bool) -> IO (M.Map FilePath FilePath)
 getStaticFileMaps top ignore = do
-  content <- getRecursiveContents (\_ -> return False) top
+  _content <- getRecursiveContents (\_ -> return False) top
+#ifdef WINDOWS
+  let content = map (map (\c -> if c == '\\' then '/' else c)) _content
+#elif UNIX
+  let content = _content
+#endif
   newContent <- mapM (\f -> ((,) f) <$> insertHash top f ignore) content
   return $ M.fromList newContent
 
