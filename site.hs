@@ -113,9 +113,9 @@ hakyllMain = hakyllWith hakyllConfiguration $ do
         >>= loadAndApplyTemplate "templates/default.html" defaultContext
         -- >>= relativizeUrls
 
-  match "posts/*" $ version "raw" $ do
-    route idRoute
-    compile getResourceBody
+  -- match "posts/*" $ version "raw" $ do
+  --   route idRoute
+  --   compile getResourceBody
 
   match "posts/*.md" $ do
     route $ setExtension "html"
