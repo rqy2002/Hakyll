@@ -53,6 +53,8 @@ getStaticFileMaps top ignore = do
   let content = map (map (\c -> if c == '\\' then '/' else c)) _content
 #elif UNIX
   let content = _content
+#else
+#error "Need -DWINDOWS or -DUNIX"
 #endif
   newContent <- mapM (\f -> ((,) f) <$> insertHash top f ignore) content
   return $ M.fromList newContent

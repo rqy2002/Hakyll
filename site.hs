@@ -1,5 +1,5 @@
 --------------------------------------------------------------------------------
-{-# LANGUAGE OverloadedStrings, CPP #-}
+{-# LANGUAGE OverloadedStrings #-}
 import           Data.Monoid (mappend)
 import           Hakyll
 
@@ -7,10 +7,12 @@ import Text.Pandoc.Highlighting (Style, pygments, styleToCss)
 import Text.Pandoc.Options      (ReaderOptions (..), WriterOptions (..))
 
 import System.IO
-import System.FilePath (takeFileName)
-import GHC.IO.Handle (hDuplicateTo)
-import Data.Aeson (encode, object, (.=), FromJSON, parseJSON, decode, withObject, (.:))
-import System.Process
+import System.FilePath          (takeFileName)
+import Data.Aeson               (encode, object, (.=), FromJSON,
+                                 parseJSON, decode, withObject, (.:))
+import Data.Time.Clock          (UTCTime (..))
+import Data.Time.Format         (formatTime, parseTimeM)
+import Data.Time.Locale.Compat  (defaultTimeLocale)
 import Network.HTTP.Client as HTTP
 import Deploy
 
@@ -18,16 +20,6 @@ import Deploy
 -- Btex compiler
 btexPort :: Int
 btexPort = 1231
-
-btexPath :: String
-#ifdef WINDOWS
-btexPath = "C:\\Users\\rqy\\GitRepos\\btex\\dist\\main.js"
-#elif UNIX
-btexPath = "/home/rqy/GitRepos/btex/dist/main.js"
-#else
-#error "need -DWINDOWS or -DUNIX"
-#endif
-
 
 data BtexResult = BtexResult { btexHtml :: String, btexData :: String, btexErrors :: [String], btexWarnings :: [String] }
 instance FromJSON BtexResult where
@@ -75,8 +67,8 @@ hakyllConfiguration :: Configuration
 hakyllConfiguration = defaultConfiguration
                         { deploySite = deploy }
 
-hakyllMain :: IO ()
-hakyllMain = hakyllWith hakyllConfiguration $ do
+main :: IO ()
+main = hakyllWith hakyllConfiguration $ do
   match "images/*" $ do
     route   idRoute
     compile copyFileCompiler
@@ -170,30 +162,23 @@ hakyllMain = hakyllWith hakyllConfiguration $ do
       >>= loadAndApplyTemplate "templates/default.html" defaultContext
       -- >>= relativizeUrls
 
--- From `silently`
-mNullDevice :: FilePath
-#ifdef WINDOWS
-mNullDevice = "\\\\.\\NUL"
-#elif UNIX
-mNullDevice = "/dev/null"
-#else
-#error "need -DWINDOWS or -DUNIX"
-#endif
-
-main :: IO ()
-main = withFile mNullDevice WriteMode $ \devnull ->
-  withCreateProcess ((proc "node" [btexPath, "-p", show btexPort]) { std_in = NoStream, std_out = CreatePipe }) $ \_ (Just outp) _ _ -> do
-  hSetBuffering stdout LineBuffering -- change buffering to line buffering to work correctly in emacs shell
-  putStr "Starting btex server... "
-  content <- hGetLine outp
-  putStrLn "Done"
-  hDuplicateTo outp devnull
-  hakyllMain
-
 --------------------------------------------------------------------------------
+
+lastdateField :: Context String
+lastdateField = field "lastdate" $ \i -> do
+  let id = itemIdentifier i
+      empty' = noResult $ "No 'lastdate' field in metadata of item" ++
+          show id
+      parseTime' = parseTimeM True defaultTimeLocale "%Y-%m-%d"
+      formatTime' = formatTime defaultTimeLocale "%Y 年 %m 月 %d 日"
+  value <- getMetadataField id "lastdate"
+  maybe empty' (\v -> formatTime' <$>
+                 (parseTime' v :: Compiler UTCTime)) value
+
 postCtx :: Context String
 postCtx =
-  mapContext takeFileName (pathField "source") `mappend`
-  mapContext toUrl (pathField "source_url") `mappend`
-  dateField "date" "%Y 年 %m 月 %e 日" `mappend`
+  functionField "filename" (\l _ -> return $ unwords $ map takeFileName l) `mappend`
+  functionField "fileurl" (\l _ -> return $ unwords $ map toUrl l) `mappend`
+  lastdateField `mappend`
+  dateField "date"  "%Y 年 %m 月 %e 日" `mappend`
   defaultContext

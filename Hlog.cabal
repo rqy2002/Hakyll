@@ -13,14 +13,13 @@ executable site
                   , commonmark == 0.2.1.1
                   , commonmark-extensions == 0.2.3.*
                   , http-client
-                  , process
                   , aeson
                   , hashable
                   , filepath
                   , bytestring
                   , directory
+                  , time-locale-compat
                   , deploy
-  ghc-options:      -threaded -rtsopts -with-rtsopts=-N1
   default-language: Haskell2010
 
 library deploy
@@ -29,13 +28,9 @@ library deploy
   build-depends:    base
                   , containers
                   , hakyll
-                  , pandoc
-                  , time
                   , commonmark == 0.2.1.1
                   , commonmark-extensions == 0.2.3.*
-                  , http-client
                   , process
-                  , aeson
                   , hashable
                   , filepath
                   , bytestring
