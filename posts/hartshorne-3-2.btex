@@ -1,0 +1,96 @@
+---
+title: Hartshorne 第三章第二节习题
+tag: 数学
+date: 2023-02-25
+---
+
+\newtheorem{exercise}{习题}
+\newtheorem*{lemma*}{引理}
+\theoremstyle{remark}
+\newtheorem*{remark*}{注}
+
+\def\ga{\mathfrak{a}}
+\def\gp{\mathfrak{p}}
+\def\gq{\mathfrak{q}}
+\def\gm{\mathfrak{m}}
+\def\gn{\mathfrak{n}}
+\def\A{\mathbb{A}}
+\def\P{\mathbb{P}}
+\def\Z{\mathbb{Z}}
+\def\F{\mathbb{F}}
+\def\Q{\mathbb{Q}}
+\def\R{\mathbb{R}}
+\def\C{\mathbb{C}}
+\def\id{\mathrm{id}}
+\def\cO{\mathcal{O}}
+\def\Sch{\mathfrak{Sch}}
+\def\Rings{\mathfrak{Rings}}
+\def\spto{\rightsquigarrow}
+\def\red{\mathrm{red}}
+\def\spp{\operatorname{sp}}
+\def\Hom{\operatorname{Hom}}
+\def\Spec{\operatorname{Spec}}
+\def\Proj{\operatorname{Proj}}
+\def\Supp{\operatorname{Supp}}
+\def\coker{\operatorname{coker}}
+\def\im{\operatorname{im}}
+\def\dim{\operatorname{dim}}
+\def\codim{\operatorname{codim}}
+\def\height{\operatorname{height}}
+\def\Frac{\operatorname{Frac}}
+\def\trd{\operatorname{tr.d.}}
+\def\leq{\leqslant}
+\def\geq{\geqslant}
+\def\Stacks#1{\href{https://stacks.math.columbia.edu/tag/#1}{Stacks Project #1}}
+\def\clearfootnotes{\def\@printfootnotes{}}
+
+这学期开始上盛茂的代数几何课, 于是做一做习题, 毕竟这也是作业.
+
+\begin{exercise}
+  \begin{enumerate}
+    \item 令 $X = \A_k^1$ 为无限域 $k$ 上的仿射直线.
+          令 $P, Q$ 为 $X$ 中两个闭点, $U = X - \{P, Q\}$.
+          试证明 $H^1(X, \Z_U) \neq 0$.
+    \item 考虑更一般的情形,
+          令 $Y \subseteq X = \A_k^n$ 为一般位置的 $n + 1$ 个超平面的并.
+          令 $U = X - Y$. 试证明 $H^n(X, \Z_U) \neq 0$.
+          因此 (2.7)\footnote{
+          Grothendieck 消失定理, $n$ 维 Noether 空间的超过 $n$ 阶上同调消失.}
+          的结论已经最佳.
+  \end{enumerate}
+\end{exercise}
+
+\begin{proofc}
+  \begin{enumerate}
+    \item 设 $Y = \{ P, Q \}$, 记 $i \colon Y \hookrightarrow X$.
+          令 $\Z_Y = i_*(\Z |_Y)$, 则显然有正合列
+          \[
+            0 \to \Z_U \to \Z \to \Z_Y \to 0.
+          \]
+          但 $\Z_Y$ 同构于 $Z$ 在 $P$ 和 $Q$ 上的摩天楼层的直和,
+          因此 $\Gamma(X, \Z_Y) = \Z^2$. 所以对上述正合列取 $\Gamma(X, -)$ 得
+          \[
+            0 \to 0 \xrightarrow{1} \Z \xrightarrow{(1, 1)} \Z^2 \to H^1(X, \Z_U).
+          \]
+          由于  $\Z \to \Z^2$ 不是满射, 即知 $H^1(X, \Z_U) \neq 0$.
+    \item 对 $n$ 归纳. 设 $n > 1$.
+          记  $i \colon Y \hookrightarrow X, j \colon U \hookrightarrow X$,
+          则由正合列 $0 \to \Z_U \to \Z \to \Z_Y \to 0$ 得到
+          \[ 0 \to H^{n-1}(X, \Z_Y) \to H^n(X, \Z_U) \to 0. \]
+          因此只需证 $H^n(X, \Z_U) \cong H^{n - 1}(X, \Z_Y) \cong H^{n - 1}(Y, \Z) \neq 0$.
+
+          以下我们均在 $Y$ 中考虑层.
+          设 $P$ 是其中 $n$ 个超平面的并, $X'$ 是最后一个超平面, $U' = X' \setminus P$.
+          再记  $i' \colon P \hookrightarrow X', j' \colon U' \hookrightarrow X'$.
+          对 $X', U'$ 做归纳假设, 即得 $H^{n - 1}(P, \Z_{U'}) \neq 0$.
+          而有正合列 $0 \to \Z_{U'} \to \Z \to \Z_P \to 0$, 从而有正合列
+          \[
+            H^{n-2}(Y, \Z_P) \to H^{n-1}(Y, \Z_{U'}) \to H^{n-1}(Y, \Z).
+          \]
+          由 Grothendieck 消失定理, $H^{n-2}(Y, \Z_P) \neq 0$.
+          因此 $H^{n-1}(Y, \Z) \neq 0$.
+          \qedhere
+  \end{enumerate}
+  \printfootnotes
+\end{proofc}
+\clearfootnotes
