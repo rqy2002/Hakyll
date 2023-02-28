@@ -60,12 +60,14 @@ pandocCompiler' =
   pandocCompilerWith
     defaultHakyllReaderOptions
     defaultHakyllWriterOptions
-      { writerHighlightStyle   = Just pandocCodeStyle
+      { writerHighlightStyle  = Just pandocCodeStyle
       }
 
 hakyllConfiguration :: Configuration
 hakyllConfiguration = defaultConfiguration
-                        { deploySite = deploy }
+                        { deploySite = deploy
+                        , inMemoryCache = False
+                        }
 
 main :: IO ()
 main = hakyllWith hakyllConfiguration $ do
@@ -105,9 +107,9 @@ main = hakyllWith hakyllConfiguration $ do
         >>= loadAndApplyTemplate "templates/default.html" defaultContext
         -- >>= relativizeUrls
 
-  match "posts/*" $ version "raw" $ do
-    route idRoute
-    compile getResourceBody
+  -- match "posts/*" $ version "raw" $ do
+  --   route idRoute
+  --   compile getResourceBody
 
   match "posts/*.md" $ do
     route $ setExtension "html"
