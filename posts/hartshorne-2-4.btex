@@ -23,7 +23,7 @@ lastdate: 2023-02-23
 \def\R{\mathbb{R}}
 \def\C{\mathbb{C}}
 \def\id{\mathrm{id}}
-\def\cO{\mathcal{O}}
+\def\cO{\mathscr{O}}
 \def\Sch{\mathfrak{Sch}}
 \def\Rings{\mathfrak{Rings}}
 \def\spto{\rightsquigarrow}
