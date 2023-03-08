@@ -1,11 +1,35 @@
----
-title: Hartshorne 第二章第三节习题
-tag: 数学
-date: 2022-10-23
-pdfversion: hartshorne-2-3.pdf
----
+\documentclass{article}
+\usepackage{xeCJK}
+\usepackage{fontspec}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{unicode-math}
+\setmathfont{Libertinus Math}
+\usepackage[a4paper, margin=2cm]{geometry}
+\usepackage{enumitem}
+\usepackage{tikz-cd}
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks = true,
+  linkcolor = blue
+}
 
-\newtheorem{exercise}{习题}
+\def\proofname{证明}
+
+\newtheoremstyle{exercise}%
+{3pt}{3pt}
+{}%
+{}%
+{\bfseries}%
+{.}%
+{.2em}%
+{}
+\theoremstyle{exercise}
+\newtheorem{exercise}{习题}[section]
+\newenvironment{proofc}{\proof}{\endproof}
+\def\printfootnotes{}
+
+%--------- copy from btex ---------%
 
 \def\ga{\mathfrak{a}}
 \def\gp{\mathfrak{p}}
@@ -40,6 +64,8 @@ pdfversion: hartshorne-2-3.pdf
 \def\geq{\geqslant}
 \def\Stacks#1{\href{https://stacks.math.columbia.edu/tag/#1}{Stacks Project #1}}
 \def\clearfootnotes{\def\@printfootnotes{}}
+
+\begin{document}
 
 这里是 Hartshorne 第二章第三节习题.
 
@@ -928,3 +954,5 @@ pdfversion: hartshorne-2-3.pdf
   设 $V, W$ 是代数闭域 $k$ 上的概形, $V \times W$ 是其乘积 (在 I, 习题 3.15, 3.16 中定义),
   $t$ 是 2.6 中的函子, 则 $t(V \times W) = t(V) \times_{\Spec k} t(W)$.
 \end{exercise}
+
+\end{document}

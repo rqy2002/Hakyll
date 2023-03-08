@@ -1,11 +1,35 @@
----
-title: Hartshorne 第二章第二节习题
-tag: 数学
-date: 2022-08-22
-pdfversion: hartshorne-2-2.pdf
----
+\documentclass{article}
+\usepackage{xeCJK}
+\usepackage{fontspec}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{unicode-math}
+\setmathfont{Libertinus Math}
+\usepackage[a4paper, margin=2cm]{geometry}
+\usepackage{enumitem}
+\usepackage{tikz-cd}
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks = true,
+  linkcolor = blue
+}
 
-\newtheorem{exercise}{习题}
+\def\proofname{证明}
+
+\newtheoremstyle{exercise}%
+{3pt}{3pt}
+{}%
+{}%
+{\bfseries}%
+{.}%
+{.2em}%
+{}
+\theoremstyle{exercise}
+\newtheorem{exercise}{习题}[section]
+\newenvironment{proofc}{\proof}{\endproof}
+\def\printfootnotes{}
+
+%--------- copy from btex ---------%
 
 \def\ga{\mathfrak{a}}
 \def\gp{\mathfrak{p}}
@@ -38,6 +62,8 @@ pdfversion: hartshorne-2-2.pdf
 \def\trd{\operatorname{tr.d.}}
 \def\leq{\leqslant}
 \def\geq{\geqslant}
+
+\begin{document}
 
 这里是 Hartshorne 第二章第二节习题.
 
@@ -436,3 +462,5 @@ pdfversion: hartshorne-2-2.pdf
   则 $\ga_1 \cap \ga_2 = 0, \ga_1 + \ga_2 = A$. 因此 $A = \ga_1 \times \ga_2$.
   从而 (3) 成立.
 \end{proofc}
+
+\end{document}

@@ -26,10 +26,14 @@
 {}
 \theoremstyle{exercise}
 \newtheorem{exercise}{习题}[section]
-\theoremstyle{theorem}
+\theoremstyle{plain}
 \newtheorem*{lemma*}{引理}
 \theoremstyle{remark}
 \newtheorem*{remark*}{注}
+\newenvironment{proofc}{\proof}{\endproof}
+\def\printfootnotes{}
+
+%--------- copy from btex ---------%
 
 \def\ga{\mathfrak{a}}
 \def\gp{\mathfrak{p}}
@@ -72,6 +76,7 @@
 \def\leq{\leqslant}
 \def\geq{\geqslant}
 \def\Stacks#1{\href{https://stacks.math.columbia.edu/tag/#1}{Stacks Project #1}}
+\def\clearfootnotes{}
 
 \begin{document}
 
@@ -94,8 +99,10 @@
           的结论已经最佳.
   \end{enumerate}
 \end{exercise}
+\printfootnotes
+\clearfootnotes
 
-\begin{proof} \hfill
+\begin{proofc} \hfill
   \begin{enumerate}
     \item 设 $Y = \{ P, Q \}$, 记 $i \colon Y \hookrightarrow X$.
           令 $\Z_Y = i_*(\Z |_Y)$, 则显然有正合列
@@ -155,7 +162,7 @@
           \textit{不知道是否有 $H^1(Y_{1, 3}, \Z) \cong \Z$. 这似乎需要显式把 $\delta$ 映射算出来.}
           \qedhere
   \end{enumerate}
-\end{proof}
+\end{proofc}
 
 \begin{exercise}
   令 $X = \P_k^1$ 为代数闭域 $k$ 上的射影直线.
@@ -164,7 +171,7 @@
   是 $\cO$ 的松消解. 从而由此习题 e 得出对任意 $i > 0$ 总有 $H^i(X, \cO) = 0$.
 \end{exercise}
 
-\begin{proof}
+\begin{proofc}
   由于 $\cK$ 是 $K$ 常值层, 其显然松.
   而由习题  II, 1.21d, $\cK / \cO \cong \sum_{P \in X} i_P(K / \cO_p)$,
   也是松层.
@@ -172,7 +179,7 @@
   由上同调长正合列即知对 $i > 2$ 都有 $H^i(X, \cO) = 0$,
   而 $H^1(X, \cO) = \coker(\Gamma(X, \cK) \to \Gamma(X, \cK / \cO))$.
   由 II, 1.21e, $\Gamma(X, \cK) \to \Gamma(X, \cK / \cO)$ 满. 因此 $H^1(X, \cO) = 0$.
-\end{proof}
+\end{proofc}
 
 \begin{exercise}[子集支撑的上同调]
   令 $X$ 为拓扑空间, $Y$ 为闭子集, $\cF$ 为 Abel 群层.
@@ -202,7 +209,7 @@
   \end{enumerate}
 \end{exercise}
 
-\begin{proof} \hfill
+\begin{proofc} \hfill
   \begin{enumerate}[label=(\arabic*)]
     \item $\Gamma_Y(X, -)$ 的函子性显然.
           设 $0 \to \cF' \xrightarrow{f} \cF \xrightarrow{g} \cF'' \to 0$ 正合.
@@ -261,7 +268,7 @@
           其上同调也给出 $H_Y^i(V, \cF|_V)$. 因此上述自然同构就给出了上同调的自然同构.
           \qedhere
   \end{enumerate}
-\end{proof}
+\end{proofc}
 
 \begin{exercise}[Mayer--Vietoris 正合列]
   令 $Y_1, Y_2$ 为 $X$ 的两个闭集. 则有支集上同调的长正合列
@@ -273,7 +280,7 @@
   \end{align*}
 \end{exercise}
 
-\begin{proof}
+\begin{proofc}
   记 $i_1, i_2$ 为 $\Gamma_{Y_1 \cap Y_2}(X, \cF)$ 到
   $\Gamma_{Y_1}(X, \cF)$ 或 $\Gamma_{Y_2}(X, \cF)$ 的自然嵌入,
   $j_1, j_2$ 为两者到 $\Gamma_{Y_1 \cup Y_2}(X, \cF)$ 的自然嵌入.
@@ -318,7 +325,7 @@
              & \to H^{i+1}_{Y_1 \cap Y_2}(X, \cF) \to \cdots.
     \qedhere
     \end{align*}
-\end{proof}
+\end{proofc}
 
 \begin{exercise}
   设 $X$ 是 Zariski 空间 (II, 习题 3.17)\footnote{每个非空不可约闭集都有一一般点的 Noether 空间.}.
@@ -330,6 +337,8 @@
     H_P^i(X, \cF) \cong H_P^i(X_P, \cF_P).
   \]
 \end{exercise}
+\printfootnotes
+\clearfootnotes
 
 下面的证明中需要这个引理:
 \begin{lemma*}
@@ -342,7 +351,7 @@
   换句话说, $\cF$ 作为预层在 $Y$ 上的限制已经是层.
 \end{lemma*}
 
-\begin{proof}
+\begin{proofc}
   由于 $\cF_Y$ 事实上定义为 $U \mapsto \varinjlim_{U \subset \tilde{U}} \cF(\tilde{U})$ 的层化,
   立刻有 $\varinjlim_{U \subset \tilde{U}} \cF(\tilde{U})$ 到 $\cF_Y(U)$ 的映射.
   我们记此正向极限为 $\cF'_Y(U)$, 此映射为 $\varphi \colon \cF'_Y(U) \to \cF_Y(U)$.
@@ -365,9 +374,11 @@
   从而, 若把 $U_1, U_2, V$ 分别改为 $U_1 \setminus \overline{N}, U_2 \setminus \overline{N}, V \setminus \overline{N}$,
   就有 $V = U_1 \cap U_2$. 因此可从 $s_1, s_2$ 拼出 $s_0 \in \cF(\tilde{U_1} \cup \tilde{U_2})$
   使得 $s_0|_U = s$. 也就是说 $\varphi$ 是满射. \qedhere
-\end{proof}
+\printfootnotes
+\end{proofc}
+\clearfootnotes
 
-\begin{proof}[习题 2.5 的证明]
+\begin{proofc}[习题 2.5 的证明]
   由于 Zariski 空间的开集对一般化封闭, 任意包含 $P$ 的开集都包含 $X_P$,
   且若 $Q \notin X_P$, 有 $P \in (X \setminus \{Q\}^-)$.
   所以 $X_P = \bigcap_{P \in U \subset X} U$, 其中 $U$ 取遍包含 $P$ 的开集.
@@ -422,7 +433,7 @@
     \end{tikzcd}
   \]
   由五引理, 即知 $H_P^i(X, \cF) \to H_P^i(X_P, \cF_P)$ 亦为同构.
-\end{proof}
+\end{proofc}
 
 \begin{exercise}
   令 $X$ 为 Noether 拓扑空间, $\{\cI_\alpha\}_{\alpha \in A}$ 为 $X$ 上内射层的有向系统. 证明 $\varinjlim \cI_\alpha$ 亦内射.
@@ -431,7 +442,7 @@
   其次, 证明这样的 $\cR$ 都有限生成, 因此 $\cR \to \varinjlim \cI_\alpha$ 穿过某个 $\cI_\alpha$.]
 \end{exercise}
 
-\begin{proof}
+\begin{proofc}
   我们按照提示顺序证明. 首先证明层 $\cI$ 内射当且仅当对 $X$ 的任意开子集 $U$, $\Z_U$ 的任意子层 $\cR$, 以及任意态射 $f \colon \cR \to \cI$,
   其都可以扩张成 $\Z_U \to \cI$ 的映射.
 
@@ -462,7 +473,7 @@
   接下来, 设 $\cI_\alpha$ 为内射层的有向系统. 设 $U$ 是开集, $\cR$ 是 $\Z_U$ 的子层, $f \colon \cR \to \varinjlim \cI_\alpha$.
   由于 $\Z_U$ 是 Noether 对象, $f^{-1}(\cI_\alpha)$ 稳定. 也就是说存在 $\alpha$ 使得 $f$ 穿过 $\cI_\alpha$.
   因此由 $\cI_\alpha$ 的内射性, $f$ 可以延拓为 $\Z_U \to \cI_\alpha \to \varinjlim \cI_\alpha$. 综上, $\varinjlim \cI_\alpha$ 内射.
-\end{proof}
+\end{proofc}
 
 \begin{exercise}
   令 $\bS^1$ 为圆, 配备通常的拓扑. 令 $\Z$ 为其上的常值层.
@@ -472,7 +483,7 @@
   \end{enumerate}
 \end{exercise}
 
-\begin{proof}
+\begin{proofc}
   此处参考 \href{https://math.stackexchange.com/questions/2801221/why-does-the-sheaf-cohomology-of-the-constant-sheaf-on-mathbbr-vanish}{MSE 问题},
   感谢名为 Daniel Schpler 的 MSE 用户.
 
@@ -518,6 +529,6 @@
           同理, $\cR_{u, d}$ 以 $0$ 延拓到 $\R$ 上后区间松, 因此上同调消失. 而 $C(I_u, \R) \oplus C(I_d, \R) \to \R^2$ 是满射.
           因此 $H^1(\bS^1, \cR) = 0$. \qedhere
   \end{enumerate}
-\end{proof}
+\end{proofc}
 
 \end{document}

@@ -1,15 +1,41 @@
----
-title: Hartshorne 第二章第四节习题
-tag: 数学
-date: 2022-11-30
-lastdate: 2023-02-23
-pdfversion: hartshorne-2-4.pdf
----
+\documentclass{article}
+\usepackage{xeCJK}
+\usepackage{fontspec}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{unicode-math}
+\setmathfont{Libertinus Math}
+\usepackage[a4paper, margin=2cm]{geometry}
+\usepackage{enumitem}
+\usepackage{tikz-cd}
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks = true,
+  linkcolor = blue
+}
 
-\newtheorem{exercise}{习题}
+\def\proofname{证明}
+
+\newtheoremstyle{exercise}%
+{3pt}{3pt}
+{}%
+{}%
+{\bfseries}%
+{.}%
+{.2em}%
+{}
+\theoremstyle{exercise}
+\newtheorem{exercise}{习题}[section]
+\theoremstyle{plain}
 \newtheorem*{lemma*}{引理}
 \theoremstyle{remark}
 \newtheorem*{remark*}{注}
+\newenvironment{proofc}{\proof}{\endproof}
+\def\printfootnotes{}
+
+\newfontfamily\segoe{Segoe UI Emoji}
+
+%--------- copy from btex ---------%
 
 \def\ga{\mathfrak{a}}
 \def\gp{\mathfrak{p}}
@@ -45,6 +71,8 @@ pdfversion: hartshorne-2-4.pdf
 \def\geq{\geqslant}
 \def\Stacks#1{\href{https://stacks.math.columbia.edu/tag/#1}{Stacks Project #1}}
 \def\clearfootnotes{\def\@printfootnotes{}}
+
+\begin{document}
 
 这里是 Hartshorne 第二章第四节习题. 目前还在做.
 
@@ -105,11 +133,11 @@ pdfversion: hartshorne-2-4.pdf
 \begin{proofc}
   我们有 $\Delta(U \cap V) = (U \times_S V) \cap \Delta(X)$.
   因此由 $X$ 分离, 即知 $\Delta(U \cap V)$ 是 $U \times_S V$ 的闭子概形.
-  事实上, 如下交换图是个拉回 (是个◰图!):
-  \[\begin{cd}
+  事实上, 如下交换图是个拉回 (是个{\segoe ◰}图!):
+  \[\begin{tikzcd}
       U \cap V \ar[r] \ar[d, "\Delta"] & X \ar[d, "\Delta"]\\
       U \times_S V \ar[r] & X \times_S X\rlap{.}
-    \end{cd}\]
+    \end{tikzcd}\]
   由于 $U \times_S V$ 是仿射概形, 其闭子概形 $U \cap V$ 也一定是仿射概形 (习题 3.11).
 
   若 $X$ 未必分离, 可以取 $S = \Spec k$, $X$ 为带有两个原点的仿射平面,
@@ -131,10 +159,10 @@ pdfversion: hartshorne-2-4.pdf
   由于紧合蕴含有限型且可分, 可以直接将 $X$ 替换为 $Z$,
   因此不妨假设 $X = Z$ 紧合.
   众所周知, 如下``魔法交换图''
-  \[\begin{cd}
+  \[\begin{tikzcd}
       \llap{$X \cong {}$} X \times_Y Y \ar[r, "\Gamma_f"] \ar[d] & X \times_S Y \ar[d] \\
       Y \ar[r, "\Delta"] & Y \times_S Y\rlap{.}
-    \end{cd}\]
+    \end{tikzcd}\]
   是拉回图. 因此由于 $Y \xrightarrow{\Delta} Y \times_S Y$ 是闭浸入, 即知 $\Gamma_f$ 也是闭浸入.
   我们知道 $p_2 \colon X \times_S Y \to Y$ 是 $X \to S$ 的基变换, 因此也是闭映射.
   综上, $f \colon X \to Y$ 是两个闭映射的复合, 从而也是闭映射, 因此 $X \to f(X)$ 是满同态.
@@ -170,27 +198,27 @@ pdfversion: hartshorne-2-4.pdf
   \begin{enumerate}[label=(\alph*)]
     \item 若 $R$ 是 $K / k$ 的赋值环, 则自然有态射 $\Spec K \to \Spec R \to \Spec k$.
           因此易知, 给出 $R$ 对应的赋值的中心等价于给出下图中虚线的映射:
-          \[\begin{cd}
+          \[\begin{tikzcd}
               \Spec K \ar[r] \ar[d] & X \ar[d] \\
               \Spec R \ar[r] \ar[ur, dashed] & \Spec k\rlap{.}
-            \end{cd}\]
+            \end{tikzcd}\]
           由赋值判别法, 若 $X$ 分离, 则这样的态射至多唯一, 因此中心唯一.
     \item 同上, 由赋值判别法, 若 $X$ 紧合, 则这样的态射存在, 因此中心存在.
     \item 考虑应用赋值判别法. 设 $L$ 是 $k$ 的扩域, $S$ 是 $L / k$ 的赋值环,
           并且有如下交换图:
-          \[\begin{cd}
+          \[\begin{tikzcd}
               \Spec L \ar[r] \ar[d] & X \ar[d] \\
               \Spec S \ar[r] & \Spec k\rlap{.}
-            \end{cd}\]
+            \end{tikzcd}\]
           我们想给出 $\Spec S \to X$ 态射的唯一性或是存在唯一性.
           (这里专指使得上述图图表交换的态射, 下同.)
           若 $\Spec L$ 中的唯一的点映射到了 $X$ 的一般点,
           则 $K$ 是 $L$ 的子域, 而 $R = S \cap K$ 是 $K$ 中的赋值环.
           因此有交换图
-          \[\begin{cd}
+          \[\begin{tikzcd}
               \Spec L \ar[r] \ar[d] & \Spec K \ar[r] \ar[d] & X \ar[d] \\
               \Spec S \ar[r] & \Spec R \ar[r] & \Spec k\rlap{.}
-            \end{cd}\]
+            \end{tikzcd}\]
           由前提可知 $\Spec R \to X$ 的态射唯一 (或存在唯一).
           若有 $f \colon \Spec S \to X$,
           则 $f$ 将 $\Spec S$ 的闭点映射到 $x \in X$, 且 $S$ 支配 $\cO_{x, X}$.
@@ -223,10 +251,10 @@ pdfversion: hartshorne-2-4.pdf
             若要给出 $R$ 在 $Y$ 中的一个中心, 就等价于给出一个 $y \in Y$
             使得 $R$ 支配 $\cO_{y, Y}$. 那么 $R'$ 在 $K(X)$ 中支配 $\cO_{y, Y}$.
             因此我们有交换图
-            \[\begin{cd}
+            \[\begin{tikzcd}
                 \Spec K(X) \ar[r] \ar[d] & X \ar[d] \\
                 \Spec R' \ar[r]          & Y\rlap{.}
-              \end{cd}\]
+              \end{tikzcd}\]
             因此由于 $X \to Y$ 紧合, 就可以将 $\Spec R' \to Y$ 的映射唯一地提升到 $\Spec R' \to X$.
             也就是说对于 $R$ 在 $Y$ 中任意一个中心, 都存在恰好一个 $R'$ 在 $X$ 中的中心如此对应.
 
@@ -235,11 +263,11 @@ pdfversion: hartshorne-2-4.pdf
             而 $\cO_{y, Y} \subset K(Y)$, 因此 $R$ 支配 $\cO_{y, Y}$.
             (事实上就是说 $\Spec R'$ 是 $\Spec K(Y)$ 和 $\Spec R$ 在 $\Spec K(X)$ 上的推出).
             因此 $R'$ 在 $X$ 中的中心和 $R$ 在 $Y$ 中的中心以如下交换图的方式一一对应:
-            \[\begin{cd}
+            \[\begin{tikzcd}
                 & \Spec R' \ar[rr] \ar[dd] & & \Spec R \ar[dd] \\
                 \Spec K(X) \ar[ru] \ar[rd] \ar[rr] & & \Spec K(Y) \ar[ru] \ar[rd] & \\
                 & X \ar[rr] & & Y\rlap{.}
-              \end{cd}\]
+              \end{tikzcd}\]
             因此即证.
           \end{proofc}
 
@@ -311,10 +339,10 @@ pdfversion: hartshorne-2-4.pdf
   设 $\alpha \colon \C \to \C$ 为共轭映射,
   $\sigma \colon X \to X$ 为在 $X_0$ 上不变, 在 $\C$ 上应用 $\alpha$ 得到的态射.
   那么 $X$ 是 $\C$ 上的概形, $\sigma$ 是其\emph{半线性}自同态, 即有交换图
-  \[\begin{cd}
+  \[\begin{tikzcd}
       X \ar[d] \ar[r, "\sigma"] & X \ar[d] \\
       \Spec \C \ar[r, "\alpha"] & \Spec \C\rlap{.}
-    \end{cd}\]
+    \end{tikzcd}\]
   由于 $\sigma^2 = \id$, 我们将 $\sigma$ 称为\emph{对合}.
   \begin{enumerate}[label=(\alph*)]
     \item 设 $X$ 为 $\C$ 上的有限型可分概形, $\sigma$ 为其上的半线性对合,
@@ -425,7 +453,7 @@ pdfversion: hartshorne-2-4.pdf
   \end{enumerate}
   证明:
   \begin{enumerate}[label=(\alph*)]
-          \setcounter{enum-{list-level}}{3}
+          \setcounter{enumi}{3}
     \item $\PP$ 态射的乘积也满足 $\PP$.
     \item 若 $f \colon X \to Y, g \colon Y \to Z$ 使得 $g \circ f$ 满足 $\PP$
           且 $g$ 分离, 则 $f$ 也满足 $\PP$.
@@ -439,7 +467,7 @@ pdfversion: hartshorne-2-4.pdf
 \begin{proofc}
   \def\PP{\mathscr{P}}
   \begin{enumerate}[label=(\alph*)]
-          \setcounter{enum-{list-level}}{3}
+          \setcounter{enumi}{3}
     \item 设 $f_i \colon X_i \to Y_i$ 都满足 $\PP$, 其中 $i = 1, 2$.
           则 $X_1 \times X_2 \xrightarrow{(f_1, \id)} Y_1 \times X_2
           \xrightarrow{(\id, f_2)} Y_1 \times Y_2$.
@@ -447,16 +475,16 @@ pdfversion: hartshorne-2-4.pdf
           即需要证明若 $f \colon X \to Y$ 满足 $\PP$,
           则 $X \times Z \to Y \times Z$ 也满足 $\PP$.
           但是由泛性质易知下面的图表是拉回图:
-          \[\begin{cd}
+          \[\begin{tikzcd}
               X \times Z \ar[r] \ar[d] & X \ar[d] \\
               Y \times Z \ar[r] & Y\rlap{.}
-            \end{cd}\]
+            \end{tikzcd}\]
           因此即证.
     \item 正如习题 4.4, 如下``魔法交换图''
-          \[\begin{cd}
+          \[\begin{tikzcd}
               \llap{$X \cong {}$} X \times_Y Y \ar[r, "\Gamma_f"] \ar[d] & X \times_Z Y \ar[d] \\
               Y \ar[r, "\Delta"] & Y \times_Z Y\rlap{.}
-            \end{cd}\]
+            \end{tikzcd}\]
           是拉回图, 因此 $\Gamma_f \colon X \to X \times_Z Y$ 是闭浸入, 从而满足 $\PP$.
           另一方面, $X \times_Z Y \to Y$ 是 $X \to Z$ 的基变换, 因此也满足 $\PP$.
           所以其复合 $f \colon X \to Y$ 满足 $\PP$.
@@ -673,3 +701,5 @@ pdfversion: hartshorne-2-4.pdf
 \begin{proof}
   待证. \def\qedsymbol{}
 \end{proof}
+
+\end{document}
