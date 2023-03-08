@@ -18,6 +18,7 @@ import Data.Hashable (hashWithSalt)
 import Numeric (showIntAtBase)
 import Data.Char (chr)
 import Data.List (isPrefixOf, intercalate)
+import Data.Time.Clock (getCurrentTime, UTCTime (..))
 
 theAnswerToTheUniverse :: Int
 theAnswerToTheUniverse = 42
@@ -62,7 +63,7 @@ modifyUrls files file = withUrls modify where
   dir = takeDirectory file
   r = toSiteRoot file
   isAbs x = "/" `isPrefixOf` x && not ("//" `isPrefixOf` x)
-  modify url
+  modify' url
     | isAbs url = case (M.lookup (tail url) files) of
                     Nothing -> r </> tail url
                     Just url' -> r </> url'
@@ -70,6 +71,11 @@ modifyUrls files file = withUrls modify where
     | otherwise = case (M.lookup (dir </> url) files) of
                     Nothing -> url
                     Just url' -> makeRelative dir url'
+#ifdef WINDOWS
+  modify = map (\c -> if c == '\\' then '/' else c) . modify'
+#elif UNIX
+  modify = modify'
+#endif
 
 genDeployFiles :: FilePath -> FilePath -> (FilePath -> IO Bool) -> IO ()
 genDeployFiles top deployTop ignore = do
@@ -95,21 +101,22 @@ deployDir :: String
 deployDir = "_deploy/"
 
 ignoreFiles :: FilePath -> IO Bool
-ignoreFiles = return . isPrefixOf "OI/"
+ignoreFiles f = return $ isPrefixOf "OI/" f || f `elem` ["external-link.svg"]
 
 repoUrl :: String
 repoUrl = "git@github.com:MenciStaticSites/rqy-blog.git"
 
-deployGitCommands :: String
-deployGitCommands = intercalate " && "
+deployGitCommands :: String -> String
+deployGitCommands curTime = intercalate " && "
                       [ "cd " ++ deployDir,
                         "git.exe init",
                         "git.exe add -A",
-                        "git.exe commit -m \"$(date +%F-%H:%M:%S)\"",
+                        "git.exe commit -m \"" ++ curTime ++ "\"",
                         "git.exe push -u " ++ repoUrl ++ " HEAD:main --force"
                       ]
 
 deploy :: Configuration -> IO ExitCode
 deploy configuration = do
   genDeployFiles (destinationDirectory configuration) deployDir ignoreFiles
-  system deployGitCommands
+  curTime <- getCurrentTime
+  system $ deployGitCommands $ map (\c -> if c == ' ' then '_' else c) $ show curTime

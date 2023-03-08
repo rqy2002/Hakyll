@@ -4,4 +4,8 @@ dist-newstyle/
 _site/
 _posts/
 _deploy/
+tex/.auctex-auto/
+tex/*.aux
+tex/*.log
+tex/*.out
 .stack-work/

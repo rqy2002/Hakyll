@@ -101,6 +101,10 @@ hakyllMain = hakyllWith hakyllConfiguration $ do
     route   $ gsubRoute "favicons/" (const "")
     compile copyFileCompiler
 
+  match "tex/*.pdf" $ do
+    route   idRoute
+    compile copyFileCompiler
+
   match "about.md" $ do
     route   $ setExtension "html"
     compile $ pandocCompiler'

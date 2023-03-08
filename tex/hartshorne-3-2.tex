@@ -1,12 +1,32 @@
----
-title: Hartshorne 第三章第二节习题
-tag: 数学
-date: 2023-02-25
-lastdate: 2023-03-07
-pdfversion: hartshorne-3-2.pdf
----
+\documentclass{article}
+\usepackage{xeCJK}
+\usepackage{fontspec}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{unicode-math}
+\setmathfont{Libertinus Math}
+\usepackage[a4paper, margin=2cm]{geometry}
+\usepackage{enumitem}
+\usepackage{tikz-cd}
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks = true,
+  linkcolor = blue
+}
 
-\newtheorem{exercise}{习题}
+\def\proofname{证明}
+
+\newtheoremstyle{exercise}%
+{3pt}{3pt}
+{}%
+{}%
+{\bfseries}%
+{.}%
+{.2em}%
+{}
+\theoremstyle{exercise}
+\newtheorem{exercise}{习题}[section]
+\theoremstyle{theorem}
 \newtheorem*{lemma*}{引理}
 \theoremstyle{remark}
 \newtheorem*{remark*}{注}
@@ -52,7 +72,8 @@ pdfversion: hartshorne-3-2.pdf
 \def\leq{\leqslant}
 \def\geq{\geqslant}
 \def\Stacks#1{\href{https://stacks.math.columbia.edu/tag/#1}{Stacks Project #1}}
-\def\clearfootnotes{\def\@printfootnotes{}}
+
+\begin{document}
 
 这学期开始上盛茂的代数几何课, 于是做一做习题, 毕竟这也是作业.
 
@@ -60,7 +81,7 @@ pdfversion: hartshorne-3-2.pdf
 
 \setcounter{section}{2}
 
-\begin{exercise}
+\begin{exercise} \hfill
   \begin{enumerate}
     \item 令 $X = \A_k^1$ 为无限域 $k$ 上的仿射直线.
           令 $P, Q$ 为 $X$ 中两个闭点, $U = X - \{P, Q\}$.
@@ -73,10 +94,8 @@ pdfversion: hartshorne-3-2.pdf
           的结论已经最佳.
   \end{enumerate}
 \end{exercise}
-\printfootnotes
-\clearfootnotes
 
-\begin{proofc}
+\begin{proof} \hfill
   \begin{enumerate}
     \item 设 $Y = \{ P, Q \}$, 记 $i \colon Y \hookrightarrow X$.
           令 $\Z_Y = i_*(\Z |_Y)$, 则显然有正合列
@@ -99,14 +118,14 @@ pdfversion: hartshorne-3-2.pdf
           最后一个超平面记作 $Q \cong \A^n$, 则 $Q \setminus P \cong U_{n, k-1}$. 从而又有正合列
           $0 \to \Z_{U_{n, k-1}} \to \Z_{Y_{n, k}} \to \Z_{Y_{n, k-1}} \to 0$.
           由此又有长正合列
-          \[
-          \cdots \to H^{i-1}(Y_{n, k-1}, \Z_{Y_{n, k-1}})
+          \begin{align*}
+          \cdots &\to H^{i-1}(Y_{n, k-1}, \Z_{Y_{n, k-1}})
           \to H^i(\A^n, \Z_{U_{n, k-1}})
-          \to H^i(Y_{n, k}, \Z_{Y_{n, k}})
-          \to H^i(Y_{n, k-1}, \Z_{Y_{n, k-1}})
+          \to H^i(Y_{n, k}, \Z_{Y_{n, k}}) \\
+          &\to H^i(Y_{n, k-1}, \Z_{Y_{n, k-1}})
           \to H^{i+1}(\A^n, \Z_{U_{n, k-1}})
           \to \cdots.
-          \]
+          \end{align*}
           而 $H^i(\A^n, U_{n, k-1}) \cong \begin{cases} H^{i-1}(Y_{n-1, k-1}, \Z_{Y_{n-1, k-1}}) & i > 1, \\ \Z^{k-1} & n=1, i=0, \\ 0 & n>1, i=0. \end{cases}$
 
           记 $A_{n, k}^i = \begin{cases} H^i(Y_{n, k}, \Z_{Y_{n, k}}) \otimes \Q & i > 0, \\ 0 & i = 0. \end{cases}$. 上述长正合列通过 $\otimes \Q$ 化为
@@ -115,7 +134,7 @@ pdfversion: hartshorne-3-2.pdf
           \]
           在 $n = 1, i = 1$ 时有特例: $0 \to \Q \to \Q^{k-1} \to A_{1, k}^1 \to A_{1, k-1}^1 \to \dots$.
 
-          我们希望证明 $H^n(\A^n, U_{n, n+1}) \otimes \Q \cong A_{n-1, n+1}^{n-1} \neq 0$, 或者说 $A_{n, n+2}^n \neq 0 (n > 0)$.
+          我们需要证明 $H^n(\A^n, U_{n, n+1}) \cong A_{n-1, n+1}^{n-1} \neq 0$, 或者说 $A_{n, n+2}^n \neq 0 (n > 0)$.
 
           为此, 我们证明: 对任意 $n > 0$ 及任意 $1 \leq k \leq n + 1$, 有 $A_{n, k}^n = A_{n, k}^{n-1} = 0$;
           而对 $k = n + 2$, 有 $A_{n, n+2}^n \neq 0$.
@@ -136,7 +155,7 @@ pdfversion: hartshorne-3-2.pdf
           \textit{不知道是否有 $H^1(Y_{1, 3}, \Z) \cong \Z$. 这似乎需要显式把 $\delta$ 映射算出来.}
           \qedhere
   \end{enumerate}
-\end{proofc}
+\end{proof}
 
 \begin{exercise}
   令 $X = \P_k^1$ 为代数闭域 $k$ 上的射影直线.
@@ -145,7 +164,7 @@ pdfversion: hartshorne-3-2.pdf
   是 $\cO$ 的松消解. 从而由此习题 e 得出对任意 $i > 0$ 总有 $H^i(X, \cO) = 0$.
 \end{exercise}
 
-\begin{proofc}
+\begin{proof}
   由于 $\cK$ 是 $K$ 常值层, 其显然松.
   而由习题  II, 1.21d, $\cK / \cO \cong \sum_{P \in X} i_P(K / \cO_p)$,
   也是松层.
@@ -153,7 +172,7 @@ pdfversion: hartshorne-3-2.pdf
   由上同调长正合列即知对 $i > 2$ 都有 $H^i(X, \cO) = 0$,
   而 $H^1(X, \cO) = \coker(\Gamma(X, \cK) \to \Gamma(X, \cK / \cO))$.
   由 II, 1.21e, $\Gamma(X, \cK) \to \Gamma(X, \cK / \cO)$ 满. 因此 $H^1(X, \cO) = 0$.
-\end{proofc}
+\end{proof}
 
 \begin{exercise}[子集支撑的上同调]
   令 $X$ 为拓扑空间, $Y$ 为闭子集, $\cF$ 为 Abel 群层.
@@ -172,20 +191,18 @@ pdfversion: hartshorne-3-2.pdf
           \[ 0 \to \Gamma_Y(X, \cF) \to \Gamma(X, \cF) \to \Gamma(X - Y, \cF) \to 0 \]
           正合.
     \item 记 $U = X - Y$. 证明对任意 $\cF$, 有上同调长正合列
-          \[
-          \begin{aligned}
+          \begin{align*}
             0 & \to H_Y^0(X, \cF) \to H^0(X, \cF) \to H^0(U, \cF|_U) \\
               & \to H_Y^1(X, \cF) \to H^1(X, \cF) \to H^1(U, \cF|_U) \\
               & \to H_Y^2(X, \cF) \to \cdots.
-          \end{aligned}
-          \]
+          \end{align*}
     \item \emph{切除}. 令 $V$ 是 $X$ 的某个包含 $Y$ 的开子集.
           则有对 $i, \cF$ 自然的同构
           \[ H_Y^i(X, \cF) \cong H_Y^i(V, \cF|_V). \]
   \end{enumerate}
 \end{exercise}
 
-\begin{proofc}
+\begin{proof} \hfill
   \begin{enumerate}[label=(\arabic*)]
     \item $\Gamma_Y(X, -)$ 的函子性显然.
           设 $0 \to \cF' \xrightarrow{f} \cF \xrightarrow{g} \cF'' \to 0$ 正合.
@@ -229,13 +246,11 @@ pdfversion: hartshorne-3-2.pdf
           \]
           而 $\cI^\bullet|_U$ 也松, 因此也是 $\cF|_U$ 的 $\Gamma(U, -)$-零调消解.
           取上述链复形短正合列对应的长正合列即为
-          \[
-          \begin{aligned}
+          \begin{align*}
             0 & \to H_Y^0(X, \cF) \to H^0(X, \cF) \to H^0(U, \cF|_U) \\
               & \to H_Y^1(X, \cF) \to H^1(X, \cF) \to H^1(U, \cF|_U) \\
               & \to H_Y^2(X, \cF) \to \cdots.
-          \end{aligned}
-          \]
+          \end{align*}
     \item 首先, 我们有自然同构 $\Gamma_Y(X, \cF) \cong \Gamma_Y(V, \cF|_V)$,
           或 $\Gamma_Y(X, \cF) \cong \Gamma_Y(V, \cF)$.
           这个同构是显然的: 我们有前者到后者的限制映射, 而其根据层公理显然双射.
@@ -243,23 +258,22 @@ pdfversion: hartshorne-3-2.pdf
           现在设 $\cI^\bullet$ 是 $\cF$ 的内射消解,
           则 $\Gamma_Y(X, \cI^\bullet) \cong \Gamma_Y(V, \cI^\bullet|_V)$.
           由于 $\cI^\bullet|_V$ 也是 $\cF|_V$ 的松层消解,
-          其上同调也给出 $H_Y^i(V, \cF|_V)$. 因此上述自然同构就给出了上同调的自然同构. \qedhere
+          其上同调也给出 $H_Y^i(V, \cF|_V)$. 因此上述自然同构就给出了上同调的自然同构.
+          \qedhere
   \end{enumerate}
-\end{proofc}
+\end{proof}
 
 \begin{exercise}[Mayer--Vietoris 正合列]
   令 $Y_1, Y_2$ 为 $X$ 的两个闭集. 则有支集上同调的长正合列
-  \[
-    \begin{aligned}
-      \cdots & \to H^i_{Y_1 \cap Y_2}(X, \cF)
-               \to H^i_{Y_1}(X, \cF) \oplus H^i_{Y_2}(X, \cF)
-               \to H^i_{Y_1 \cup Y_2}(X, \cF) \\
-             & \to H^{i+1}_{Y_1 \cap Y_2}(X, \cF) \to \cdots.
-    \end{aligned}
-  \]
+  \begin{align*}
+    \cdots & \to H^i_{Y_1 \cap Y_2}(X, \cF)
+              \to H^i_{Y_1}(X, \cF) \oplus H^i_{Y_2}(X, \cF)
+              \to H^i_{Y_1 \cup Y_2}(X, \cF) \\
+            & \to H^{i+1}_{Y_1 \cap Y_2}(X, \cF) \to \cdots.
+  \end{align*}
 \end{exercise}
 
-\begin{proofc}
+\begin{proof}
   记 $i_1, i_2$ 为 $\Gamma_{Y_1 \cap Y_2}(X, \cF)$ 到
   $\Gamma_{Y_1}(X, \cF)$ 或 $\Gamma_{Y_2}(X, \cF)$ 的自然嵌入,
   $j_1, j_2$ 为两者到 $\Gamma_{Y_1 \cup Y_2}(X, \cF)$ 的自然嵌入.
@@ -297,16 +311,14 @@ pdfversion: hartshorne-3-2.pdf
     \xrightarrow{j_1 - j_2} \Gamma_{Y_1 \cup Y_2}(\cI^\bullet, \cF) \to 0
   \]
   取其上同调长正合列
-  \[
-    \begin{aligned}
+    \begin{align*}
       \cdots & \to H^i_{Y_1 \cap Y_2}(X, \cF)
                \to H^i_{Y_1}(X, \cF) \oplus H^i_{Y_2}(X, \cF)
                \to H^i_{Y_1 \cup Y_2}(X, \cF) \\
              & \to H^{i+1}_{Y_1 \cap Y_2}(X, \cF) \to \cdots.
-    \end{aligned}
     \qedhere
-  \]
-\end{proofc}
+    \end{align*}
+\end{proof}
 
 \begin{exercise}
   设 $X$ 是 Zariski 空间 (II, 习题 3.17)\footnote{每个非空不可约闭集都有一一般点的 Noether 空间.}.
@@ -318,8 +330,6 @@ pdfversion: hartshorne-3-2.pdf
     H_P^i(X, \cF) \cong H_P^i(X_P, \cF_P).
   \]
 \end{exercise}
-\printfootnotes
-\clearfootnotes
 
 下面的证明中需要这个引理:
 \begin{lemma*}
@@ -332,7 +342,7 @@ pdfversion: hartshorne-3-2.pdf
   换句话说, $\cF$ 作为预层在 $Y$ 上的限制已经是层.
 \end{lemma*}
 
-\begin{proofc}
+\begin{proof}
   由于 $\cF_Y$ 事实上定义为 $U \mapsto \varinjlim_{U \subset \tilde{U}} \cF(\tilde{U})$ 的层化,
   立刻有 $\varinjlim_{U \subset \tilde{U}} \cF(\tilde{U})$ 到 $\cF_Y(U)$ 的映射.
   我们记此正向极限为 $\cF'_Y(U)$, 此映射为 $\varphi \colon \cF'_Y(U) \to \cF_Y(U)$.
@@ -355,11 +365,9 @@ pdfversion: hartshorne-3-2.pdf
   从而, 若把 $U_1, U_2, V$ 分别改为 $U_1 \setminus \overline{N}, U_2 \setminus \overline{N}, V \setminus \overline{N}$,
   就有 $V = U_1 \cap U_2$. 因此可从 $s_1, s_2$ 拼出 $s_0 \in \cF(\tilde{U_1} \cup \tilde{U_2})$
   使得 $s_0|_U = s$. 也就是说 $\varphi$ 是满射. \qedhere
-\printfootnotes
-\end{proofc}
-\clearfootnotes
+\end{proof}
 
-\begin{proofc}[习题 2.5 的证明]
+\begin{proof}[习题 2.5 的证明]
   由于 Zariski 空间的开集对一般化封闭, 任意包含 $P$ 的开集都包含 $X_P$,
   且若 $Q \notin X_P$, 有 $P \in (X \setminus \{Q\}^-)$.
   所以 $X_P = \bigcap_{P \in U \subset X} U$, 其中 $U$ 取遍包含 $P$ 的开集.
@@ -367,12 +375,12 @@ pdfversion: hartshorne-3-2.pdf
   按习题 2.3 (6), 对任意包含 $P$ 的开集 $V$, 有 $H_P^i(X, \cF) \cong H_P^i(X_P, \cF_P)$.
   若 $V \supset W$, 取 2.3 (5) 的长正合列, 有映射
   \[
-    \begin{cd}
+    \begin{tikzcd}
       \cdots \ar[r] & H_P^i(V, \cF|_V) \ar[r] \ar[d, "\cong"]
       & H^i(V, \cF|_V) \ar[r] \ar[d] & H^i(V \setminus \{P\}, \cF|_{V \setminus \{P\}}) \ar[r] \ar[d] & \cdots\\
       \cdots \ar[r] & H_P^i(W, \cF|_W) \ar[r]
       & H^i(W, \cF|_W) \ar[r] & H^i(W \setminus \{P\}, \cF|_{W \setminus \{P\}}) \ar[r] & \cdots
-    \end{cd}
+    \end{tikzcd}
   \]
   取正向极限即得正合列
   \[
@@ -405,16 +413,16 @@ pdfversion: hartshorne-3-2.pdf
   而 $\varinjlim H^i(V, -), \varinjlim H^i(V \setminus \{P\}, -)$ 显然也是可擦函子.
   因此由 $\delta$ 函子的万有性即得正合列的自然态射
   \[
-    \begin{cd}
+    \begin{tikzcd}
       \cdots \ar[r] & H_P^i(X, \cF) \ar[r] \ar[d]
       & \varinjlim_{P \in V} H^i(V, \cF|_V) \ar[r] \ar[d, "\cong"]
       & \varinjlim_{P \in V} H^i(V \setminus \{P\}, \cF|_{V \setminus \{P\}}) \ar[r] \ar[d, "\cong"] & \cdots\\
       \cdots \ar[r] & H_P^i(X_P, \cF_P) \ar[r]
       & H^i(X_P, \cF_P) \ar[r] & H^i(X_P \setminus \{P\}, \cF_P|_{X_P \setminus \{P\}}) \ar[r] & \cdots
-    \end{cd}
+    \end{tikzcd}
   \]
   由五引理, 即知 $H_P^i(X, \cF) \to H_P^i(X_P, \cF_P)$ 亦为同构.
-\end{proofc}
+\end{proof}
 
 \begin{exercise}
   令 $X$ 为 Noether 拓扑空间, $\{\cI_\alpha\}_{\alpha \in A}$ 为 $X$ 上内射层的有向系统. 证明 $\varinjlim \cI_\alpha$ 亦内射.
@@ -423,7 +431,7 @@ pdfversion: hartshorne-3-2.pdf
   其次, 证明这样的 $\cR$ 都有限生成, 因此 $\cR \to \varinjlim \cI_\alpha$ 穿过某个 $\cI_\alpha$.]
 \end{exercise}
 
-\begin{proofc}
+\begin{proof}
   我们按照提示顺序证明. 首先证明层 $\cI$ 内射当且仅当对 $X$ 的任意开子集 $U$, $\Z_U$ 的任意子层 $\cR$, 以及任意态射 $f \colon \cR \to \cI$,
   其都可以扩张成 $\Z_U \to \cI$ 的映射.
 
@@ -454,7 +462,7 @@ pdfversion: hartshorne-3-2.pdf
   接下来, 设 $\cI_\alpha$ 为内射层的有向系统. 设 $U$ 是开集, $\cR$ 是 $\Z_U$ 的子层, $f \colon \cR \to \varinjlim \cI_\alpha$.
   由于 $\Z_U$ 是 Noether 对象, $f^{-1}(\cI_\alpha)$ 稳定. 也就是说存在 $\alpha$ 使得 $f$ 穿过 $\cI_\alpha$.
   因此由 $\cI_\alpha$ 的内射性, $f$ 可以延拓为 $\Z_U \to \cI_\alpha \to \varinjlim \cI_\alpha$. 综上, $\varinjlim \cI_\alpha$ 内射.
-\end{proofc}
+\end{proof}
 
 \begin{exercise}
   令 $\bS^1$ 为圆, 配备通常的拓扑. 令 $\Z$ 为其上的常值层.
@@ -464,7 +472,7 @@ pdfversion: hartshorne-3-2.pdf
   \end{enumerate}
 \end{exercise}
 
-\begin{proofc}
+\begin{proof}
   此处参考 \href{https://math.stackexchange.com/questions/2801221/why-does-the-sheaf-cohomology-of-the-constant-sheaf-on-mathbbr-vanish}{MSE 问题},
   感谢名为 Daniel Schpler 的 MSE 用户.
 
@@ -510,4 +518,6 @@ pdfversion: hartshorne-3-2.pdf
           同理, $\cR_{u, d}$ 以 $0$ 延拓到 $\R$ 上后区间松, 因此上同调消失. 而 $C(I_u, \R) \oplus C(I_d, \R) \to \R^2$ 是满射.
           因此 $H^1(\bS^1, \cR) = 0$. \qedhere
   \end{enumerate}
-\end{proofc}
+\end{proof}
+
+\end{document}
