@@ -5,6 +5,7 @@ import           Hakyll
 
 import Text.Pandoc.Highlighting (Style, pygments, styleToCss)
 import Text.Pandoc.Options      (ReaderOptions (..), WriterOptions (..))
+import Text.Pandoc.Extensions
 
 import System.IO
 import System.FilePath (takeFileName)
@@ -67,6 +68,14 @@ pandocCompiler' :: Compiler (Item String)
 pandocCompiler' =
   pandocCompilerWith
     defaultHakyllReaderOptions
+      { readerExtensions = disableExtension Ext_tex_math_dollars $
+                            disableExtension Ext_latex_macros $
+                            disableExtension Ext_raw_tex $
+                            disableExtension Ext_subscript $
+                            disableExtension Ext_superscript $
+                            disableExtension Ext_smart $
+                            readerExtensions defaultHakyllReaderOptions
+      }
     defaultHakyllWriterOptions
       { writerHighlightStyle   = Just pandocCodeStyle
       }
@@ -91,10 +100,6 @@ hakyllMain = hakyllWith hakyllConfiguration $ do
 
   match "css/fonts/*" $ do
     route   idRoute
-    compile copyFileCompiler
-
-  match "Hugo/public/**" $ do
-    route   $ gsubRoute "Hugo/public/" (const "OI/")
     compile copyFileCompiler
 
   match "favicons/*" $ do
@@ -128,6 +133,17 @@ hakyllMain = hakyllWith hakyllConfiguration $ do
       >>= loadAndApplyTemplate "templates/default.html" postCtx
       -- >>= relativizeUrls
 
+  match "old_posts/*/*.svg" $ do
+    route idRoute
+    compile copyFileCompiler
+
+  match "old_posts/*.md" $ do
+    route $ setExtension "html"
+    compile $ pandocCompiler'
+      >>= loadAndApplyTemplate "templates/post.html" postCtx
+      >>= loadAndApplyTemplate "templates/default.html" postCtx
+      -- >>= relativizeUrls
+
   match "posts/*.btex" $ do
     route $ setExtension "html"
     compile $ btexCompiler
@@ -138,8 +154,10 @@ hakyllMain = hakyllWith hakyllConfiguration $ do
   create ["archive.html"] $ do
     route idRoute
     compile $ do
+      oldposts <- recentFirst =<< loadAll "old_posts/*"
       posts <- recentFirst =<< loadAll ("posts/*" .&&. hasNoVersion)
       let archiveCtx = listField "posts" postCtx (return posts) `mappend`
+                       listField "old_posts" postCtx (return oldposts) `mappend`
                        constField "title" "归档" `mappend`
                        defaultContext
 
@@ -153,7 +171,7 @@ hakyllMain = hakyllWith hakyllConfiguration $ do
     route idRoute
     compile $ do
       posts <- recentFirst =<< loadAll ("posts/*" .&&. hasNoVersion)
-      let indexCtx = listField "posts" postCtx (return posts) `mappend`
+      let indexCtx = listField "posts" postCtx (return $ take 10 posts) `mappend`
                      defaultContext
 
       getResourceBody
@@ -197,7 +215,5 @@ main = withFile mNullDevice WriteMode $ \devnull ->
 --------------------------------------------------------------------------------
 postCtx :: Context String
 postCtx =
-  mapContext takeFileName (pathField "source") `mappend`
-  mapContext toUrl (pathField "source_url") `mappend`
   dateField "date" "%Y 年 %m 月 %e 日" `mappend`
   defaultContext

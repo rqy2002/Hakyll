@@ -1,3 +1,20 @@
 <p> 我的所有文章如下： </p>
 
-$partial("templates/post-list.html")$
+<ul>
+    $for(posts)$
+        <li>
+            <a href="$url$">$title$</a> - $date$
+            $if(pdfversion)$; pdf 版本: <a href="/tex/$pdfversion$"> $pdfversion$ </a>$endif$
+        </li>
+    $endfor$
+</ul>
+
+<p> 学信竞时的文章如下: </p>
+
+<ul>
+    $for(old_posts)$
+        <li>
+            <a href="$url$">$title$</a> - $date$
+        </li>
+    $endfor$
+</ul>

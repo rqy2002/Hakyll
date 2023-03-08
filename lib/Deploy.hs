@@ -101,7 +101,7 @@ deployDir :: String
 deployDir = "_deploy/"
 
 ignoreFiles :: FilePath -> IO Bool
-ignoreFiles f = return $ isPrefixOf "OI/" f || f `elem` ["external-link.svg"]
+ignoreFiles f = return $ f `elem` ["external-link.svg"]
 
 repoUrl :: String
 repoUrl = "git@github.com:MenciStaticSites/rqy-blog.git"
