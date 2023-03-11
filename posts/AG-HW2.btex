@@ -1,0 +1,205 @@
+---
+title: 代数几何 2 作业二
+tag: 数学
+date: 2023-03-11
+pdfversion: AG-HW2.pdf
+---
+
+\newtheorem{exercise}{习题}
+\newtheorem*{lemma*}{引理}
+\theoremstyle{remark}
+\newtheorem*{remark*}{注}
+
+\def\ga{\mathfrak{a}}
+\def\gp{\mathfrak{p}}
+\def\gq{\mathfrak{q}}
+\def\gm{\mathfrak{m}}
+\def\gn{\mathfrak{n}}
+\def\A{\mathbb{A}}
+\def\P{\mathbb{P}}
+\def\Z{\mathbb{Z}}
+\def\F{\mathbb{F}}
+\def\Q{\mathbb{Q}}
+\def\R{\mathbb{R}}
+\def\C{\mathbb{C}}
+\def\bS{\mathbf{S}}
+\def\Ab{\mathfrak{Ab}}
+\def\id{\mathrm{id}}
+\def\sO{\mathscr{O}}
+\def\sK{\mathscr{K}}
+\def\sF{\mathscr{F}}
+\def\sE{\mathscr{E}}
+\def\sG{\mathscr{G}}
+\def\sH{\mathscr{H}}
+\def\sI{\mathscr{I}}
+\def\sP{\mathscr{P}}
+\def\sR{\mathscr{R}}
+\def\cC{\mathcal{C}}
+\def\Sch{\mathfrak{Sch}}
+\def\Rings{\mathfrak{Rings}}
+\def\spto{\rightsquigarrow}
+\def\red{\mathrm{red}}
+\def\spp{\operatorname{sp}}
+\def\Hom{\operatorname{Hom}}
+\def\sHom{\mathop{\mathscr{H\!om}}}
+\def\Spec{\operatorname{Spec}}
+\def\Tot{\operatorname{Tot}}
+\def\Proj{\operatorname{Proj}}
+\def\Supp{\operatorname{Supp}}
+\def\Ext{\operatorname{Ext}}
+\def\sExt{\mathop{\mathscr{E\!xt}}}
+\def\coker{\operatorname{coker}}
+\def\im{\operatorname{im}}
+\def\dim{\operatorname{dim}}
+\def\codim{\operatorname{codim}}
+\def\height{\operatorname{height}}
+\def\Frac{\operatorname{Frac}}
+\def\trd{\operatorname{tr.d.}}
+\def\leq{\leqslant}
+\def\geq{\geqslant}
+\def\Stacks#1{\href{https://stacks.math.columbia.edu/tag/#1}{Stacks Project #1}}
+\def\clearfootnotes{\def\@printfootnotes{}}
+\def\thetheorem{\arabic{theorem}}
+\def\hfill{}
+
+\begin{exercise}
+  设 $X$ 为 Noether 空间.
+  \begin{enumerate}[label=(\roman*)]
+    \item 设 $\{\sF_i\}$ 为 $X$ 上的 Abel 群层. 则
+          \[
+          H^n(X, \bigoplus_i \sF_i) \cong \bigoplus_i H^n(X, \sF_i) \quad \forall n.
+          \]
+    \item 设 $J$ 为有向集, $(\{\sF_i\}, \{\varphi_{i,j}\})_{i \in J}$ 为 $X$ 上 Abel 群层的有向系.
+          则
+          \[
+          H^n(X, \varinjlim_i \sF_i) \cong \varinjlim_i H^n(X, \sF_i) \quad \forall n.
+          \]
+  \end{enumerate}
+\end{exercise}
+
+\begin{proofc}
+  在 (ii) 中取 $J$ 为 $I$ 的所有有限子集就知道 (i) 是 (ii) 的直接推论. (有限直和显然保持同调).
+
+  据 Hartshorne 习题 II.1.11, 由于 $X$ 是 Noether 空间, 有
+  \[
+    \Gamma(X, \varinjlim_i \sF_i) \cong \varinjlim_i \Gamma(X, \sF_i).
+  \]
+  这同时也说明若诸 $\sF_i$ 都为松层, 则 $\varinjlim_i \sF_i$ 也松; 且 $\varinjlim_i$ 正合.
+
+  因此我们取 $\sF_i$ 的内射消解 $\sI_i^\bullet$, 则 $\varinjlim_i \sI_i^\bullet$ 即为 $\varinjlim_i \sF_i$ 的零调消解.
+  取上同调, 由正合性即得结论.
+\end{proofc}
+
+\begin{exercise} \hfill
+  \begin{enumerate}[label=(\roman*)]
+    \item 设 $f \colon X \to Y$ 连续. 则对 $X$ 上任意 Abel 群层 $\sF$ 和任意 $i$,
+          $R^i f_* \sF$ 恰为预层
+          \[
+          V \mapsto H^i(f^{-1}V, \sF)
+          \]
+          的层化.
+    \item 设 $(X, \sO_X)$ 为环化空间, $\sF, \sG$ 为 $\sO_X$ 模. 则对任意 $i$,
+          $\sExt^i_{\sO_X}(\sF, \sG)$ 即为预层
+          \[
+          U \mapsto \Ext^i_{\sO_X|_U}(\sF|_U, \sG|_U)
+          \]
+          的层化.
+  \end{enumerate}
+\end{exercise}
+
+\begin{proofc} \hfill
+  \begin{enumerate}[label=(\roman*)]
+    \item 设 $\sI^\bullet$ 为 $\sF$ 的内射消解. 则 $R^i f_* \sF$ 按定义即为 $f_* \sI^\bullet$ 的上同调.
+          而 $f_* \sI^\bullet$ 作为预层的上同调即为 $V \mapsto H^i(f^{-1}V, \sF)$.
+          层化函子是预层范畴到层范畴的正合函子, 因此其保持链复形的上同调, 因而
+          $f_* \sI^\bullet$ 作为层的上同调即为预层 $V \mapsto H^i(f^{-1}V, \sF)$ 的层化.
+    \item 类似的, 我们取 $\sG$ 的内射消解 $\sI$. 则 $\sExt^i_{\sO} = H^i(\sHom_{\sO_X}(\sF, \sI^\bullet))$.
+          按定义, $\sHom_{\sO_X}(\sF, \sI^\bullet)$ 即为层 $U \mapsto \Hom_{\sO_X|U}(\sF|_U, \sI^\bullet|_U)$ 构成的链复形.
+          因此作为预层, 其上同调即为 $U \mapsto \Ext^i_{\sO_X|_U}(\sF|_U, \sG|_U)$.
+          而层化保链复形上同调, 因此此链复形作为层的上同调即为上述预层的层化. \qedhere
+  \end{enumerate}
+\end{proofc}
+
+\begin{exercise}
+  设 $(X, \sO_X)$ 为环化空间, $\sF$ 为 $\sO_X$ 模. 令
+  \[
+    0 \to \sG' \to \sG \to \sG'' \to 0
+  \]
+  为 $\sO_X$ 模范畴中的短正合列. 证明有长正合列
+  \begin{align*}
+    \cdots &\to \Ext^i_{\sO_X}(\sG'', \sF) \to \Ext^i_{\sO_X}(\sG, \sF) \to \Ext^i_{\sO_X}(\sG', \sF) \xrightarrow{\delta} \\
+    &\to \Ext^{i+1}_{\sO_X}(\sG'', \sF) \to \cdots.
+  \end{align*}
+\end{exercise}
+
+\begin{proofc}
+  只需证明 $\Ext^i_{\sO_X}(-, \sF)$ 亦是反变函子 $\Hom_{\sO_X}(-, \sF)$ 的右导出函子.
+  这是同调代数的基本结果.
+
+  可以通过同时取 $\sG$ 的投射消解 $\sP^\bullet$ 和 $\sF$ 的内射消解 $\sI^\bullet$,
+  直和得到双重链复形, 取其两种不同的滤结构求谱序列即得到 $H^i(\Hom_{\sO_X}(\sG, \sI^\bullet)) \cong H^i(\Tot^\oplus(\Hom_{\sO_X}(\sP^\bullet, \sI^\bullet))) \cong H^i(\Hom_{\sO_X}(\sP^\bullet, \sF))$.
+\end{proofc}
+
+\begin{exercise}
+  设 $(X, \sO_X)$ 为环化空间, $\sF, \sG$ 为 $\sO_X$ 模.
+  定义 $\sF$ 对 $\sG$ 的\emph{扩张}为形如
+  \[
+    0 \to \sG \to \sE \to \sF \to 0
+  \]
+  的短正合列; 两个扩张 $\sE, \sE'$ 等价当且仅当有交换图
+  \[
+    \begin{cd}
+      0 \ar[r] & \sG \ar[r] \ar[d, "="] & \sE \ar[r] \ar[d, "\cong"] & \sF \ar[r] \ar[d, "="] & 0 \\
+      0 \ar[r] & \sG \ar[r]             & \sE' \ar[r]                & \sF \ar[r]             & 0.
+    \end{cd}
+  \]
+  证明存在自然的一一对应
+  \[
+    \Ext^1_{\sO_X}(\sF, \sG) \xrightarrow{\sim} \{ \sF\ \text{对}\ \sG\ \text{的扩张}\} / \cong.
+  \]
+\end{exercise}
+
+\begin{proofc}
+  这也是同调代数的基本结果. 我们不管 $(X, \sO_X)$, 改为在任意有足够投射对象的 Abel 范畴 $\cC$ 中考虑.
+
+  记 $A, B \in \cC$. 我们记 $e(A, B)$ 为所有 $A$ 对 $B$ 的扩张构成的的等价类的集合.
+  记 $\cdots \to P_1 \xrightarrow{d} P_0 \xrightarrow{\pi} A$ 为 $A$ 的投射消解.
+  则对任意扩张 $0 \to B \to E \to A \to 0$, 我们有提升
+  \[
+    \begin{cd}
+      \cdots \ar[r] & P_1 \ar[r, "d"] \ar[d] & P_0 \ar[r, "\pi"] \ar[d] & A \ar[r] \ar[d, "="] & 0 \\
+      0      \ar[r] & B   \ar[r]             & E   \ar[r]               & A \ar[r]             & 0.
+    \end{cd}
+  \]
+  且这样的提升在同伦意义下唯一. 此映射 $\varphi \colon P_1 \to B$ 是链复形 $\Hom(P_\bullet, B)$ 中的上环,
+  因此给出了 $[\varphi] \in H^1(\Hom(P_\bullet, B)) = \Ext^1(A, B)$.
+  同伦唯一性说明此上同调类不依赖于提升的选择 (这就是 $\id_B \in \Hom(B, B)$ 对应的上同调类的拉回).
+
+  记 $E'$ 为 $B \xleftarrow{\varphi} P_1 \xrightarrow{d} P_0$. 则按定义有交换图表
+  \[
+    \begin{cd}
+      \cdots \ar[r] & P_1 \ar[r, "d"] \ar[d] & P_0 \ar[r, "\pi"] \ar[d] & A \ar[r] \ar[d, "="] & 0 \\
+      0      \ar[r] & B   \ar[r] \ar[d, "="] & E'  \ar[r]        \ar[d] & A \ar[r] \ar[d, "="] & 0 \\
+      0      \ar[r] & B   \ar[r]             & E   \ar[r]               & A \ar[r]             & 0.
+    \end{cd}
+  \]
+  其中 $\psi \colon E' \to A$ 由 $B \xrightarrow{0} A \xleftarrow{\pi} P_0$ 诱导.
+  第二行事实上也正合: 其显然在 $B$ 和 $A$ 处正合, 且是链复形.
+  若 $p \in P_0, b \in B$, 使得 $\psi(p + b) = 0$, 则 $\pi(p) = 0$. 因此存在 $p_1 \in P_1$ 使得 $p_0 = d(p_1)$.
+  因而在 $E'$ 中有 $p + b = d(p_0) + b \in B$.
+
+  只关注后两行. 由五引理, $E \cong E'$. 因此扩张 $E \cong E' \in e(A, B)$ 反过来被 $\varphi$ 唯一确定.
+
+  综上, 我们已经有如下交换图表
+  \[
+    \begin{cd}
+      e(A, B) \ar[dr, "E \mapsto [\varphi]"'] & \Hom(P_1, B) \ar[l, "\varphi \mapsto B \amalg P_0"'] \ar[d] \\
+       & \Ext^1(A, B).
+    \end{cd}
+  \]
+  只需再证明若 $\varphi, \varphi' \in \Hom(P_1, B)$ 给出同一个等价类, 则他们给出同一个扩张.
+  而此时存在 $\psi \in \Hom(P_0, B)$ 使得 $\varphi - \varphi' = \psi d$.
+  因此 $E = B \amalg_{P_1, \varphi} P_0$ 和 $E' = B \amalg_{P_1, \varphi'} P_0$ 之间有同构 $(p, b) \mapsto (p, b + \psi(p))$.
+  所以上述映射 $\varphi \mapsto B \amalg_{P_1, \varphi} P_0$ 确实诱导了 $\Ext^1(A, B) \to e(A, B)$ 的映射,
+  其与 $E \mapsto [\varphi]$ 互逆. 这样就给出了一一对应.
+\end{proofc}
