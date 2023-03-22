@@ -19,6 +19,11 @@ import Numeric (showIntAtBase)
 import Data.Char (chr)
 import Data.List (isPrefixOf, intercalate)
 import Data.Time.Clock (getCurrentTime, UTCTime (..))
+#ifdef WINDOWS
+#elif UNIX
+#else
+#error "please define WINDOWS or UNIX"
+#endif
 
 theAnswerToTheUniverse :: Int
 theAnswerToTheUniverse = 42
@@ -68,7 +73,7 @@ modifyUrls files file = withUrls modify where
                     Nothing -> r </> tail url
                     Just url' -> r </> url'
     | isExternal url = url
-    | otherwise = case (M.lookup (dir </> url) files) of
+    | otherwise = case (M.lookup (dir ++ "/" ++ url) files) of
                     Nothing -> url
                     Just url' -> makeRelative dir url'
 #ifdef WINDOWS
@@ -109,10 +114,17 @@ repoUrl = "git@github.com:MenciStaticSites/rqy-blog.git"
 deployGitCommands :: String -> String
 deployGitCommands curTime = intercalate " && "
                       [ "cd " ++ deployDir,
+#ifdef WINDOWS
                         "git.exe init",
                         "git.exe add -A",
                         "git.exe commit -m \"" ++ curTime ++ "\"",
                         "git.exe push -u " ++ repoUrl ++ " HEAD:main --force"
+#elif UNIX
+                        "git init",
+                        "git add -A",
+                        "git commit -m \"" ++ curTime ++ "\"",
+                        "git push -u " ++ repoUrl ++ " HEAD:main --force"
+#endif
                       ]
 
 deploy :: Configuration -> IO ExitCode

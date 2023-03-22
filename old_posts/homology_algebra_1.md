@@ -33,7 +33,7 @@ $$
 
 在一个加性范畴 $\\mathcal{A}$ 里面，态射 $f:B\\to C$ 的一个 kernel 是一个态射 $i:A\\to B$ 使得 $fi=0$，并且这是 universal 的（也就是说如果有另一个态射 $q:A'\\to B,fq=0$，那么一定存在唯一的态射 $q':A'\\to A$ 使得 $q=iq'$，也就是这样的交换图（换句话说 $i$ 就是 $0$ 和 $f$ 的等化子）
 
-![Kernel](./homology\_algebra\_1/kernel.svg)
+![Kernel](homology\_algebra\_1/kernel.svg)
 
 把上面的图反过来的话，就得到了态射 $f$ 的 cokernel：即一个态射 $e:C\\to D$ 使得 $ef=0$ 并且这个性质是 universal 的。
 
@@ -57,7 +57,7 @@ $$
 
 在一个阿贝尔范畴里面可以定义一个态射 $f:B\\to C$的*像* $\\im f=\\ker(\\coker f)$，并且可以把 $f$ 分解成一个满射 $B\\to\\im f$ 和一个单射 $\\im f\\to C$。证明如下：
 
-![Image](./homology\_algebra\_1/image.svg)
+![Image](homology\_algebra\_1/image.svg)
 
 对于一个态射 $f:B\\to C$ 首先取其 $\\coker$（图中未标出态射名），然后取 $C\\to\\coker f$ 这个态射的 kernel，记做 $\\im f$。$\\im f\\to C$ 的态射记做 $m$。由于 kernel 都是单的，所以 $m$ 是单的。接下来由于 $B\\xrightarrow{f}C\\to\\coker f$ 复合为 $0$。所以根据 $m$ 的泛性质，存在一个态射 $v:B\\to\\im f$ 使得 $f=mv$。接下来只需要证明 $v$ 是满的。
 
@@ -71,7 +71,7 @@ $$
 
 要证明这个引理，只需要考虑到 $i$ 和 $f$ 的推出可以看成由 $i$ 和 $-f$ 引导的 $[i,-f]:A\\to B\\times C$ 的 cokernel。即，若 $\\phi:B\\times C\\to P$ 是 $[i,-f]$ 的 cokernel，那么 $i\_1:B\\to B\\times C\\to P$ 就可以看做 $i$ 的推出，而 $f\_1:C\\to B\\times C\\to P$ 可以看做 $f$ 的推出，如下图所示：
 
-![Pushout and cokernel](./homology\_algebra\_1/pushout\_cokernel.svg)
+![Pushout and cokernel](homology\_algebra\_1/pushout\_cokernel.svg)
 
 将 $\\coker[i,-f]$ 的 universal property 和 pushout 比较一下就可以知道这就是一个 pushout。(对任何的 $p:B\\to F,q:C\\to F$，如果 $pi=qf$，那么一定有 $[p,q][i,-f]=0$，因此 $[p,q]$ 经过 $\\coker[i,-f]$)。然而既然 $i$ 是单的，那么容易证明 $[i,-f]$ 也是单的，因此 $[i,-f]$ 是它的 cokernel 的 kernel。
 
@@ -85,7 +85,7 @@ $$
 
 记内射 $i:\\ker f\\to P,j:\\ker k\\to B$。首先我们解释一下 $g$ 怎样诱导 $\\ker f\\to\\ker k$ 的态射：考虑到 $kgi=hfi=0$，因此存在态射 $e:\\ker f\\to\\ker k$ 使得 $gi=je$。
 
-![Pullback](./homology\_algebra\_1/pullback\_isomorphism.svg)
+![Pullback](homology\_algebra\_1/pullback\_isomorphism.svg)
 
 由于 $P$ 是拉回，利用拉回的泛性质，存在一个态射 $t:\\ker k\\to P$ 使得 $gt=i,ft=0$，因此存在 $u:\\ker k\\to\\ker f$ 使得 $t=iu$，从而 $giue=gte=je=gi$，并且 $fiue=0=fi$，因此（根据拉回的态射的唯一性）$iue=i$，而 $i$ 是单射，从而 $ue=1\_{\\ker f}$。另一方面，$jeu=giu=gt=j$，$j$ 也是单射，所以 $eu=1\_{\\ker k}$。从而 $e$ 是同构。
 
@@ -103,7 +103,7 @@ $$
 
 必要性。若序列正合，而 $h:D\\to B$ 使得 $gh=0$，那么存在唯一的态射 $c:D\\to\\ker g$ 使得 $h=ic$。令 $E=A\\times\_{\\ker g}D$ 为 $c$ 和 $jp:A\\to\\ker g$ 的拉回，$l:E\\to A,k:E\\to D$ 是典范投影，即 $ck=jpl$。那么 $hk=ick=ijpl=fl$。由于 $p$ 是满的而 $j$ 是同构（序列正合），所以 $jp$ 也是满的，从而 $k$ 作为 $jp$ 的拉回也是满同态。
 
-![Exact sequence](./homology\_algebra\_1/exact\_seq\_1.svg)
+![Exact sequence](homology\_algebra\_1/exact\_seq\_1.svg)
 
 充分性。由于 $gi=0$，所以根据假设存在 $l:E\\to A$ 以及满的 $k:E\\to\\ker g$ 使得 $ik=fl$，即 $ijpl=ik$。由于 $i$ 是单的，所以 $jpl=k$ 是满的，从而 $j$ 是满的。所以 $j$ 既单又满，于是是同构，也就是说 $\\im f=\\ker g$。
 
@@ -111,7 +111,7 @@ $$
 
 若有如下交换图并且其中上下两行均为正合列，那么存在正合列 $\\ker a\\to\\ker b\\to \\ker c\\xrightarrow{\\delta}\\coker a\\to\\coker b\\to\\coker c$，其中 $\\delta:\\ker c\\to\\coker a$ （不严格地）定义为 $\\delta=g\_1^{-1}bf\_2^{-1}$。
 
-![Snake Lemma](./homology\_algebra\_1/snake\_lemma\_2.svg)
+![Snake Lemma](homology\_algebra\_1/snake\_lemma\_2.svg)
 
 #### 证明
 
@@ -121,11 +121,11 @@ $$
 
 我们把 $\\ker a\\to A'$ 的态射写作 $i\_a$，$A\\to\\coker a$ 的态射写作 $e\_a$。由于 $bf\_1i\_a=g\_1ai\_a=0$，存在 $p\_1:\\ker a\\to\\ker b$ 使得 $f\_1i\_a=i\_bp\_1$。同样的，存在 $p\_2:\\ker b\\to\\ker c$ 使得 $f\_2i\_b=i\_cp\_2$。反过来也有 $q\_1:\\coker a\\to\\coker b,q\_2:\\coker b\\to\\coker c$：
 
-![Snake Lemma](./homology\_algebra\_1/snake\_lemma\_3.svg)
+![Snake Lemma](homology\_algebra\_1/snake\_lemma\_3.svg)
 
 由于 $i\_cp\_2p\_1=f\_2f\_1i\_a=0$ 而 $i\_c$ 是单的，所以 $p\_2p\_1=0$。如果 $h:D\\to\\ker b$ 满足 $p\_2h=0$，那么 $f\_2i\_bh=0$。根据上一个引理，存在同态 $l:E\\to A'$ 以及满同态 $k:E\\to D$ 使得 $f\_1l=i\_bhk$，从而 $g\_1al=bf\_1l=bi\_bhk=0$。由于 $g\_1$ 是单同态，所以 $al=0$。因此存在 $m:E\\to\\ker a$ 使得 $l=i\_am$，然后有 $i\_bp\_1m=f\_1i\_am=f\_1l=i\_bhk$。然而 $i\_b$ 又是单的，所以 $p\_1m=hk$。综上，对任意的 $h:D\\to\\ker b, p\_2h=0$，我们找到了同态 $m:E\\to\\ker a$ 以及满同态 $k:E\\to D$ 使得 $p\_1m=hk$，因此根据前面的引理，$\\ker a\\to\\ker b\\to\\ker c$ 是正合的。对偶地，$\\coker a\\to\\coker b\\to\\coker c$ 也是正合的。如下图，事实上就是说我们证明 $al=0$，从而把 $l$ 拉回到 $\\ker a$ 上去。
 
-![Snake Lemma](./homology\_algebra\_1/snake\_lemma\_4.svg)
+![Snake Lemma](homology\_algebra\_1/snake\_lemma\_4.svg)
 
 **第二部分：** $\\delta$ 的构造
 
@@ -133,7 +133,7 @@ $$
 
 由于 $g\_2b\\pi'=ci\_c\\pi=0$，所以存在 $k:p\\to A'$ 使得 $b\\pi'=g\_1k$（本来 $k$ 应该是到达 $\\ker g\_2$，但是 $g\_1$ 是单射所以 $A$ 和 $\\im g\_1$ 是同构的）；记 $j:\\ker\\pi\\to p$ 为内射，根据前面那个小的引理，可以知道 $\\ker\\pi$ 和 $\\ker f\_2$ 是同构的，也就是说和 $\\im f\_2$ 是同构的，从而导出一个同态 $h:A'\\to\\ker\\pi$ 使得 $\\pi'jh=f\_1$。那么 $g\_1kjh=b\\pi'jk=bf\_1=g\_1a$。然而 $g\_1$ 单，从而 $kjh=a$，因而 $e\_akjh=e\_aa=0$。由于 $h$ 满，所以 $e\_akj=0$。
 
-![Snake Lemma](./homology\_algebra\_1/snake\_lemma\_5.svg)
+![Snake Lemma](homology\_algebra\_1/snake\_lemma\_5.svg)
 
 根据拉回的定义最上面这一行是正合的，因此 $\\pi$ 是 $j$ 的 cokernel，从而存在 $\\delta:\\ker c\\to\\coker a$ 使得 $\\delta\\pi=e\_ak$。这样的话，$\\iota\\delta\\pi=\\iota e\_ak=\\iota'g\_1k=\\iota'b\\pi'$，满足我们想要的条件。
 
@@ -147,7 +147,7 @@ $$
 
 若有下列行正合的交换图
 
-![Four lemma](./homology\_algebra\_1/four\_lemma.svg)
+![Four lemma](homology\_algebra\_1/four\_lemma.svg)
 
 那么：
 
@@ -158,7 +158,7 @@ $$
 
 只证明第一个，另一个是对偶。首先我们可以假设 $A\\to B$ 是单的，否则可以把 $A$ 替换成 $\\im(A\\to B)$，同样的，可以假设 $C'\\to D'$ 是满的。然后对
 
-![Four lemma](./homology\_algebra\_1/four\_lemma\_aux.svg)
+![Four lemma](homology\_algebra\_1/four\_lemma\_aux.svg)
 
 这两个交换图分别应用蛇引理：对第一个交换图应用蛇引理后，由于 $D'\\to D$ 是单射而 $C'\\to C$ 是满射，所以最后一个 $\\ker$ 和第二个 $\\coker$ 都是 $0$，从而夹在他们中间的也只能是 $0$，i.e. $\\ker(C'\\to D')\\to\\ker(C\\to D)$ 是单射。
 

@@ -179,7 +179,7 @@ $$g:M''\\xrightarrow{v^{-1}}M/\\Ker v\\xrightarrow{}M/\\Ker f\\xrightarrow{f}N$$
 
 如果我们有这样一张交换图（*i.e.* $b\\circ f=f'\\circ a,c\\circ g=g'\\circ b$）：
 
-![Snake Lemma](./commutative\_algebra\_2/snake\_lemma.svg)
+![Snake Lemma](commutative\_algebra\_2/snake\_lemma.svg)
 
 其中 $A,B,C,A',B',C'$ 都是 $A$-模，$a,b,c,f,g,f',g'$ 都是 $A$-模同态，并且上下两行都是正合列，则存在这样一个正合列：
 

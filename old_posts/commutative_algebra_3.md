@@ -26,8 +26,7 @@ date: 2020-06-14 16:13:25
 
 换句话说，$(T,g)$ 具有如下交换图所示的“~~宇宙财产~~泛性质/万有性质”（*universal property*）：
 
-![Tensor product](./commutative\_algebra\_3/tensor\_product.svg)
-![Tensor product](./commutative\_algebra\_3/tensor\_product.svg)
+![Tensor product](commutative\_algebra\_3/tensor\_product.svg)
   
 事实上唯一性（两个满足条件的 $T$ 至多相差一个同构）是直接由 $T,T'$ 的性质导出的：如果 $(T,g)$ 和 $(T',g')$ 都满足条件，那么存在唯一的同态 $j:T\\to T'$ 使得 $g'=j\\circ g$，反过来也存在唯一的同态 $j':T'\\to T$ 使得 $g=j'\\circ  g'$. 这样的话我们就有 $g=(j'\\circ j)\\circ g'$。
 
@@ -92,7 +91,7 @@ $$(f'\\circ f)\\otimes(g'\\circ g)=(f'\\otimes g')\\circ(f\\otimes g)$$
 
 > 事实上直和也可以用万有性质描述：对于任意的同态 $f:M\\to P,g:N\\to P$ 都存在唯一的同态 $h:M\\oplus N\\to P$ 使得 $f=h\\circ p\_1,g=h\\circ p\_2$。这里 $p\_1:M\\to M\\oplus N,p\_2:N\\to M\\oplus N$ 就是 $x\\mapsto (x,0)$ 和 $y\\mapsto (0,y)$ 咯，画成交换图：
 >
-> ![Direct sum](./commutative\_algebra\_3/direct\_sum.svg)
+> ![Direct sum](commutative\_algebra\_3/direct\_sum.svg)
 
 比方说我们构造同构 $\\phi:(M\\oplus N)\\otimes P\\to(M\\otimes P)\\oplus(N\\otimes P)$ 如下：首先定义映射
 

@@ -74,13 +74,13 @@ $$
 
 我们画一个例子来说明。注意下图中每个 $A\_i$ 都是一个拉回；不妨设 $Y=U\_3$。
 
-![Example](./homology\_algebra\_2/morphism.svg)
+![Example](homology\_algebra\_2/morphism.svg)
 
 假设构造态射的过程中出现了三次细化，如图所示。那么对任意的 $x\\in A\_3$，它事实上记录了 $U\_1,U\_2,U\_3$ 等每个“选择一个变量 $z$ 使得 $f(z)=x$ ”的 $z$；换句话说 $A\_3$ 记录了所有的中间变量。因此设这些变量分别为 $u\_1,u\_2,u\_3=y$，那么我们只需要证明：若 $f\_1(u\_1)=0,f\_2(u\_2)=h\_2(u\_1),f\_3(u\_3)=h\_3(u\_2)$，则 $u\_3=0$。
 
 ## 例子：再次证明蛇引理
 
-![Snake Lemma](./homology\_algebra\_2/snake\_lemma\_3.svg)
+![Snake Lemma](homology\_algebra\_2/snake\_lemma\_3.svg)
 
 首先我们构造 $\\delta$ 外的序列并且说明它正合。
 
