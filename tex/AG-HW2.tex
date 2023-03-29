@@ -25,7 +25,7 @@
 {.2em}%
 {}
 \theoremstyle{exercise}
-\newtheorem{exercise}{习题}
+\newtheorem{exercise}{习题}[section]
 \theoremstyle{plain}
 \newtheorem*{lemma*}{引理}
 \theoremstyle{remark}
@@ -86,6 +86,10 @@
 \def\clearfootnotes{\def\@printfootnotes{}}
 
 \begin{document}
+
+代数几何课程的两次习题.
+
+\section{第二次作业}
 
 \begin{exercise}
   设 $X$ 为 Noether 空间.
@@ -227,6 +231,63 @@
   因此 $E = B \amalg_{P_1, \varphi} P_0$ 和 $E' = B \amalg_{P_1, \varphi'} P_0$ 之间有同构 $(p, b) \mapsto (p, b + \psi(p))$.
   所以上述映射 $\varphi \mapsto B \amalg_{P_1, \varphi} P_0$ 确实诱导了 $\Ext^1(A, B) \to e(A, B)$ 的映射,
   其与 $E \mapsto [\varphi]$ 互逆. 这样就给出了一一对应.
+\end{proofc}
+
+\section{第五次作业}
+
+\begin{exercise}
+  考虑复形的两项滤过 $K^\bullet = F^0 K^\bullet \supset F^1 K^\bullet \supset F^2 K^\bullet \supset 0$.
+  写出其对应的谱序列, 并与复形间短正合列给出的长正合列作比较.
+\end{exercise}
+
+\begin{proofc}
+  记 $K^{\prime\bullet} = F^1 K^\bullet, K^{\prime\prime\bullet} = K^\bullet / K^{\prime\bullet}$.
+  谱序列的 $E_1$ 页为 $E_1^{p, q} = H^{p + q}(\operatorname{gr}^p K^\bullet)$.
+  \[
+    E_1^{p, q} = \begin{cases}
+      H^q(K^{\prime\prime\bullet}) & p = 0, \\
+      H^{q + 1} (K^{\prime\bullet}) & p = 1. \\
+      0 & p \neq 0, 1
+    \end{cases}
+  \]
+  因此其 $E_2$ 页即退化. 设 $\delta^q \colon H^q(K^{\prime\prime\bullet}) \to H^{q + 1}(K^{\prime\bullet})$, 则
+  \[
+    E_2^{p, q} = \begin{cases}
+      \ker \delta^q & p = 0,\\
+      \coker \delta^q & p = 1.
+    \end{cases}
+  \]
+  因此有短正合列 $0 \to \coker \delta^q \to H^{q + 1}(K^\bullet) \to \ker \delta^{q + 1}$.
+  
+  把这些短正合列拼起来, 就得到
+  \[
+    \cdots \to H^q(K^{\prime\prime\bullet}) \xrightarrow{\delta} H^{q + 1}(K^{\prime\bullet}) \to H^{q + 1}(K^\bullet)
+    \to H^{q + 1}(K^{\prime\prime\bullet}) \xrightarrow{\delta} H^{q + 2}(K^{\prime\bullet}) \to \cdots
+  \]
+  也就是对应的长正合列.
+\end{proofc}
+
+\begin{exercise}
+  证明某书上某引理:
+  若谱序列 $E_2^{p, q} \Rightarrow H^{p + q}$ 满足只要 $q \neq q_1, q_2$ 就有 $E_2^{p, q} = 0$ ($q_1 < q_2$),
+  求证有长正合列
+  \[
+    \cdots \to E_2^{n - q_1, q_1} \to H^n \to E_2^{n - q_2, q_2} \to E_2^{n + 1 - q_1, q_1} \to H^{n + 1} \to \dots.
+  \]
+\end{exercise}
+
+\begin{proofc}
+  记 $r_0 = q_2 - q_1 + 1$.
+  显然对任意 $r = 2, \dots, r_0 - 1$, 都有 $d_r^{p, q} \colon E_r^{p, q} \to E_r^{p + r, q - r + 1}$ 为 $0$.
+  因此 $E_{r_0}^{p, q} = E_2^{p, q}$.
+  
+  又此谱序列显然在 $r_0 + 1$ 页后退化 (之后的 $d = 0$), 则有
+  $0 \to E_{r_0 + 1}^{n - q_1, q_1} \to H^n \to E_{r_0 + 1}^{n - q_2, q_2} \to 0$.
+  记 $\delta^n = d_{r_0}^{n - q_2, q_1} \colon E_2^{n - q_2, q_2} \to E_2^{n + 1 - q_1, q_1}$,
+  则 $E_{r_0 + 1}^{n - q_1, q_1} = \coker \delta^{n-1}, E_{r_0 + 1}^{n - q_2, q_2} = \ker \delta^n$.
+  因此
+  $0 \to \coker \delta^{n-1} \to H^n \to \delta^n \to 0$.
+  将这些短正合列拼起来即得到所需求的长正合列.
 \end{proofc}
 
 \end{document}
