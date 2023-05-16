@@ -1,0 +1,267 @@
+---
+title: 代数几何 2 作业三
+tag: 数学
+date: 2023-04-07
+pdfversion: AG-HW3.pdf
+---
+
+\newtheorem{exercise}{习题}
+\newtheorem*{lemma*}{引理}
+\theoremstyle{remark}
+\newtheorem*{remark*}{注}
+
+\def\ga{\mathfrak{a}}
+\def\gp{\mathfrak{p}}
+\def\gq{\mathfrak{q}}
+\def\gm{\mathfrak{m}}
+\def\gn{\mathfrak{n}}
+\def\A{\mathbb{A}}
+\def\P{\mathbb{P}}
+\def\Z{\mathbb{Z}}
+\def\F{\mathbb{F}}
+\def\Q{\mathbb{Q}}
+\def\R{\mathbb{R}}
+\def\C{\mathbb{C}}
+\def\bS{\mathbf{S}}
+\def\Ab{\mathfrak{Ab}}
+\def\Mod{\mathfrak{Mod}}
+\def\id{\mathrm{id}}
+\def\sO{\mathscr{O}}
+\def\sK{\mathscr{K}}
+\def\sF{\mathscr{F}}
+\def\sE{\mathscr{E}}
+\def\sG{\mathscr{G}}
+\def\sH{\mathscr{H}}
+\def\sI{\mathscr{I}}
+\def\sP{\mathscr{P}}
+\def\sR{\mathscr{R}}
+\def\cC{\mathcal{C}}
+\def\Sch{\mathfrak{Sch}}
+\def\Rings{\mathfrak{Rings}}
+\def\spto{\rightsquigarrow}
+\def\red{\mathrm{red}}
+\def\spp{\operatorname{sp}}
+\def\Hom{\operatorname{Hom}}
+\def\sHom{\mathop{\mathscr{H\!om}}}
+\def\Spec{\operatorname{Spec}}
+\def\Tot{\operatorname{Tot}}
+\def\Proj{\operatorname{Proj}}
+\def\Supp{\operatorname{Supp}}
+\def\Ext{\operatorname{Ext}}
+\def\Tor{\operatorname{Tor}}
+\def\Tot{\operatorname{Tot}}
+\def\sExt{\mathop{\mathscr{E\!xt}}}
+\def\coker{\operatorname{coker}}
+\def\im{\operatorname{im}}
+\def\dim{\operatorname{dim}}
+\def\codim{\operatorname{codim}}
+\def\height{\operatorname{height}}
+\def\Frac{\operatorname{Frac}}
+\def\trd{\operatorname{tr.d.}}
+\def\leq{\leqslant}
+\def\geq{\geqslant}
+\def\Stacks#1{\href{https://stacks.math.columbia.edu/tag/#1}{Stacks Project #1}}
+\def\clearfootnotes{\def\@printfootnotes{}}
+\def\thetheorem{\arabic{theorem}}
+\def\kom{^{\Large \cdot}}
+\def\komm{^{\Large \cdot\cdot}}
+\def\hfill{}
+
+代数几何课程的又一次习题.
+
+\section{第三次作业}
+
+\begin{exercise}
+  设 $\phi \colon K\kom \to L\kom$ 为复形同态. 构造如下复形 $C\kom(\phi)$ 为
+  \begin{align*}
+    C^i(\phi) &= L^i \oplus K^{i + 1}, \\
+    d^i(x_i, y_{i + 1}) &= (dx_i + \phi(y_{i + 1}), -dy_{i + 1}).
+  \end{align*}
+  证明 $dd = 0$, 且有长正合列
+  \begin{align*}
+    \cdots \to H^i(K\kom) \to H^i(L\kom) \to H^i(C\kom(\phi)) \to H^{i+1}(K\kom) \to \cdots.
+  \end{align*}
+  因此 $C\kom(\phi)$ 零调当且仅当 $\phi$ 为拟同构. 称 $C\kom(\phi)$ 为 $\phi$ 的\emph{映射锥}.
+  证明任意复形上 $C\kom(\id)$ 零伦.
+\end{exercise}
+
+\begin{proofc}
+  \[
+    dd(x, y) = (d(dx + \phi(y)) - \phi(dy), ddy) = 0.
+  \]
+  而自然的嵌入映射 $i \colon L\kom \to C\kom(\phi)$ 和投影映射 $p \colon C\kom(\phi) \to K\kom[1]$ 显然都为复形同态,
+  且有正合列 $0 \to L\kom \xrightarrow{i} C\kom(\phi) \xrightarrow{p} K\kom[1] \to 0$.
+  此正合列即诱导出上述长正合列.
+
+  对于 $C\kom(\id_{K\kom})$, 可以构造同伦 $s(x_i, y_{i + 1}) = (0, x_i)$.
+  则
+  \[
+    (ds + sd)(x, y) = (x, -dx) + (0, dx + y) = (x, y).
+  \]
+  即 $C\kom(\id_{K\kom})$ 上的恒等映射零伦, 亦即 $C\kom(\id_{K\kom})$ 零伦.
+\end{proofc}
+
+\begin{exercise}
+  沿用上一习题的记号. 设有复形正合列
+  \[
+    0 \xrightarrow{} K\kom \xrightarrow{\phi} L\kom \xrightarrow{\psi} M\kom \xrightarrow{} 0.
+  \]
+  定义 $f \colon C\kom(\phi) \to M\kom$ 为 $f(x_i. y_{i + 1}) = \psi(x_i)$.
+  证明 $f$ 是复形同态并且是拟同构. 进一步还有短正合列
+  \[
+    0 \to C\kom(\id_{K\kom}) \to C\kom(\psi) \to M\kom \to 0.
+  \]
+\end{exercise}
+
+\begin{proofc}
+  \[
+    fd(x, y) = \psi(dx) + \psi\phi(y) = d\psi(x) = df(x, y).
+  \]
+  因此 $f$ 是复形同态.
+  考虑交换图
+  \[
+    \begin{cd}
+      \cdots \ar[r] & H^i(K\kom) \ar[r] \ar[d, equal] & H^i(L\kom) \ar[r] \ar[d, equal] & H^i(M\kom) \ar[r] \ar[d, "f_*"] & H^{i+1}(K\kom) \ar[r] \ar[d, equal]& \cdots. \\
+      \cdots \ar[r] & H^i(K\kom) \ar[r] & H^i(L\kom) \ar[r] & H^i(M\kom) \ar[r] & H^{i+1}(K\kom) \ar[r] & \cdots.
+    \end{cd}
+  \]
+  由五引理, $f$ 是拟同构.
+
+  定义映射 $g \colon C\kom(\id_{K\kom}) \to C\kom(\psi)$
+  为 $g(x, y) = (\psi(x), y)$, 其显然也是复形同态,
+  且 $fg = 0$.
+  由于 $f$ 是拟同构而 $C\kom(\id_{K\kom})$ 零伦,
+  显然有短正合列
+  \[
+    0 \to C\kom(\id_{K\kom}) \to C\kom(\psi) \to M\kom \to 0. \qedhere
+  \]
+\end{proofc}
+
+\begin{exercise}
+  设 $A$ 为交换环. 对任意 $A$ 模 $M$, 令函子 $\Ext_A^i(M, -)$ 为 $\Hom_A(M, -)$ 的导出函子.
+  对 $\Spec A$ 的任意仿射开集 $U$, 令
+  \[
+    A_U = \Gamma(U, \sO_{\Spec A}), \quad
+    M_U = \Gamma(U, \tilde{M}), \quad
+    N_U = \Gamma(U, \tilde{N}).
+  \]
+  设 $A$ Noether 且 $M$ 有限生成.
+  证明
+  \[
+    \Ext_{A_U}^i(M_U, N_U) \cong \Ext_{\sO_U}^i(\tilde{M}|_U, \tilde{N}|_U).
+  \]
+\end{exercise}
+
+\begin{exercise}
+  设 $R$ 是主理想整环.
+  \begin{enumerate}
+    \item 对任意 $R$ 有限生成模 $M$, 任意 $R$ 模 $N$,
+          及任意 $i \neq 0, 1$, 都有
+          \[
+            \Ext_R^i(M, N) = 0, \quad \Tor_i^R(M, N) = 0.
+          \]
+    \item 令 $K\kom$ 为有限阶自由 $R$ 模构成的复形.
+          证明有短正合列
+          \[
+            0 \to H^n(K\kom) \otimes_R N \to H^n(K\kom \otimes_R N)
+            \to \Tor_1^R(H^{n + 1}(K\kom), N) \to 0,
+          \]
+          \[
+            0 \to \Ext_R^1(H^{-(n-1)}(K\kom), N)
+            \to  H^n(\Hom_R(K\kom, N))
+            \to \Hom_R(H^{-n}(K\kom), N) \to 0.
+          \]
+  \end{enumerate}
+\end{exercise}
+
+\begin{proofc} \hfill
+  \begin{enumerate}
+    \item 由主理想整环上的有限生成模分类定理, $M$ 可以表示为两个自由模的商,
+    即有投射消解 $0 \to R^m \to R^n \to M \to 0$.
+    以此消解计算 $\Ext, \Tor$ 即知其在下标超过 $1$ 时消失.
+    \item 由于命题关于 $K$ 局部, 不妨设 $K$ 上有界.
+          取 $N$ 的自由消解 $P\kom \to N$.
+          则二重复形 $L\komm = K\kom \otimes_R P\kom$
+          满足 $\Tot(L\komm) \to (K\kom \otimes_R N)$ 拟同构.
+
+          取 $H_{II} H_{I} L\komm$
+          即得到谱序列 $E_2^{pq} = \Tor_{-p}^R(H^q(K\kom), N) \Rightarrow H^{p+q}(K\kom \otimes_R N)$.
+          由于 $H^q(K\kom)$ 有限生成, 由 1 即知此谱序列在第二项即退化, 于是即有
+          \[
+            0 \to H^n(K\kom) \otimes_R N \to H^n(K\kom \otimes_R N)
+            \to \Tor_1^R(H^{n + 1}(K\kom), N) \to 0.
+          \]
+          $\Ext$ 的证明完全相同. \qedhere
+  \end{enumerate}
+\end{proofc}
+
+\begin{exercise}
+  令 $X$ 为概形, $\sF$ 为有限阶局部自由 $\sO$ 模,
+  $\sG$ 为任意 $\sO$ 模. 证明有同构
+  \[
+    H^i(X, \sHom_{\sO_X}(\sF, \sG)) \cong \Ext_{\sO_X}^i(\sF, \sG).
+  \]
+\end{exercise}
+
+\begin{proofc}
+  我们有谱序列 $E_2^{pq} = H^p(X, \sExt^q(\sF, \sG)) \Rightarrow \Ext_{\sO_X}^{p + q}(\sF, \sG)$.
+  但是局部上, $\sF \cong \sO_X^k$, 从而对任意 $i > 0$ 有 $\sExt^i(\sF, \sG) = 0$.
+  因此这个谱序列立刻退化, 且我们有同构
+  \[
+    H^i(X, \sHom_{\sO_X}(\sF, \sG)) \cong \Ext_{\sO_X}^i(\sF, \sG). \qedhere
+  \]
+\end{proofc}
+
+\begin{exercise} \label{ex}
+  证明如下的 de Rham 同构: 令 $X$ 为(实)微分流形,
+  $A^n(X)$ 为 $X$ 上的复系数微分 $n$-形式构成的 $\C$ 线性空间,
+  也就是 $\Omega_X^n$ 的全局截面.
+  令 $(A\kom(X), d)$ 为 $X$ 的 de Rham 复形. 注意 $A^0(X)$ 就是光滑函数空间.
+  令 $\C$ 为 $X$ 的常值层.
+  证明 de Rham 同构: 对任意 $k$, $H^k(X, \C) \cong H^k(A\kom(X), d)$.
+\end{exercise}
+
+\begin{remark*}
+  注意 $\Omega^n$ 并不松(除非 $X$ 是单点). 证明他是零调的.
+  可能 $\Omega^n$ 不是个好记号,
+  人们一般用 $\mathcal{A}^n(X)$ 表示 $n$ 阶微分形式层.
+  这里可以使用单位分解证明其零调.
+\end{remark*}
+
+\begin{proofc}
+  我们知道, 事实上有层的长正合列 (Poincar\'{e} 引理)
+  \[
+    0 \to \C \to \Omega^0_X \to \Omega^1_X \to \cdots.
+  \]
+  这可以通过局部验证来得到. 而 $A^n(X) = \Gamma(X, \Omega^n_X)$.
+  因此若能证明 $\Omega^n_X$ 对 $\Gamma(X, -)$ 零调, 它就是 $\C$ 的零调消解,
+  因此 $A\kom(X)$ 的上同调自然同构于 $H^k(X, \C)$.
+
+  事实上, 任意 $C^\infty(X)$-模都是软层,
+  即对任意闭集 $Y$, 有 $\Gamma(X, \sF) \to \Gamma(Y, \sF)$ 满射.
+  这是因为 $\Gamma(Y, \sF) = \varinjlim_{U \supset Y} \Gamma(U, \sF)$.
+  若 $t \in \Gamma(Y, \sF)$ 有代表元 $s \in \Gamma(U, \sF)$,
+  则任取一个在 $Y$ 上恒 $1$ 且在 $U$ 外恒 $0$ 的函数 $f$,
+  $f \cdot s$ 即是 $t$ 在全空间上的延拓.
+
+  因此 $\Omega_X^n$ 是软的.
+  而仿紧 Hausdorff 空间上软的层总是零调的, 证毕.
+\end{proofc}
+
+\begin{lemma*}
+  仿紧 Hausdorff 空间上软的层是零调的.
+\end{lemma*}
+
+\begin{proofc}
+  首先, 内射层都是软的. 因为内射层是松的, 而松层是软的
+  (可以先扩张到足够小的开邻域里, 然后使用松性延拓到全空间).
+
+  其次, 设 $0 \to \sF' \to \sF \to \sF'' \to 0$ 是层正合列,
+  且 $\sF', \sF$ 软, 则对应的整体截面也正合, 且 $\sF''$ 亦软.
+  证明与松的情况一致, 只不过扩张时只能扩张出找到的邻域里的一部分:
+  若对 $t \in \sF''$ 找出其扩张 $s_1 \in \sF(U_1), s_2 \in \sF(U_2)$,
+  那么可以收缩 $U_1, U_2$ 为 $V_1, V_2$ 使得 $\overline{V_i} \subset U_i$,
+  并得到 $t$ 在 $V_1 \cup V_2$ 上的扩张.
+
+  与松的情形一样, 取内射消解即得到结论.
+\end{proofc}

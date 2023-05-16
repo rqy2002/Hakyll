@@ -62,10 +62,6 @@ body {
     letter-spacing: normal
 }
 
-main {
-    line-height: 1.8
-}
-
 .tright {
     float: right;
     clear: both
@@ -352,7 +348,7 @@ main {
     margin: 0 0 1em 0;
     background-color: #f4f6f8;
     border-color: #c0c4c8;
-    border-left: 3px solid
+    border-left: 5px solid
 }
 
 .btex-output span.katex-display {
@@ -482,7 +478,7 @@ main {
 }
 
 .btex-output .block.style-a {
-    background: #f4fcff;
+    background: #f0f6ff;
     border-color: #a0e0ff
 }
 
@@ -499,7 +495,7 @@ main {
 }
 
 .btex-output .block.style-b {
-    background: #fffdf0;
+    background: #fff0ea;
     border-color: #ffd880
 }
 
@@ -516,7 +512,7 @@ main {
 }
 
 .btex-output .block.style-c {
-    background: #f2faf2;
+    background: #ebfbeb;
     border-color: #a0e0a0
 }
 
@@ -547,7 +543,8 @@ main {
     position: absolute;
     cursor: pointer;
     text-indent: 0;
-    margin-left: -20px
+    margin-left: -20px;
+    margin-top: 5px;
 }
 
 .btex-output .proof-collapsible .proof-expander.proof-expander-ellipsis {
@@ -608,7 +605,7 @@ span.btex-diagram .katex {
 }
 
 span.btex-diagram .katex span.rlap {
-    user-select: none
+    user-select: none;
     -webkit-user-select: none
 }
 
