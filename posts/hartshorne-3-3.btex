@@ -3,59 +3,8 @@ title: Hartshorne 第三章第三节习题
 tag: 数学
 date: 2023-03-17
 lastdate: 2023-03-20
+preamble: AG.btex
 ---
-
-\newtheorem{exercise}{习题}
-\newtheorem*{lemma*}{引理}
-\theoremstyle{remark}
-\newtheorem*{remark*}{注}
-
-
-\def\ga{\mathfrak{a}}
-\def\gp{\mathfrak{p}}
-\def\gq{\mathfrak{q}}
-\def\gm{\mathfrak{m}}
-\def\gn{\mathfrak{n}}
-\def\A{\mathbb{A}}
-\def\P{\mathbb{P}}
-\def\Z{\mathbb{Z}}
-\def\F{\mathbb{F}}
-\def\Q{\mathbb{Q}}
-\def\R{\mathbb{R}}
-\def\C{\mathbb{C}}
-\def\bS{\mathbf{S}}
-\def\Ab{\mathfrak{Ab}}
-\def\id{\mathrm{id}}
-\def\cO{\mathscr{O}}
-\def\cK{\mathscr{K}}
-\def\cF{\mathscr{F}}
-\def\cN{\mathscr{N}}
-\def\cG{\mathscr{G}}
-\def\cH{\mathscr{H}}
-\def\cI{\mathscr{I}}
-\def\cR{\mathscr{R}}
-\def\Mod{\mathfrak{Mod}}
-\def\Sch{\mathfrak{Sch}}
-\def\Rings{\mathfrak{Rings}}
-\def\spto{\rightsquigarrow}
-\def\red{\mathrm{red}}
-\def\spp{\operatorname{sp}}
-\def\Hom{\operatorname{Hom}}
-\def\Spec{\operatorname{Spec}}
-\def\Proj{\operatorname{Proj}}
-\def\Supp{\operatorname{Supp}}
-\def\coker{\operatorname{coker}}
-\def\im{\operatorname{im}}
-\def\dim{\operatorname{dim}}
-\def\codim{\operatorname{codim}}
-\def\height{\operatorname{height}}
-\def\Frac{\operatorname{Frac}}
-\def\trd{\operatorname{tr.d.}}
-\def\leq{\leqslant}
-\def\geq{\geqslant}
-\def\Stacks#1{\href{https://stacks.math.columbia.edu/tag/#1}{Stacks Project #1}}
-\def\clearfootnotes{\def\@printfootnotes{}}
-\def\hfill{}
 
 Hartshorne 3.3 的习题.
 
@@ -67,12 +16,12 @@ Hartshorne 3.3 的习题.
   证明 $X$ 仿射当且仅当 $X_{\red}$ 仿射.
   [\textit{提示:} 使用定理 3.7\footnote{%
   $X$ 仿射当且仅当所有拟凝聚层的上同调消失.},
-  并且对任意凝聚层 $\cF$ 考虑滤过
+  并且对任意凝聚层 $\sF$ 考虑滤过
   \[
-    \cF \supseteq \cN \cdot \cF
-    \supseteq \cN^2 \cdot \cF \supseteq \dots
+    \sF \supseteq \sN \cdot \sF
+    \supseteq \sN^2 \cdot \sF \supseteq \dots
   \]
-  其中 $\cN$ 为 $X$ 的幂零元构成的层.]
+  其中 $\sN$ 为 $X$ 的幂零元构成的层.]
 \end{exercise}
 \printfootnotes
 \clearfootnotes
@@ -81,16 +30,16 @@ Hartshorne 3.3 的习题.
   若 $X$ 仿射, 显然有 $X_{\red}$ 仿射.
 
   反之, 设 $X_{\red}$ 仿射.
-  设 $\cF$ 是 $X$ 上的拟凝聚层.
-  若能证明 $H^1(X, \cF) = 0$, 则由 Serre 定理即知 $X$ 仿射.
+  设 $\sF$ 是 $X$ 上的拟凝聚层.
+  若能证明 $H^1(X, \sF) = 0$, 则由 Serre 定理即知 $X$ 仿射.
 
-  记 $\cN$ 为 $\cO_X$ 中所有幂零元组成的理想层.
-  由于 $X$ Noether, 存在 $n$ 使得 $\cN^n = 0$.
-  记 $\cF_k = \cN^k \cdot \cF$,
-  则 $\cF_k / \cF_{k + 1}$ 同时也是 $\cO_{X, \red}$ 层.
-  通过考虑一族仿射覆盖上的情形, 即知 $\cF_k / \cF_{k+1}$ 也是 $\cO_{X, \red}$ 上的拟凝聚层.
-  由于 $X_{\red}$ 仿射, 即知 $H^1(X, \cF_k / \cF_{k+1}) = 0$.
-  而 $\cF_n = 0$. 因此重复使用由上同调的长正合列立知 $H^1(X, \cF) = 0$.
+  记 $\sN$ 为 $\sO_X$ 中所有幂零元组成的理想层.
+  由于 $X$ Noether, 存在 $n$ 使得 $\sN^n = 0$.
+  记 $\sF_k = \sN^k \cdot \sF$,
+  则 $\sF_k / \sF_{k + 1}$ 同时也是 $\sO_{X, \red}$ 层.
+  通过考虑一族仿射覆盖上的情形, 即知 $\sF_k / \sF_{k+1}$ 也是 $\sO_{X, \red}$ 上的拟凝聚层.
+  由于 $X_{\red}$ 仿射, 即知 $H^1(X, \sF_k / \sF_{k+1}) = 0$.
+  而 $\sF_n = 0$. 因此重复使用由上同调的长正合列立知 $H^1(X, \sF) = 0$.
 
   综上, $X$ 仿射.
 \end{proofc}
@@ -104,12 +53,12 @@ Hartshorne 3.3 的习题.
   因此也仿射.
 
   充分性: 设 $X$ 的不可约分支为 $X_1, \dots, X_n$, 且 $X_k$ 都为仿射概形,
-  其对应的理想层为 $\cI_k$, 则 $\cI_1 \cI_2 \cdots \cI_n = 0$
+  其对应的理想层为 $\sI_k$, 则 $\sI_1 \sI_2 \cdots \sI_n = 0$
   (在每个仿射开集上验证即可, 所有极小素理想之交为幂零根).
-  对 $\cO_X$ 上任意拟凝聚层 $\cF$, 设 $\cF_k = \cI_1 \cI_2 \cdots \cI_k \cF, \cF_0 = \cF$.
-  则 $\cF_{k-1} / \cF_k$ 支撑在 $X_k$ 上，且为 $\cO_{X_k}$ 拟凝聚层.
-  因此由 $H^1(X, \cF_{k-1} / \cF_k) \cong H^1(X_k, \cF_{k-1} / \cF_k) = 0$
-  和长正合列即知 $H^1(X, \cF) = 0$. 所以 $X$ 仿射.
+  对 $\sO_X$ 上任意拟凝聚层 $\sF$, 设 $\sF_k = \sI_1 \sI_2 \cdots \sI_k \sF, \sF_0 = \sF$.
+  则 $\sF_{k-1} / \sF_k$ 支撑在 $X_k$ 上，且为 $\sO_{X_k}$ 拟凝聚层.
+  因此由 $H^1(X, \sF_{k-1} / \sF_k) \cong H^1(X_k, \sF_{k-1} / \sF_k) = 0$
+  和长正合列即知 $H^1(X, \sF) = 0$. 所以 $X$ 仿射.
 \end{proofc}
 
 \begin{exercise}
@@ -148,8 +97,8 @@ Hartshorne 3.3 的习题.
           最后一步使用了 $A$ 的 Noether 性.
           因此 $\Gamma_{\ga}(M) \cong \Gamma_Y(X, \tilde{M})$.
 
-          取 $M$ 的内射消解 $\cI^\bullet$. 则由于 $X$ 仿射, $\tilde{\cI^\bullet}$ 松.
-          而 $M \mapsto \tilde{M}$ 是正合函子, 因此 $\tilde{\cI^\bullet}$ 是 $\tilde{M}$
+          取 $M$ 的内射消解 $\sI^\bullet$. 则由于 $X$ 仿射, $\tilde{\sI^\bullet}$ 松.
+          而 $M \mapsto \tilde{M}$ 是正合函子, 因此 $\tilde{\sI^\bullet}$ 是 $\tilde{M}$
           的松消解.
           两边分别应用 $\Gamma_{\ga}(\cdot)$ 和 $\Gamma_Y(X, \cdot)$,
           取上同调即知 $H_{\ga}^i(M) \cong H_Y^i(X, \tilde{M})$.

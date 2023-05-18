@@ -1,0 +1,75 @@
+\newtheorem{@exercise}{习题}
+\@envdef{exercise}{}{%
+  \@@cmd{env.@exercise.begin}%
+  \@toc{2}{习题 \thetheorem}%
+}{%
+  \@@cmd{env.@exercise.end}%
+}
+\@envpdef{exercise}{[#1]}{%
+  \@@cmd{env.@exercise.begin}[#1]%
+  \@toc{2}{习题 \thetheorem{} (#1)}%
+}{%
+  \@@cmd{env.@exercise.end}%
+}
+
+\newtheorem*{lemma*}{引理}
+\theoremstyle{remark}
+\newtheorem*{remark*}{注}
+
+\def\ga{\mathfrak{a}}
+\def\gp{\mathfrak{p}}
+\def\gq{\mathfrak{q}}
+\def\gm{\mathfrak{m}}
+\def\gn{\mathfrak{n}}
+\def\A{\mathbb{A}}
+\def\P{\mathbb{P}}
+\def\Z{\mathbb{Z}}
+\def\F{\mathbb{F}}
+\def\Q{\mathbb{Q}}
+\def\R{\mathbb{R}}
+\def\C{\mathbb{C}}
+\def\bS{\mathbf{S}}
+\def\Ab{\mathfrak{Ab}}
+\def\Mod{\mathfrak{Mod}}
+\def\id{\mathrm{id}}
+\def\sE{\mathscr{E}}
+\def\sF{\mathscr{F}}
+\def\sG{\mathscr{G}}
+\def\sH{\mathscr{H}}
+\def\sI{\mathscr{I}}
+\def\sK{\mathscr{K}}
+\def\sN{\mathscr{N}}
+\def\sO{\mathscr{O}}
+\def\sP{\mathscr{P}}
+\def\sR{\mathscr{R}}
+\def\cC{\mathcal{C}}
+\def\Sch{\mathfrak{Sch}}
+\def\Rings{\mathfrak{Rings}}
+\def\spto{\rightsquigarrow}
+\def\red{\mathrm{red}}
+\def\spp{\operatorname{sp}}
+\def\Hom{\operatorname{Hom}}
+\def\sHom{\mathop{\mathscr{H\!om}}}
+\def\Spec{\operatorname{Spec}}
+\def\Tot{\operatorname{Tot}}
+\def\Proj{\operatorname{Proj}}
+\def\Supp{\operatorname{Supp}}
+\def\Ext{\operatorname{Ext}}
+\def\Tor{\operatorname{Tor}}
+\def\Tot{\operatorname{Tot}}
+\def\sExt{\mathop{\mathscr{E\!xt}}}
+\def\coker{\operatorname{coker}}
+\def\im{\operatorname{im}}
+\def\dim{\operatorname{dim}}
+\def\codim{\operatorname{codim}}
+\def\height{\operatorname{height}}
+\def\Frac{\operatorname{Frac}}
+\def\trd{\operatorname{tr.d.}}
+\def\leq{\leqslant}
+\def\geq{\geqslant}
+\def\Stacks#1{\href{https://stacks.math.columbia.edu/tag/#1}{Stacks Project #1}}
+\def\clearfootnotes{\def\@printfootnotes{}}
+\def\thetheorem{\arabic{theorem}}
+\def\kom{^{\Large \cdot}}
+\def\komm{^{\Large \cdot\cdot}}
+\def\hfill{}

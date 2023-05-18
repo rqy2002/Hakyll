@@ -203,13 +203,33 @@ body {
         overflow-y: scroll;
         scrollbar-width: none;
         position: sticky;
+        max-height: calc(100vh - 100px);
         width: 200px;
     }
+    .toc:hover {
+        scrollbar-color: dark;
+        scrollbar-width: thin;
+    }
     .toc::-webkit-scrollbar {
-        width: 0;
+        display: none;
+    }
+    .toc.webkit:hover {
+        width: 208px;
+    }
+    .toc.webkit:hover::-webkit-scrollbar {
+        display: block;
+        width: 8px;
+        height: 8px;
+        background-color: #efeff3;
+    }
+    .toc.webkit::-webkit-scrollbar-thumb {
+        background-color: #dfdfee;
     }
     main:has(.toc) {
         margin-left: 300px;
+    }
+    .toc>ul>li>a.active {
+        color: black;
     }
 }
 

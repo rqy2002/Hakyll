@@ -2,44 +2,9 @@
 title: Hartshorne 第二章第三节习题
 tag: 数学
 date: 2022-10-23
-pdfversion: hartshorne-2-3.pdf
+pdf-version: hartshorne-2-3.pdf
+preamble: AG.btex
 ---
-
-\newtheorem{exercise}{习题}
-
-\def\ga{\mathfrak{a}}
-\def\gp{\mathfrak{p}}
-\def\gq{\mathfrak{q}}
-\def\gm{\mathfrak{m}}
-\def\gn{\mathfrak{n}}
-\def\uA{\mathbf{A}}
-\def\Z{\mathbb{Z}}
-\def\F{\mathbb{F}}
-\def\Q{\mathbb{Q}}
-\def\R{\mathbb{R}}
-\def\C{\mathbb{C}}
-\def\id{\mathrm{id}}
-\def\cO{\mathcal{O}}
-\def\Sch{\mathfrak{Sch}}
-\def\Rings{\mathfrak{Rings}}
-\def\spto{\rightsquigarrow}
-\def\red{\mathrm{red}}
-\def\spp{\operatorname{sp}}
-\def\Hom{\operatorname{Hom}}
-\def\Spec{\operatorname{Spec}}
-\def\Proj{\operatorname{Proj}}
-\def\Supp{\operatorname{Supp}}
-\def\coker{\operatorname{coker}}
-\def\im{\operatorname{im}}
-\def\dim{\operatorname{dim}}
-\def\codim{\operatorname{codim}}
-\def\height{\operatorname{height}}
-\def\Frac{\operatorname{Frac}}
-\def\trd{\operatorname{tr.d.}}
-\def\leq{\leqslant}
-\def\geq{\geqslant}
-\def\Stacks#1{\href{https://stacks.math.columbia.edu/tag/#1}{Stacks Project #1}}
-\def\clearfootnotes{\def\@printfootnotes{}}
 
 这里是 Hartshorne 第二章第三节习题.
 
@@ -139,8 +104,8 @@ pdfversion: hartshorne-2-3.pdf
   再设 $V = \Spec B \subseteq Y$ 是任意仿射开集, $U = f^{-1}(V)$.
   则由上可知存在有限个 $b_i \in B$, 它们生成 $B$,
   且每个 $f^{-1}(D(b_i)) = \Spec A_i$, 对应的 $A_i$ 是有限 $B_{b_i}$-模.
-  设 $a_i = f^\sharp(V)(b_i) \in \cO_X(U)$.
-  则 $a_i$ 也生成 $\cO_X(U)$, 且每个 $U_{a_i} = f^{-1}(D(b_i))$ 仿射.
+  设 $a_i = f^\sharp(V)(b_i) \in \sO_X(U)$.
+  则 $a_i$ 也生成 $\sO_X(U)$, 且每个 $U_{a_i} = f^{-1}(D(b_i))$ 仿射.
   因此由习题 2.17 即知 $U$ 也仿射. 记 $U = \Spec A$.
   则每个 $A_{a_i}$ 是有限 $B_{b_i}$ 模.
   接下来类似前一习题中的 (c) 易证 $A$ 是有限 $B$ 模.
@@ -175,14 +140,14 @@ pdfversion: hartshorne-2-3.pdf
 \end{proofc}
 
 \begin{exercise}
-  设 $X$ 是整概形. 证明一般点 $\xi$ 处的局部环 $\cO_{\xi}$ 是域.
+  设 $X$ 是整概形. 证明一般点 $\xi$ 处的局部环 $\sO_{\xi}$ 是域.
   其被称作 $X$ 的\emph{函数域}, 记作 $K(X)$.
   证明如果 $U = \Spec A$ 是 $X$ 的任意仿射开集, 则 $K(X)$ 同构于 $A$ 的分式域.
 \end{exercise}
 
 \begin{proofc}
   设 $U = \Spec A$ 是任意仿射开集, 则 $\xi \in U$, 且 $\xi$ 也是 $U$ 的一般点.
-  因此 $\xi$ 对应 $A$ 中的零理想, 从而 $\cO_{\xi}$ 同构于 $A$ 的分式域.
+  因此 $\xi$ 对应 $A$ 中的零理想, 从而 $\sO_{\xi}$ 同构于 $A$ 的分式域.
 \end{proofc}
 
 \begin{exercise}
@@ -266,8 +231,8 @@ pdfversion: hartshorne-2-3.pdf
   回忆在代数簇范畴中, 两个代数簇的乘积的 Zariski 拓扑并不是乘积拓扑 (第一章习题 1.4).
   我们将会看到, 在概形范畴中, 乘积概形的底集合甚至都不是乘积集合.
   \begin{enumerate}[label={(\alph*)}]
-    \item 令 $k$ 是域, $\uA_k^1 = \Spec k[x]$ 是 $k$ 上的仿射直线.
-          证明 $\uA_k^1 \times_{\Spec k} \uA_k^1 \cong \uA_k^2$,
+    \item 令 $k$ 是域, $\A_k^1 = \Spec k[x]$ 是 $k$ 上的仿射直线.
+          证明 $\A_k^1 \times_{\Spec k} \A_k^1 \cong \A_k^2$,
           并证明其底集合并不是两个因子的底集合的乘积 (即使 $k$ 代数闭也一样).
     \item 令 $k$ 是域, $s, t$ 是不定元, 则 $\Spec k, \Spec k(s), \Spec k(t)$
           都是单点空间.
@@ -278,7 +243,7 @@ pdfversion: hartshorne-2-3.pdf
 
 \begin{proofc}
   \begin{enumerate}[label={(\alph*)}]
-    \item 由定义, $\uA_k^1 \times_{\Spec k} \uA_k^1 = \Spec (k[x] \otimes_k k[x]) = \Spec k[x, y] = \uA_k^2$.
+    \item 由定义, $\A_k^1 \times_{\Spec k} \A_k^1 = \Spec (k[x] \otimes_k k[x]) = \Spec k[x, y] = \A_k^2$.
           其中任意显含两个变量的不可约多项式生成的素理想
           (如 $(x - y)$) 都不属于两个因子底集合的乘积.
     \item $k, k(s), k(t)$ 都是域, 因此其谱当然是单点空间.
@@ -369,8 +334,8 @@ pdfversion: hartshorne-2-3.pdf
 
           通过添加一些 $D(g_i) \cap Y = \emptyset$ 的 $g_i$,
           不妨设这些 $D(g_i)$ 覆盖了 $X$；即 $g_i$ 生成了 $A$.
-          设 $\varphi \colon A \to \Gamma(Y, \cO_Y)$ 是 $f$ 诱导的整体截面上的映射,
-          则 $\varphi(g_i)$ 生成了 $\Gamma(Y, \cO_Y)$.
+          设 $\varphi \colon A \to \Gamma(Y, \sO_Y)$ 是 $f$ 诱导的整体截面上的映射,
+          则 $\varphi(g_i)$ 生成了 $\Gamma(Y, \sO_Y)$.
           且 $Y_{\varphi(g_i)} = f^{-1}(D(g_i))$ 均仿射.
           因此由习题 2.17b 即知 $Y$ 是仿射概形.
           再由习题 2.18d 即知 $Y \cong \Spec A / \ga$.
@@ -395,7 +360,7 @@ pdfversion: hartshorne-2-3.pdf
     \item[(c)] 由于可以将映射做粘接, 只需考虑 $X = \Spec A$ 仿射的情况.
           设 $Y = \Spec \ga$. 由 (b) 可知 $Y'$ 也仿射, 设为 $\Spec A / \ga'$,
           则 $\ga = \sqrt{\ga'} \supseteq \ga'$, 因此 $Y \to X$ 穿过 $Y'$.
-    \item[(d)] 若 $X = \Spec A$ 仿射, 则可以定义 $\ga = \ker (A \to \Gamma(Z, \cO_Z))$,
+    \item[(d)] 若 $X = \Spec A$ 仿射, 则可以定义 $\ga = \ker (A \to \Gamma(Z, \sO_Z))$,
           并定义 $Y = \Spec A / \ga$, 显然其满足泛性质.
           此时, $Y$ 在底空间上就是 $f(Z)$ 的闭包.
           且若 $Z$ 既约, 则 $A / \ga$ 也既约, 因此此时 $Y$ 就是既约诱导闭子概形.
@@ -760,9 +725,9 @@ pdfversion: hartshorne-2-3.pdf
     且对任意素理想 $\gp$ 有 $\height \gp + \dim B / \gp = \dim B$.}%
   证明下列命题:
   \begin{enumerate}[label={(\alph*)}]
-    \item 对于 $X$ 中的闭点 $P$, 有 $\dim X = \dim \cO_P$. 对于环, $\dim$ 总是表示 Krull 维数.
+    \item 对于 $X$ 中的闭点 $P$, 有 $\dim X = \dim \sO_P$. 对于环, $\dim$ 总是表示 Krull 维数.
     \item 令 $K(X)$ 表示 $X$ 的函数域, 证明 $\dim X = \trd K(X) / k$.
-    \item 若 $Y$ 是 $X$ 的闭子集, 则 $\codim(Y, X) = \inf \{ \dim \cO_{P, X} \mid P \in Y \}$.
+    \item 若 $Y$ 是 $X$ 的闭子集, 则 $\codim(Y, X) = \inf \{ \dim \sO_{P, X} \mid P \in Y \}$.
     \item 若 $Y$ 是 $X$ 的闭子集, 则 $\dim Y + \codim(Y, X) = \dim X$.
     \item 若 $U$ 是 $X$ 的非空开子集, 则 $\dim U = \dim X$.
     \item 若 $k' / k$ 是域扩张, 则 $X' = X \times_k k'$ 的每个不可约分支都具有和 $X$ 相同的维数.
@@ -776,18 +741,18 @@ pdfversion: hartshorne-2-3.pdf
     \item 首先考虑到 $\dim X = \sup \{ n \mid V_0 \subsetneq V_1 \subsetneq \dots \subsetneq V_n \}$,
           其中 $V_k$ 都是 $X$ 中的不可约闭集.
           取闭集的一般点即知 $\dim X = \sup \{ n \mid P_0 \spto P_1 \spto \dots \spto P_n \}$.
-          而对于点 $P$, 易知有 $\dim \cO_P = \sup \{ n \mid P_0 \spto P_1 \spto \dots \spto P_n = P \}$.
-          因此 $\dim X = \sup_{P \in X} \dim \cO_P$.
+          而对于点 $P$, 易知有 $\dim \sO_P = \sup \{ n \mid P_0 \spto P_1 \spto \dots \spto P_n = P \}$.
+          因此 $\dim X = \sup_{P \in X} \dim \sO_P$.
           但对 $X$ 中任意仿射开集 $\Spec A$, 有 $\dim A = \trd \Frac(A) / k = \trd K(X) / k$,
           且对于 $A$ 中任意极大理想 $\gm$ 有 $\dim A_{\gm} = \height \gm = \dim A$.
-          因此对任意闭点 $P$, $\dim X = \dim \cO_P = \trd K(X) / k$.
+          因此对任意闭点 $P$, $\dim X = \dim \sO_P = \trd K(X) / k$.
     \item 在 a 中已证.
     \item 由定义, $\codim(Y, X) = \inf_{V \text{不可约} \subseteq Y} \codim(V, X)$.
           取一般点即证.
     \item 对任意点 $P$, 设其有仿射邻域 $\Spec A$, 在 $A$ 中对应素理想 $\gp$.
           则由 $\height \gp + \dim A / \gp = \dim A$ 即知
-          $\dim (\overline{\{P\}} \cap A) + \dim \cO_{P, X} = \dim A = \dim X$.
-          由于这对任意仿射邻域成立, 即知 $\dim \overline{\{P\}} + \dim \cO_{P, X} = \dim X$.
+          $\dim (\overline{\{P\}} \cap A) + \dim \sO_{P, X} = \dim A = \dim X$.
+          由于这对任意仿射邻域成立, 即知 $\dim \overline{\{P\}} + \dim \sO_{P, X} = \dim X$.
           再由 c 即证.
     \item $U$ 必定包含某个仿射开集, 而仿射开集与 $X$ 具有相同维数.
     \item 由 e, 仅需考虑仿射开集情况.
@@ -813,7 +778,7 @@ pdfversion: hartshorne-2-3.pdf
 
   取 $Y = \{ [(t\varphi - 1)] \}$, 则 d 不成立.
 
-  取 $U = D(\varphi)$, 则 $\cO|_U \cong \Spec F[t]$, 其中 $F = \Frac(R)$.
+  取 $U = D(\varphi)$, 则 $\sO|_U \cong \Spec F[t]$, 其中 $F = \Frac(R)$.
   因此 $\dim U = 1$, e 不成立.
 \end{proofc}
 

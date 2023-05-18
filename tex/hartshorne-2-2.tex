@@ -36,14 +36,14 @@
 \def\gq{\mathfrak{q}}
 \def\gm{\mathfrak{m}}
 \def\gn{\mathfrak{n}}
-\def\uA{\mathbf{A}}
+\def\A{\mathbf{A}}
 \def\Z{\mathbb{Z}}
 \def\F{\mathbb{F}}
 \def\Q{\mathbb{Q}}
 \def\R{\mathbb{R}}
 \def\C{\mathbb{C}}
 \def\id{\mathrm{id}}
-\def\cO{\mathscr{O}}
+\def\sO{\mathscr{O}}
 \def\Sch{\mathfrak{Sch}}
 \def\Rings{\mathfrak{Rings}}
 \def\spto{\rightsquigarrow}
@@ -73,7 +73,7 @@
 
 \begin{exercise}
   设 $A$ 是环, $X = \Spec A$, $f \in A$, $D(f) \subseteq X$ 为 $V((f))$ 的开补集.
-  证明 $(D(f), \cO_X|_{D(f)})$ 同构于 $\Spec A_f$.
+  证明 $(D(f), \sO_X|_{D(f)})$ 同构于 $\Spec A_f$.
 \end{exercise}
 
 \begin{proofc}
@@ -81,29 +81,29 @@
   若 $\gp \in D(f)$, 则 $f \notin \gp$, 从而 $\gp_f \subseteq A_f$.
   定义 $\phi(\gp) = \gp_f$, 则 $\phi$ 作为集合的映射是双射.
   此外, 还有自然的同构 $A_{\gp} \cong (A_f)_{\gp_f}$,
-  因此容易定义并验证同构 $(\phi, \phi^\sharp) \colon (D(f), \cO_X|_{D(f)}) \cong \Spec A_f$.
+  因此容易定义并验证同构 $(\phi, \phi^\sharp) \colon (D(f), \sO_X|_{D(f)}) \cong \Spec A_f$.
 \end{proofc}
 
 \begin{exercise}
-  设 $(X, \cO_X)$ 是概形, $U \subseteq X$ 是开集. 证明 $(U, \cO_X|_U)$ 是概形.
+  设 $(X, \sO_X)$ 是概形, $U \subseteq X$ 是开集. 证明 $(U, \sO_X|_U)$ 是概形.
   我们将其称之为开集 $U$ 上的\emph{诱导概形结构},
-  并将 $(U, \cO_X|_U)$ 称为 $X$ 的\emph{开子概形}.
+  并将 $(U, \sO_X|_U)$ 称为 $X$ 的\emph{开子概形}.
 \end{exercise}
 
 \begin{proofc}
   注意到任意仿射概形中存在一组由同构于仿射概形的开集构成的基,
-  即 $(D(f), \cO|_{D(f)})$. 因此仿射性是局部性质.
+  即 $(D(f), \sO|_{D(f)})$. 因此仿射性是局部性质.
   从而概形的开子集仍然局部仿射, 因此也是概形.
 \end{proofc}
 
 \begin{exercise}
-  设 $(X, \cO_X)$ 是概形. 如果对任意开集 $U \subseteq X$, $\cO_X(U)$ 中都没有幂零元素,
-  就说 $(X, \cO_X)$ \emph{既约}.
+  设 $(X, \sO_X)$ 是概形. 如果对任意开集 $U \subseteq X$, $\sO_X(U)$ 中都没有幂零元素,
+  就说 $(X, \sO_X)$ \emph{既约}.
   \begin{enumerate}[label={(\alph*)}]
-    \item 证明：$(X, \cO_X)$ 既约当且仅当对任意 $P \in X$, 局部环 $\cO_{X, P}$ 里都没有幂零元素.
-    \item 令 $(X, \cO_X)$ 为概形. 令 $(\cO_X)_{\red}$ 为预层 $U \mapsto \cO_X(U)_{\red}$,
+    \item 证明：$(X, \sO_X)$ 既约当且仅当对任意 $P \in X$, 局部环 $\sO_{X, P}$ 里都没有幂零元素.
+    \item 令 $(X, \sO_X)$ 为概形. 令 $(\sO_X)_{\red}$ 为预层 $U \mapsto \sO_X(U)_{\red}$,
           其中, 对任意环 $A$, $A_{\red}$ 表示 $A$ 商掉幂零元的理想构成的商环.
-          证明 $(X, (\cO_X)_{\red})$ 是概形.
+          证明 $(X, (\sO_X)_{\red})$ 是概形.
           我们称之为 $X$ 的\emph{既约化概形}, 记作 $X_{\red}$.
           证明存在同态 $X_{\red} \to X$, 其限制在底空间上是同胚.
     \item 设 $f \colon X \to Y$ 是概形同态, 且 $X$ 既约. 证明 $f$ 穿过 $Y_{\red}$.
@@ -112,42 +112,42 @@
 
 \begin{proofc}
   \begin{enumerate}[label={(\alph*)}]
-    \item 若 $U$ 是开集, $s \in \cO_X(U)$ 幂零, 则对任意 $P \in U$, $s_P$ 幂零.
-          因此若 $\cO_{X, P}$ 中都无幂零元素, 即知 $s_P = 0 \forall P \in U$, 因此 $s = 0$.
+    \item 若 $U$ 是开集, $s \in \sO_X(U)$ 幂零, 则对任意 $P \in U$, $s_P$ 幂零.
+          因此若 $\sO_{X, P}$ 中都无幂零元素, 即知 $s_P = 0 \forall P \in U$, 因此 $s = 0$.
           充分性即证.
           反之, 若 $X$ 既约, 则对任意 $P \in X$,
-          $\cO_{X, P} = \varinjlim_{P \in U} \cO_X(U)$ 是既约环的直极限, 因此也既约.
+          $\sO_{X, P} = \varinjlim_{P \in U} \sO_X(U)$ 是既约环的直极限, 因此也既约.
 
     \item 只需注意到 $(A_f)_{\red} \cong (A_{\red})_f$,
           因此 $(\Spec A)_{\red} \cong \Spec A_{\red}$.
           $X_{\red} \to X$ 的映射容易构造, 即在每个截面上对应商同态.
 
-    \item 若 $X$ 既约, 则同态 $f^\sharp \colon \cO_Y(U) \to f_*(\cO_X)(U)$
-          必定将幂零元映射到 $0$, 因此穿过 $\cO_Y(U)_{\red}$.
+    \item 若 $X$ 既约, 则同态 $f^\sharp \colon \sO_Y(U) \to f_*(\sO_X)(U)$
+          必定将幂零元映射到 $0$, 因此穿过 $\sO_Y(U)_{\red}$.
           从而易知 $f$ 穿过 $Y_{\red}$.
           \qedhere
   \end{enumerate}
 \end{proofc}
 
 \begin{exercise}
-  令 $A$ 是环, $(X, \cO_X)$ 是概形. 任意给定 $f \colon X \to \Spec A$,
-  考虑整体截面上的映射, 就得到环同态 $A \to \Gamma(X, \cO_X)$.
+  令 $A$ 是环, $(X, \sO_X)$ 是概形. 任意给定 $f \colon X \to \Spec A$,
+  考虑整体截面上的映射, 就得到环同态 $A \to \Gamma(X, \sO_X)$.
   因此存在自然映射
   \[
-    \alpha \colon \Hom_{\Sch}(X, \Spec A) \to \Hom_{\Rings}(A, \Gamma(X, \cO_X)).
+    \alpha \colon \Hom_{\Sch}(X, \Spec A) \to \Hom_{\Rings}(A, \Gamma(X, \sO_X)).
   \]
   证明 $\alpha$ 是双射.
 \end{exercise}
 
 \begin{proofc}
-  设 $g \colon A \to \Gamma(X, \cO_X)$, 定义映射 $f \colon X \to \Spec A$ 如下.
-  对于 $P \in X$, 考虑复合映射 $A \to \Gamma(X, \cO_X) \to \cO_{X, P}$,
-  则 $\cO_{X, P}$ 的极大理想的原像也是 $A$ 中的素理想, 即为 $f(P)$.
-  由定义, 自然有映射 $f^\sharp_{\gp} \colon A_{\gp} \to f_*(\cO_X)_{\gp}$.
+  设 $g \colon A \to \Gamma(X, \sO_X)$, 定义映射 $f \colon X \to \Spec A$ 如下.
+  对于 $P \in X$, 考虑复合映射 $A \to \Gamma(X, \sO_X) \to \sO_{X, P}$,
+  则 $\sO_{X, P}$ 的极大理想的原像也是 $A$ 中的素理想, 即为 $f(P)$.
+  由定义, 自然有映射 $f^\sharp_{\gp} \colon A_{\gp} \to f_*(\sO_X)_{\gp}$.
   因此容易定义概形同态 $(f, f^\sharp) \colon X \to \Spec A$.
 
   若记以上构造为自然映射
-  $\beta \colon \Hom_{\Rings}(A, \Gamma(X, \cO_X)) \to \Hom_{\Sch}(X, \Spec A)$,
+  $\beta \colon \Hom_{\Rings}(A, \Gamma(X, \sO_X)) \to \Hom_{\Sch}(X, \Spec A)$,
   不难验证 $\alpha$ 与 $\beta$ 互为逆映射. 从而 $\alpha$ 必定是双射.
 \end{proofc}
 
@@ -173,8 +173,8 @@
 \end{proofc}
 
 \begin{exercise}
-  令 $X$ 是概形. 对任意 $x \in X$, 设 $\cO_x$ 是 $x$ 处的局部环,
-  $\gm_x$ 是其极大理想. 定义 $x$ 处的\emph{剩余域}是 $k(x) = \cO_x / \gm_x$.
+  令 $X$ 是概形. 对任意 $x \in X$, 设 $\sO_x$ 是 $x$ 处的局部环,
+  $\gm_x$ 是其极大理想. 定义 $x$ 处的\emph{剩余域}是 $k(x) = \sO_x / \gm_x$.
   设 $K$ 是域. 证明要给出 $\Spec K \to X$ 的同态, 等价于给出点 $x \in X$
   及域嵌入 $k(x) \to K$.
 \end{exercise}
@@ -321,27 +321,27 @@
 \end{exercise}
 
 \begin{exercise}
-  令 $X$ 是概形, $f \in \Gamma(X, \cO_X)$, 定义
+  令 $X$ 是概形, $f \in \Gamma(X, \sO_X)$, 定义
   \[
     X_f = \{ x \in X \mid f_x \notin \gm_x \}.
   \]
-  其中 $f_x \in \cO_x$ 是 $f$ 在 $x$ 处的茎, $\gm_x$ 是 $\cO_x$ 的极大理想.
+  其中 $f_x \in \sO_x$ 是 $f$ 在 $x$ 处的茎, $\gm_x$ 是 $\sO_x$ 的极大理想.
   \begin{enumerate}[label={(\alph*)}]
-    \item 设 $U = \Spec B$ 是 $X$ 中的仿射开集, $\bar{f} \in \Gamma(U, \cO_X|_U)$ 是 $f$ 的限制,
+    \item 设 $U = \Spec B$ 是 $X$ 中的仿射开集, $\bar{f} \in \Gamma(U, \sO_X|_U)$ 是 $f$ 的限制,
           证明 $U \cap X_f = D(\bar{f})$. 由此说明 $X_f$ 是开集.
-    \item 假设 $X$ 拟紧. 令 $A = \Gamma(X, \cO_X)$, $a \in A$ 且 $a$ 限制在 $X_f$ 上消失.
+    \item 假设 $X$ 拟紧. 令 $A = \Gamma(X, \sO_X)$, $a \in A$ 且 $a$ 限制在 $X_f$ 上消失.
           证明存在 $n > 0$, 使得 $f^n a = 0$ [提示：用仿射开集覆盖 $X$].
     \item 现在假设 $X$ 可以由有限个仿射开集 $U_i$ 覆盖, 且交集 $U_i \cap U_j$ 全都拟紧
           (比如说, $\spp(X)$ 是 Noether 空间时即满足此条件).
-          令 $b \in \Gamma(X_f, \cO_{X_f})$. 证明对某个 $n > 0$, $f^n b$ 是 $A$ 中元素的限制.
-    \item 沿用 (c) 中的假设, 证明 $\Gamma(X_f, \cO_{X_f}) \cong A_f$.
+          令 $b \in \Gamma(X_f, \sO_{X_f})$. 证明对某个 $n > 0$, $f^n b$ 是 $A$ 中元素的限制.
+    \item 沿用 (c) 中的假设, 证明 $\Gamma(X_f, \sO_{X_f}) \cong A_f$.
   \end{enumerate}
 \end{exercise}
 
 \begin{proofc}
   \begin{enumerate}[label={(\alph*)}]
     \item 若 $x \in U$, 则 $f_x = \bar{f}_x$. 因此显然.
-    \item 先设 $X = \Spec A$ 是仿射开集. 则 $X_f = D(f), \cO_X|_{X_f} \cong \Spec A_f$.
+    \item 先设 $X = \Spec A$ 是仿射开集. 则 $X_f = D(f), \sO_X|_{X_f} \cong \Spec A_f$.
           因此 $a$ 限制在 $X_f$ 上消失等价于存在 $n > 0$ 使得 $f^n a = 0$.
 
           在一般情况下, 由于 $X$ 可以由仿射开集覆盖, 而其拟紧, 从而其可以由有限个仿射开集覆盖,
@@ -349,17 +349,17 @@
           记 $f, a$ 在 $U_i$ 上的限制为 $\bar{f}_i, \bar{a}_i \in B_i$.
           由上述推导, 对每个 $i$, 存在 $n_i$ 使得 $\bar{f}_i^{n_i} \bar{a}_i = 0$.
           取 $n$ 为 $n_i$ 中的最大值, 则由层的唯一性公理即知 $f^n a = 0$.
-    \item 先设 $X = \Spec A$ 是仿射开集, 则 $b \in \Gamma(X_f, \cO_{X_f}) \cong A_f$,
+    \item 先设 $X = \Spec A$ 是仿射开集, 则 $b \in \Gamma(X_f, \sO_{X_f}) \cong A_f$,
           从而存在 $n$ 使得 $f^n b$ 是 $A$ 中元素的限制.
 
           一般情况下, 同 (b), 设 $X$ 可以由 $U_1, \dots, U_k$ 覆盖, $U_i \cong \Spec B_i$.
-          同理定义 $\bar{f}_i \in \Gamma(U_i, \cO_X), \bar{b}_i \in \Gamma(U_i \cap X_f, \cO_X)$.
+          同理定义 $\bar{f}_i \in \Gamma(U_i, \sO_X), \bar{b}_i \in \Gamma(U_i \cap X_f, \sO_X)$.
           则存在 $n$, 使得每个 $\bar{f}_i^n \bar{b}_i$ 是 $a_i \in A$ 的限制.
           此时对每一对 $i \neq j$, $a_i - a_j$ 在 $U_i \cap U_j \cap X_f$ 上的限制为 $0$.
           因此由 (b), 存在 $m_{ij}$ 使得 $f^{n_{ij}} (a_i - a_j)$ 在 $U_i \cap U_j$ 上限制为 $0$.
           取 $m$ 为 $m_{ij}$ 的最大值, 则 $\{ f^m a_i \}$ 彼此兼容,
           从而可以粘贴成 $t \in A$, 其在 $X_f$ 上的限制即是 $f^{n + m} b$.
-    \item 显然 $f$ 在 $\Gamma(X_f, \cO_{X_f})$ 上可逆. 从而由 (b) (c) 易证.
+    \item 显然 $f$ 在 $\Gamma(X_f, \sO_{X_f})$ 上可逆. 从而由 (b) (c) 易证.
           \qedhere
   \end{enumerate}
 \end{proofc}
@@ -368,7 +368,7 @@
   \begin{enumerate}[label={(\alph*)}]
     \item 设 $f \colon X \to Y$ 是概形同态, 且 $Y$ 可以由若干开集 $U_i$ 覆盖,
           使得每个限制映射 $f^{-1}(U_i) \to U_i$ 是同构. 证明 $f$ 也是同构.
-    \item 概形 $X$ 仿射当且仅当存在有限个元素 $f_1, \dots, f_r \in A = \Gamma(X, \cO_X)$,
+    \item 概形 $X$ 仿射当且仅当存在有限个元素 $f_1, \dots, f_r \in A = \Gamma(X, \sO_X)$,
           使得每个开集 $X_{f_i}$ 都仿射, 且 $(f_1, \dots, f_r) = A$
           [提示：使用前面的习题 2.4 和习题 2.16d].
   \end{enumerate}
@@ -381,7 +381,7 @@
     \item 由习题 2.16d 知道 $X_{f_i} \cong \Spec A_{f_i}$.
           用习题 2.4 的方法构造映射 $g \colon X \to \Spec A$.
           不难发现 $g$ 将 $X_{f_i}$ 映射到 $D(f_i)$,
-          且映射 $g(X_{f_i}) \colon \cO_X(X_{f_i}) \to A_{f_i}$ 是同构.
+          且映射 $g(X_{f_i}) \colon \sO_X(X_{f_i}) \to A_{f_i}$ 是同构.
           因此再由习题 2.4 就知道 $g|_{X_{f_i}}$ 即是同构 $X_{f_i} \cong \Spec A_{f_i}$.
           由 $(f_1, \dots, f_r) = A$ 即知 $D(f_i)$ 覆盖 $\Spec A$. 因此由 (a) 即证.
           \qedhere
@@ -394,7 +394,7 @@
     \item 设 $A$ 是环, $X = \Spec A, f \in A$. 证明 $f$ 幂零当且仅当 $D(f)$ 为空.
     \item 令 $\varphi \colon A \to B$ 是环同态, $f \colon Y = \Spec B \to X = \Spec A$
           是诱导的仿射概形同态.
-          证明 $\varphi$ 是单射当且仅当对应的层映射 $f^\sharp \colon \cO_X \to f_* \cO_Y$ 是单射.
+          证明 $\varphi$ 是单射当且仅当对应的层映射 $f^\sharp \colon \sO_X \to f_* \sO_Y$ 是单射.
           更进一步地, 证明这种情况下 $f$ 是\emph{支配} 的, 即 $f(Y)$ 在 $X$ 中稠密.
     \item 在同样的假设下, 证明：若 $\varphi$ 是满射, 则 $f$ 将 $Y$ 同胚到 $X$ 的闭子集,
           且 $f^\sharp$ 是满射.
@@ -407,12 +407,12 @@
 \begin{proofc}
   \begin{enumerate}[label={(\alph*)}]
     \item 平凡.
-    \item 若 $f^\sharp$ 是单射, 则 $f^\sharp(X) \colon \cO_X(X) = A \to f_*\cO_Y(X) = B$
+    \item 若 $f^\sharp$ 是单射, 则 $f^\sharp(X) \colon \sO_X(X) = A \to f_*\sO_Y(X) = B$
           是单射, 即 $\varphi$ 是单射.
 
           反之, 若 $\varphi$ 是单射, 则对任意 $a \in A$,
           $A_a \to B_{\varphi(a)}$ 也是单射；即 $f^\sharp(D(a))$ 是单射.
-          若 $U$ 是开集, $s \in \cO_X(U), f^\sharp(U)(s) = 0$,
+          若 $U$ 是开集, $s \in \sO_X(U), f^\sharp(U)(s) = 0$,
           则 $s$ 限制在每个 $D(a) \subseteq U$ 上为 $0$.
           由于 $D(a)$ 构成一组基, 由层的唯一性公理即知 $s = 0$. 因此 $f^\sharp$ 是单射.
 
@@ -433,8 +433,8 @@
           然而 $X'$ (拓扑上) 可以看作 $X$ 的子空间,
           从而 $f'(Y)$ 是 $X'$ 的闭集, 因此 $f'(Y) = X'$.
 
-          而 $f^\sharp \colon \cO_X \to p_*\cO_{X'} \to f_* \cO_Y$ 是满射,
-          因此由 $p$ 是单射即知 $f^{\prime\sharp} \colon \cO_{X'} \to f'_*\cO_Y$ 是满射.
+          而 $f^\sharp \colon \sO_X \to p_*\sO_{X'} \to f_* \sO_Y$ 是满射,
+          因此由 $p$ 是单射即知 $f^{\prime\sharp} \colon \sO_{X'} \to f'_*\sO_Y$ 是满射.
           而 $f^\sharp$ 又是单射, 因此是同构.
           $f'$ 也是同胚, 所以 $X' \cong Y$, 因此 $A / \ker \varphi \cong B$, 即 $\varphi$ 是满射.
           \qedhere

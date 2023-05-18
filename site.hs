@@ -8,7 +8,7 @@ import Text.Pandoc.Options      (ReaderOptions (..), WriterOptions (..))
 import Text.Pandoc.Extensions
 
 import System.IO
-import System.FilePath (takeFileName)
+import System.FilePath (takeFileName, (</>), takeDirectory, dropExtension)
 import GHC.IO.Handle (hDuplicateTo)
 import Data.Aeson (encode, object, (.=), FromJSON, parseJSON, decode, withObject, (.:))
 import System.Process
@@ -16,6 +16,7 @@ import Network.HTTP.Client as HTTP
 import Deploy
 import Text.HTML.TagSoup (Tag (..), parseTags, renderTags)
 import Text.HTML.TagSoup as TS
+import Control.Monad (forM, mapM)
 
 ------------------------------------------------------------------------------
 -- Btex compiler
@@ -63,19 +64,27 @@ btexMoveOutToc str = let (t1, t2, t3) = findToc $ parseTags str in TS.renderTags
 
 btexCompiler :: Compiler (Item String)
 btexCompiler = getResourceBody >>= withItemBody (\content -> do
-  let reqBody = object [ "code" .= content ]
-  let request = defaultRequest {
-        HTTP.host = "127.0.0.1",
-        HTTP.port = btexPort,
-        method = "POST",
-        requestBody = RequestBodyLBS $ encode reqBody }
+  id <- getUnderlying
+  preamble <- getMetadataField id "preamble"
+  preambleContent <- mapM (loadBody . preambleToPath id) preamble :: Compiler (Maybe String)
+
   unsafeCompiler $ do
+    let reqBody = case preambleContent of
+                    Just p -> object [ "code" .= content, "preamble" .= p ]
+                    Nothing -> object [ "code" .= content ]
+    let request = defaultRequest {
+          HTTP.host = "127.0.0.1",
+          HTTP.port = btexPort,
+          method = "POST",
+          requestBody = RequestBodyLBS $ encode reqBody }
     manager <- newManager defaultManagerSettings
     response <- httpLbs request manager
     let result = decode (responseBody response) :: Maybe BtexResult
     case result of
       Nothing -> return ""
       Just s -> return $ btexMoveOutToc $ btexToHtml s)
+  where
+    preambleToPath id p = fromFilePath $ (takeDirectory $ toFilePath id) </> "preamble" </> (dropExtension p ++ ".btex")
 
 ------------------------------------------------------------------------------
 pandocCodeStyle :: Style
@@ -101,9 +110,9 @@ hakyllConfiguration :: Configuration
 hakyllConfiguration = defaultConfiguration
                         { deploySite = deploy }
 
-hakyllMain :: IO ()
-hakyllMain = hakyllWith hakyllConfiguration $ do
-  match "images/*" $ do
+resourceRules :: Rules ()
+resourceRules = do
+  match (foldl1 (.||.) ["images/*", "js/*", "css/fonts/*", "tex/*.pdf", "old_posts/*/*.svg"]) $ do
     route   idRoute
     compile copyFileCompiler
 
@@ -111,21 +120,32 @@ hakyllMain = hakyllWith hakyllConfiguration $ do
     route   idRoute
     compile compressCssCompiler
 
-  match "js/*" $ do
-    route   idRoute
-    compile copyFileCompiler
-
-  match "css/fonts/*" $ do
-    route   idRoute
-    compile copyFileCompiler
-
   match "favicons/*" $ do
     route   $ gsubRoute "favicons/" (const "")
     compile copyFileCompiler
 
-  match "tex/*.pdf" $ do
-    route   idRoute
-    compile copyFileCompiler
+postRules :: Rules ()
+postRules = do
+  match ("posts/*.md" .||. "old_posts/*.md") $ do
+    route $ setExtension "html"
+    compile $ pandocCompiler'
+      >>= loadAndApplyTemplate "templates/post.html" postCtx
+      >>= loadAndApplyTemplate "templates/default.html" postCtx
+      -- >>= relativizeUrls
+
+  match "posts/*.btex" $ do
+    route $ setExtension "html"
+    compile $ btexCompiler
+      >>= loadAndApplyTemplate "templates/post.html" postCtx
+      >>= loadAndApplyTemplate "templates/default.html" postCtx
+      -- >>= relativizeUrls
+
+  match "posts/preamble/*.btex" $ compile getResourceBody
+
+hakyllMain :: IO ()
+hakyllMain = hakyllWith hakyllConfiguration $ do
+  resourceRules
+  postRules
 
   match "about.md" $ do
     route   $ setExtension "html"
@@ -142,31 +162,6 @@ hakyllMain = hakyllWith hakyllConfiguration $ do
   -- match "posts/*" $ version "raw" $ do
   --   route idRoute
   --   compile getResourceBody
-
-  match "posts/*.md" $ do
-    route $ setExtension "html"
-    compile $ pandocCompiler'
-      >>= loadAndApplyTemplate "templates/post.html" postCtx
-      >>= loadAndApplyTemplate "templates/default.html" postCtx
-      -- >>= relativizeUrls
-
-  match "old_posts/*/*.svg" $ do
-    route idRoute
-    compile copyFileCompiler
-
-  match "old_posts/*.md" $ do
-    route $ setExtension "html"
-    compile $ pandocCompiler'
-      >>= loadAndApplyTemplate "templates/post.html" postCtx
-      >>= loadAndApplyTemplate "templates/default.html" postCtx
-      -- >>= relativizeUrls
-
-  match "posts/*.btex" $ do
-    route $ setExtension "html"
-    compile $ btexCompiler
-      >>= loadAndApplyTemplate "templates/post.html" postCtx
-      >>= loadAndApplyTemplate "templates/default.html" postCtx
-      -- >>= relativizeUrls
 
   create ["archive.html"] $ do
     route idRoute

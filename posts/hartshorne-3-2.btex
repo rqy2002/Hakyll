@@ -3,62 +3,16 @@ title: Hartshorne 第三章第二节习题
 tag: 数学
 date: 2023-02-25
 lastdate: 2023-03-07
-pdfversion: hartshorne-3-2.pdf
+pdf-version: hartshorne-3-2.pdf
+preamble: AG.btex
 ---
-
-\newtheorem{exercise}{习题}
-\newtheorem*{lemma*}{引理}
-\theoremstyle{remark}
-\newtheorem*{remark*}{注}
-
-\def\ga{\mathfrak{a}}
-\def\gp{\mathfrak{p}}
-\def\gq{\mathfrak{q}}
-\def\gm{\mathfrak{m}}
-\def\gn{\mathfrak{n}}
-\def\A{\mathbb{A}}
-\def\P{\mathbb{P}}
-\def\Z{\mathbb{Z}}
-\def\F{\mathbb{F}}
-\def\Q{\mathbb{Q}}
-\def\R{\mathbb{R}}
-\def\C{\mathbb{C}}
-\def\bS{\mathbf{S}}
-\def\Ab{\mathfrak{Ab}}
-\def\id{\mathrm{id}}
-\def\cO{\mathscr{O}}
-\def\cK{\mathscr{K}}
-\def\cF{\mathscr{F}}
-\def\cG{\mathscr{G}}
-\def\cH{\mathscr{H}}
-\def\cI{\mathscr{I}}
-\def\cR{\mathscr{R}}
-\def\Sch{\mathfrak{Sch}}
-\def\Rings{\mathfrak{Rings}}
-\def\spto{\rightsquigarrow}
-\def\red{\mathrm{red}}
-\def\spp{\operatorname{sp}}
-\def\Hom{\operatorname{Hom}}
-\def\Spec{\operatorname{Spec}}
-\def\Proj{\operatorname{Proj}}
-\def\Supp{\operatorname{Supp}}
-\def\coker{\operatorname{coker}}
-\def\im{\operatorname{im}}
-\def\dim{\operatorname{dim}}
-\def\codim{\operatorname{codim}}
-\def\height{\operatorname{height}}
-\def\Frac{\operatorname{Frac}}
-\def\trd{\operatorname{tr.d.}}
-\def\leq{\leqslant}
-\def\geq{\geqslant}
-\def\Stacks#1{\href{https://stacks.math.columbia.edu/tag/#1}{Stacks Project #1}}
-\def\clearfootnotes{\def\@printfootnotes{}}
 
 这学期开始上盛茂的代数几何课, 于是做一做习题, 毕竟这也是作业.
 
 本节已经做完.
 
-\setcounter{section}{2}
+\setcounter{section}{1}
+\section{层的上同调}
 
 \begin{exercise}
   \begin{enumerate}
@@ -141,109 +95,109 @@ pdfversion: hartshorne-3-2.pdf
 \begin{exercise}
   令 $X = \P_k^1$ 为代数闭域 $k$ 上的射影直线.
   试证明第二章习题 1.21d 中的正合列
-  \[ 0 \to \cO \to \cK \to \cK / \cO \to 0 \]
-  是 $\cO$ 的松消解. 从而由此习题 e 得出对任意 $i > 0$ 总有 $H^i(X, \cO) = 0$.
+  \[ 0 \to \sO \to \sK \to \sK / \sO \to 0 \]
+  是 $\sO$ 的松消解. 从而由此习题 e 得出对任意 $i > 0$ 总有 $H^i(X, \sO) = 0$.
 \end{exercise}
 
 \begin{proofc}
-  由于 $\cK$ 是 $K$ 常值层, 其显然松.
-  而由习题  II, 1.21d, $\cK / \cO \cong \sum_{P \in X} i_P(K / \cO_p)$,
+  由于 $\sK$ 是 $K$ 常值层, 其显然松.
+  而由习题  II, 1.21d, $\sK / \sO \cong \sum_{P \in X} i_P(K / \sO_p)$,
   也是松层.
 
-  由上同调长正合列即知对 $i > 2$ 都有 $H^i(X, \cO) = 0$,
-  而 $H^1(X, \cO) = \coker(\Gamma(X, \cK) \to \Gamma(X, \cK / \cO))$.
-  由 II, 1.21e, $\Gamma(X, \cK) \to \Gamma(X, \cK / \cO)$ 满. 因此 $H^1(X, \cO) = 0$.
+  由上同调长正合列即知对 $i > 2$ 都有 $H^i(X, \sO) = 0$,
+  而 $H^1(X, \sO) = \coker(\Gamma(X, \sK) \to \Gamma(X, \sK / \sO))$.
+  由 II, 1.21e, $\Gamma(X, \sK) \to \Gamma(X, \sK / \sO)$ 满. 因此 $H^1(X, \sO) = 0$.
 \end{proofc}
 
 \begin{exercise}[子集支撑的上同调]
-  令 $X$ 为拓扑空间, $Y$ 为闭子集, $\cF$ 为 Abel 群层.
-  令 $\Gamma_Y(X, \cF)$ 表示 $\cF$ 里支在 $Y$ 上的截面的群.
+  令 $X$ 为拓扑空间, $Y$ 为闭子集, $\sF$ 为 Abel 群层.
+  令 $\Gamma_Y(X, \sF)$ 表示 $\sF$ 里支在 $Y$ 上的截面的群.
   \begin{enumerate}[label=(\arabic*)]
     \item 证明 $\Gamma_Y(X, -)$ 是 $\Ab(X) \to \Ab$ 的左正合函子.
 
           记 $\Gamma_Y(X, -)$ 的右导出函子为 $H_Y^i(X, -)$.
           它们是 \emph{$X$ 的支在 $Y$ 上的上同调群}.
-    \item 若 $0 \to \cF' \to \cF \to \cF'' \to 0$ 是层的正合列, $\cF'$ 松,
+    \item 若 $0 \to \sF' \to \sF \to \sF'' \to 0$ 是层的正合列, $\sF'$ 松,
           试证明
-          \[ 0 \to \Gamma_Y(X, \cF') \to \Gamma_Y(X, \cF) \to \Gamma_Y(X, \cF'') \to 0 \]
+          \[ 0 \to \Gamma_Y(X, \sF') \to \Gamma_Y(X, \sF) \to \Gamma_Y(X, \sF'') \to 0 \]
           正合.
-    \item 证明若 $\cF$ 松, 则对任意 $i > 0$ 有 $H_Y^i(X, \cF) = 0$.
-    \item 若 $\cF$ 松, 试证明
-          \[ 0 \to \Gamma_Y(X, \cF) \to \Gamma(X, \cF) \to \Gamma(X - Y, \cF) \to 0 \]
+    \item 证明若 $\sF$ 松, 则对任意 $i > 0$ 有 $H_Y^i(X, \sF) = 0$.
+    \item 若 $\sF$ 松, 试证明
+          \[ 0 \to \Gamma_Y(X, \sF) \to \Gamma(X, \sF) \to \Gamma(X - Y, \sF) \to 0 \]
           正合.
-    \item 记 $U = X - Y$. 证明对任意 $\cF$, 有上同调长正合列
+    \item 记 $U = X - Y$. 证明对任意 $\sF$, 有上同调长正合列
           \[
           \begin{aligned}
-            0 & \to H_Y^0(X, \cF) \to H^0(X, \cF) \to H^0(U, \cF|_U) \\
-              & \to H_Y^1(X, \cF) \to H^1(X, \cF) \to H^1(U, \cF|_U) \\
-              & \to H_Y^2(X, \cF) \to \cdots.
+            0 & \to H_Y^0(X, \sF) \to H^0(X, \sF) \to H^0(U, \sF|_U) \\
+              & \to H_Y^1(X, \sF) \to H^1(X, \sF) \to H^1(U, \sF|_U) \\
+              & \to H_Y^2(X, \sF) \to \cdots.
           \end{aligned}
           \]
     \item \emph{切除}. 令 $V$ 是 $X$ 的某个包含 $Y$ 的开子集.
-          则有对 $i, \cF$ 自然的同构
-          \[ H_Y^i(X, \cF) \cong H_Y^i(V, \cF|_V). \]
+          则有对 $i, \sF$ 自然的同构
+          \[ H_Y^i(X, \sF) \cong H_Y^i(V, \sF|_V). \]
   \end{enumerate}
 \end{exercise}
 
 \begin{proofc}
   \begin{enumerate}[label=(\arabic*)]
     \item $\Gamma_Y(X, -)$ 的函子性显然.
-          设 $0 \to \cF' \xrightarrow{f} \cF \xrightarrow{g} \cF'' \to 0$ 正合.
-          显然 $\Gamma_Y(X, \cF') \to \Gamma_Y(X, \cF)$ 是单射.
+          设 $0 \to \sF' \xrightarrow{f} \sF \xrightarrow{g} \sF'' \to 0$ 正合.
+          显然 $\Gamma_Y(X, \sF') \to \Gamma_Y(X, \sF)$ 是单射.
 
-          而若 $s \in \Gamma_Y(X, \cF)$ 且 $g(s) = 0$,
-          则由 $\Gamma(X, -)$ 左正合性知存在 $s' \in \Gamma_Y(X, \cF')$ 使得 $f(s') = s$.
-          由于 $\cF' \to \cF$ 单, 其在茎上也单. 于是 $s' \in \Gamma_Y(X, \cF')$.
+          而若 $s \in \Gamma_Y(X, \sF)$ 且 $g(s) = 0$,
+          则由 $\Gamma(X, -)$ 左正合性知存在 $s' \in \Gamma_Y(X, \sF')$ 使得 $f(s') = s$.
+          由于 $\sF' \to \sF$ 单, 其在茎上也单. 于是 $s' \in \Gamma_Y(X, \sF')$.
 
-          综上, $0 \to \Gamma_Y(X, \cF') \to \Gamma_Y(X, \cF) \to \Gamma_Y(X, \cF'')$
+          综上, $0 \to \Gamma_Y(X, \sF') \to \Gamma_Y(X, \sF) \to \Gamma_Y(X, \sF'')$
           正合.
-    \item 设 $\cF, \cF', \cF''$ 同上, 设  $s'' \in \Gamma_Y(X, \cF'')$.
-          由于 $\cF'$ 松, 存在 $s \in \Gamma(X, \cF)$ 使得 $g(s) = s''$.
+    \item 设 $\sF, \sF', \sF''$ 同上, 设  $s'' \in \Gamma_Y(X, \sF'')$.
+          由于 $\sF'$ 松, 存在 $s \in \Gamma(X, \sF)$ 使得 $g(s) = s''$.
 
-          记  $U = X - Y$. 由于 $\cF'$ 松,
-          $0 \to \Gamma(U, \cF') \to \Gamma(U, \cF) \to \Gamma(U, \cF'') \to 0$ 正合.
-          而 $g(s|_U) = g(s)|_U = 0$. 因此存在  $s'_0 \in \Gamma(U, \cF')$
-          使得 $f(s'_0) = s|_U$. 再次由松性, 存在 $s' \in \Gamma(X, \cF')$
-          使得 $s|_U = s'_0$. 因此立即知道 $s' - f(s) \in \Gamma_Y(X, \cF)$
+          记  $U = X - Y$. 由于 $\sF'$ 松,
+          $0 \to \Gamma(U, \sF') \to \Gamma(U, \sF) \to \Gamma(U, \sF'') \to 0$ 正合.
+          而 $g(s|_U) = g(s)|_U = 0$. 因此存在  $s'_0 \in \Gamma(U, \sF')$
+          使得 $f(s'_0) = s|_U$. 再次由松性, 存在 $s' \in \Gamma(X, \sF')$
+          使得 $s|_U = s'_0$. 因此立即知道 $s' - f(s) \in \Gamma_Y(X, \sF)$
           且其像为 $s''$. 因此
-          \[ 0 \to \Gamma_Y(X, \cF') \to \Gamma_Y(X, \cF) \to \Gamma_Y(X, \cF'') \to 0 \]
+          \[ 0 \to \Gamma_Y(X, \sF') \to \Gamma_Y(X, \sF) \to \Gamma_Y(X, \sF'') \to 0 \]
           正合.
-    \item 取内射层 $\cI$ 与单射 $\cF \to \cI$. 由于内射层松, $\cI$ 与 $\cI / \cF$ 都松.
-          因此由长正合列 , $H_Y^n(X, \cF) \cong H_Y^{n-1}(X, \cI / \cF)$
-          且 $H_Y^1(X, \cF) = 0$.
-          因此对 $n$ 归纳立知 $H_Y^n(X, \cF) = 0$.
+    \item 取内射层 $\sI$ 与单射 $\sF \to \sI$. 由于内射层松, $\sI$ 与 $\sI / \sF$ 都松.
+          因此由长正合列 , $H_Y^n(X, \sF) \cong H_Y^{n-1}(X, \sI / \sF)$
+          且 $H_Y^1(X, \sF) = 0$.
+          因此对 $n$ 归纳立知 $H_Y^n(X, \sF) = 0$.
     \item 记
-          $\Gamma_Y(X, \cF) \xrightarrow{i} \Gamma(X, \cF)
-          \xrightarrow{p} \Gamma(X - Y, \cF) \to 0$
+          $\Gamma_Y(X, \sF) \xrightarrow{i} \Gamma(X, \sF)
+          \xrightarrow{p} \Gamma(X - Y, \sF) \to 0$
           按定义, $i$ 是单射, $p$ 是满射, 且 $pi = 0$.
-          而若 $s \in \Gamma(X, \cF), p(s) = 0$, 则按定义 $s$ 支在 $Y$ 上,
+          而若 $s \in \Gamma(X, \sF), p(s) = 0$, 则按定义 $s$ 支在 $Y$ 上,
           即 $s \in \im i$. 因此
-          \[ 0 \to \Gamma_Y(X, \cF) \to \Gamma(X, \cF) \to \Gamma(X - Y, \cF) \to 0 \]
+          \[ 0 \to \Gamma_Y(X, \sF) \to \Gamma(X, \sF) \to \Gamma(X - Y, \sF) \to 0 \]
           正合.
-    \item 取 $\cF$ 的内射消解 $\{\cI^\bullet\}$.
+    \item 取 $\sF$ 的内射消解 $\{\sI^\bullet\}$.
           由于内射模都松, 由上一个命题得知有链复形的正合列
           \[
-          0 \to \Gamma_Y(X, \cI^\bullet)
-          \to \Gamma(X, \cI^\bullet)
-          \to \Gamma(U, \cI^\bullet|_U) \to 0
+          0 \to \Gamma_Y(X, \sI^\bullet)
+          \to \Gamma(X, \sI^\bullet)
+          \to \Gamma(U, \sI^\bullet|_U) \to 0
           \]
-          而 $\cI^\bullet|_U$ 也松, 因此也是 $\cF|_U$ 的 $\Gamma(U, -)$-零调消解.
+          而 $\sI^\bullet|_U$ 也松, 因此也是 $\sF|_U$ 的 $\Gamma(U, -)$-零调消解.
           取上述链复形短正合列对应的长正合列即为
           \[
           \begin{aligned}
-            0 & \to H_Y^0(X, \cF) \to H^0(X, \cF) \to H^0(U, \cF|_U) \\
-              & \to H_Y^1(X, \cF) \to H^1(X, \cF) \to H^1(U, \cF|_U) \\
-              & \to H_Y^2(X, \cF) \to \cdots.
+            0 & \to H_Y^0(X, \sF) \to H^0(X, \sF) \to H^0(U, \sF|_U) \\
+              & \to H_Y^1(X, \sF) \to H^1(X, \sF) \to H^1(U, \sF|_U) \\
+              & \to H_Y^2(X, \sF) \to \cdots.
           \end{aligned}
           \]
-    \item 首先, 我们有自然同构 $\Gamma_Y(X, \cF) \cong \Gamma_Y(V, \cF|_V)$,
-          或 $\Gamma_Y(X, \cF) \cong \Gamma_Y(V, \cF)$.
+    \item 首先, 我们有自然同构 $\Gamma_Y(X, \sF) \cong \Gamma_Y(V, \sF|_V)$,
+          或 $\Gamma_Y(X, \sF) \cong \Gamma_Y(V, \sF)$.
           这个同构是显然的: 我们有前者到后者的限制映射, 而其根据层公理显然双射.
 
-          现在设 $\cI^\bullet$ 是 $\cF$ 的内射消解,
-          则 $\Gamma_Y(X, \cI^\bullet) \cong \Gamma_Y(V, \cI^\bullet|_V)$.
-          由于 $\cI^\bullet|_V$ 也是 $\cF|_V$ 的松层消解,
-          其上同调也给出 $H_Y^i(V, \cF|_V)$. 因此上述自然同构就给出了上同调的自然同构. \qedhere
+          现在设 $\sI^\bullet$ 是 $\sF$ 的内射消解,
+          则 $\Gamma_Y(X, \sI^\bullet) \cong \Gamma_Y(V, \sI^\bullet|_V)$.
+          由于 $\sI^\bullet|_V$ 也是 $\sF|_V$ 的松层消解,
+          其上同调也给出 $H_Y^i(V, \sF|_V)$. 因此上述自然同构就给出了上同调的自然同构. \qedhere
   \end{enumerate}
 \end{proofc}
 
@@ -251,58 +205,58 @@ pdfversion: hartshorne-3-2.pdf
   令 $Y_1, Y_2$ 为 $X$ 的两个闭集. 则有支集上同调的长正合列
   \[
     \begin{aligned}
-      \cdots & \to H^i_{Y_1 \cap Y_2}(X, \cF)
-               \to H^i_{Y_1}(X, \cF) \oplus H^i_{Y_2}(X, \cF)
-               \to H^i_{Y_1 \cup Y_2}(X, \cF) \\
-             & \to H^{i+1}_{Y_1 \cap Y_2}(X, \cF) \to \cdots.
+      \cdots & \to H^i_{Y_1 \cap Y_2}(X, \sF)
+               \to H^i_{Y_1}(X, \sF) \oplus H^i_{Y_2}(X, \sF)
+               \to H^i_{Y_1 \cup Y_2}(X, \sF) \\
+             & \to H^{i+1}_{Y_1 \cap Y_2}(X, \sF) \to \cdots.
     \end{aligned}
   \]
 \end{exercise}
 
 \begin{proofc}
-  记 $i_1, i_2$ 为 $\Gamma_{Y_1 \cap Y_2}(X, \cF)$ 到
-  $\Gamma_{Y_1}(X, \cF)$ 或 $\Gamma_{Y_2}(X, \cF)$ 的自然嵌入,
-  $j_1, j_2$ 为两者到 $\Gamma_{Y_1 \cup Y_2}(X, \cF)$ 的自然嵌入.
-  设 $\cF$ 松, 下面证明
+  记 $i_1, i_2$ 为 $\Gamma_{Y_1 \cap Y_2}(X, \sF)$ 到
+  $\Gamma_{Y_1}(X, \sF)$ 或 $\Gamma_{Y_2}(X, \sF)$ 的自然嵌入,
+  $j_1, j_2$ 为两者到 $\Gamma_{Y_1 \cup Y_2}(X, \sF)$ 的自然嵌入.
+  设 $\sF$ 松, 下面证明
   \[
-    0 \to \Gamma_{Y_1 \cap Y_2}(X, \cF)
-    \xrightarrow{i_1 + i_2} \Gamma_{Y_1}(X, \cF) \oplus \Gamma_{Y_2}(X, \cF)
-    \xrightarrow{j_1 - j_2} \Gamma_{Y_1 \cup Y_2}(X, \cF) \to 0
+    0 \to \Gamma_{Y_1 \cap Y_2}(X, \sF)
+    \xrightarrow{i_1 + i_2} \Gamma_{Y_1}(X, \sF) \oplus \Gamma_{Y_2}(X, \sF)
+    \xrightarrow{j_1 - j_2} \Gamma_{Y_1 \cup Y_2}(X, \sF) \to 0
   \]
   正合.
 
   \begin{itemize}
     \item 显然 $i_1 + i_2$ 是单射, 且 $(j_1 - j_2)(i_1 + i_2) = 0$.
-          且若 $(s_1, s_2) \in \Gamma_{Y_1}(X, \cF) \oplus \Gamma_{Y_2}(X, \cF)$
+          且若 $(s_1, s_2) \in \Gamma_{Y_1}(X, \sF) \oplus \Gamma_{Y_2}(X, \sF)$
           使得 $j_1(s_1) - j_2(s_2) = 0$, 即 $s_1 - s_2 = 0$,
-          必有 $s_1 = s_2 \in \Gamma_{Y_1 \cap Y_2}(X, \cF)$,
+          必有 $s_1 = s_2 \in \Gamma_{Y_1 \cap Y_2}(X, \sF)$,
           即 $(s_1, s_2) \in \im(i_1 + i_2)$.
           因此 $\ker(j_1 - j_2) = \im(i_1 + i_2)$.
-    \item 设 $\cF$ 松. 记 $U_1 = X - Y_1, U_2 = X - Y_2$.
-          若 $s \in \Gamma_{Y_1 \cup Y_2}(X, \cF)$,
-          令 $t \in \Gamma(U_1 \cup U_2, \cF)$
+    \item 设 $\sF$ 松. 记 $U_1 = X - Y_1, U_2 = X - Y_2$.
+          若 $s \in \Gamma_{Y_1 \cup Y_2}(X, \sF)$,
+          令 $t \in \Gamma(U_1 \cup U_2, \sF)$
           为 $s|_{U_1}$ 和 $0|_{U_2}$ 的粘接.
-          由于 $\cF$ 松, 存在 $s_2 \in \Gamma(X, \cF)$
+          由于 $\sF$ 松, 存在 $s_2 \in \Gamma(X, \sF)$
           使得 $s_2|_{U_1 \cup U_2} = t$.
 
           由于 $s_2|_{U_2} = 0, s_1|_{U_1} = s|_{U_1}$,
-          即得 $s_2 \in \Gamma_{Y_2}(X, \cF), s - s_2 \in \Gamma_{Y_1}(X, \cF)$.
+          即得 $s_2 \in \Gamma_{Y_2}(X, \sF), s - s_2 \in \Gamma_{Y_1}(X, \sF)$.
           因此 $j_1 - j_2$ 为满射.
   \end{itemize}
 
-  现在设 $\cF$ 为任意层. 取 $\cF$ 的内射消解 $\cI^\bullet$, 根据上述结论有正合列
+  现在设 $\sF$ 为任意层. 取 $\sF$ 的内射消解 $\sI^\bullet$, 根据上述结论有正合列
   \[
-    0 \to \Gamma_{Y_1 \cap Y_2}(\cI^\bullet, \cF)
-    \xrightarrow{i_1 + i_2} \Gamma_{Y_1}(\cI^\bullet, \cF) \oplus \Gamma_{Y_2}(\cI^\bullet, \cF)
-    \xrightarrow{j_1 - j_2} \Gamma_{Y_1 \cup Y_2}(\cI^\bullet, \cF) \to 0
+    0 \to \Gamma_{Y_1 \cap Y_2}(\sI^\bullet, \sF)
+    \xrightarrow{i_1 + i_2} \Gamma_{Y_1}(\sI^\bullet, \sF) \oplus \Gamma_{Y_2}(\sI^\bullet, \sF)
+    \xrightarrow{j_1 - j_2} \Gamma_{Y_1 \cup Y_2}(\sI^\bullet, \sF) \to 0
   \]
   取其上同调长正合列
   \[
     \begin{aligned}
-      \cdots & \to H^i_{Y_1 \cap Y_2}(X, \cF)
-               \to H^i_{Y_1}(X, \cF) \oplus H^i_{Y_2}(X, \cF)
-               \to H^i_{Y_1 \cup Y_2}(X, \cF) \\
-             & \to H^{i+1}_{Y_1 \cap Y_2}(X, \cF) \to \cdots.
+      \cdots & \to H^i_{Y_1 \cap Y_2}(X, \sF)
+               \to H^i_{Y_1}(X, \sF) \oplus H^i_{Y_2}(X, \sF)
+               \to H^i_{Y_1 \cup Y_2}(X, \sF) \\
+             & \to H^{i+1}_{Y_1 \cap Y_2}(X, \sF) \to \cdots.
     \end{aligned}
     \qedhere
   \]
@@ -312,10 +266,10 @@ pdfversion: hartshorne-3-2.pdf
   设 $X$ 是 Zariski 空间 (II, 习题 3.17)\footnote{每个非空不可约闭集都有一一般点的 Noether 空间.}.
   令 $P \in X$ 为闭点, $X_P$ 为所有满足 $P \in \{Q\}^-$ 的点 $Q$ 构成的子集.
   称 $X_P$ 为 $X$ 在 $P$ 处的\emph{局部空间}, 配备诱导子空间拓扑.
-  令 $j \colon X_P \to X$ 为包含映射; 对 $X$ 上的任意层 $\cF$, 记 $\cF_P = j^* \cF$.
-  证明对任意 $i, \cF$ 都有
+  令 $j \colon X_P \to X$ 为包含映射; 对 $X$ 上的任意层 $\sF$, 记 $\sF_P = j^* \sF$.
+  证明对任意 $i, \sF$ 都有
   \[
-    H_P^i(X, \cF) \cong H_P^i(X_P, \cF_P).
+    H_P^i(X, \sF) \cong H_P^i(X_P, \sF_P).
   \]
 \end{exercise}
 \printfootnotes
@@ -324,25 +278,25 @@ pdfversion: hartshorne-3-2.pdf
 下面的证明中需要这个引理:
 \begin{lemma*}
   设 $X$ 为 Zariski 拓扑, $Y$ 为任意在一般化下封闭的子集, $j \colon Y \to X$ 为嵌入映射.
-  设 $\cF$ 为 $X$ 上的层, $\cF_Y = j^*Y$. 则对 $Y$ 中任意开集 $U$, 有
+  设 $\sF$ 为 $X$ 上的层, $\sF_Y = j^*Y$. 则对 $Y$ 中任意开集 $U$, 有
   \[
-    \cF_Y(U) \cong \varinjlim_{U \subset \tilde{U}} \cF(\tilde{U}),
+    \sF_Y(U) \cong \varinjlim_{U \subset \tilde{U}} \sF(\tilde{U}),
   \]
   其中 $\tilde{U}$ 遍历 $X$ 的满足条件的开集.
-  换句话说, $\cF$ 作为预层在 $Y$ 上的限制已经是层.
+  换句话说, $\sF$ 作为预层在 $Y$ 上的限制已经是层.
 \end{lemma*}
 
 \begin{proofc}
-  由于 $\cF_Y$ 事实上定义为 $U \mapsto \varinjlim_{U \subset \tilde{U}} \cF(\tilde{U})$ 的层化,
-  立刻有 $\varinjlim_{U \subset \tilde{U}} \cF(\tilde{U})$ 到 $\cF_Y(U)$ 的映射.
-  我们记此正向极限为 $\cF'_Y(U)$, 此映射为 $\varphi \colon \cF'_Y(U) \to \cF_Y(U)$.
+  由于 $\sF_Y$ 事实上定义为 $U \mapsto \varinjlim_{U \subset \tilde{U}} \sF(\tilde{U})$ 的层化,
+  立刻有 $\varinjlim_{U \subset \tilde{U}} \sF(\tilde{U})$ 到 $\sF_Y(U)$ 的映射.
+  我们记此正向极限为 $\sF'_Y(U)$, 此映射为 $\varphi \colon \sF'_Y(U) \to \sF_Y(U)$.
 
-  由于正向极限正合, $\cF'_Y(U) \to \prod_{x \in U} \cF_x$ 是单射. 因此易知 $\varphi$ 为单射.
+  由于正向极限正合, $\sF'_Y(U) \to \prod_{x \in U} \sF_x$ 是单射. 因此易知 $\varphi$ 为单射.
 
-  为证明 $\varphi$ 是满射, 也就是证明 $\cF_Y(U)$ 中任意截面 $s$ 都是 $U$ 附近的某个开集 $\tilde{U}$ 的某个截面的限制.
-  按定义, 存在 $Y$ 的一族开覆盖 $U_i$ 使得 $s|_{U_i} \in \cF'_Y(U_i)$,
-  即存在 $X$ 中开集 $\tilde{U_i} \supset U_i$ 以及 $s_i \in \cF(\tilde{U_i})$
-  使得 $s_i|_{U_i} = s|_{U_i}$\footnote{这里混淆了记号, 事实上应该是 $s_i$ 在 $\cF'_Y(U_i)$ 中的像是 $s|_{U_i}$.};
+  为证明 $\varphi$ 是满射, 也就是证明 $\sF_Y(U)$ 中任意截面 $s$ 都是 $U$ 附近的某个开集 $\tilde{U}$ 的某个截面的限制.
+  按定义, 存在 $Y$ 的一族开覆盖 $U_i$ 使得 $s|_{U_i} \in \sF'_Y(U_i)$,
+  即存在 $X$ 中开集 $\tilde{U_i} \supset U_i$ 以及 $s_i \in \sF(\tilde{U_i})$
+  使得 $s_i|_{U_i} = s|_{U_i}$\footnote{这里混淆了记号, 事实上应该是 $s_i$ 在 $\sF'_Y(U_i)$ 中的像是 $s|_{U_i}$.};
 
   由于 $Y$ 拟紧, 可以设 $U_i$ 是有限开覆盖. 利用归纳法, 又可以规约到只有两个开集的情况.
   此时由于 $s_1|_{U_1 \cap U_2} = s_2|_{U_1 \cap U_2}$, 存在 $X$ 中的开集 $V$,
@@ -353,7 +307,7 @@ pdfversion: hartshorne-3-2.pdf
   因此 $\xi \in U_1 \cap U_2 \subset V$, 从而 $\xi \notin N$, 因而 $N \cap \{\xi\}^- = \varnothing$, 矛盾.
 
   从而, 若把 $U_1, U_2, V$ 分别改为 $U_1 \setminus \overline{N}, U_2 \setminus \overline{N}, V \setminus \overline{N}$,
-  就有 $V = U_1 \cap U_2$. 因此可从 $s_1, s_2$ 拼出 $s_0 \in \cF(\tilde{U_1} \cup \tilde{U_2})$
+  就有 $V = U_1 \cap U_2$. 因此可从 $s_1, s_2$ 拼出 $s_0 \in \sF(\tilde{U_1} \cup \tilde{U_2})$
   使得 $s_0|_U = s$. 也就是说 $\varphi$ 是满射. \qedhere
 \printfootnotes
 \end{proofc}
@@ -364,103 +318,103 @@ pdfversion: hartshorne-3-2.pdf
   且若 $Q \notin X_P$, 有 $P \in (X \setminus \{Q\}^-)$.
   所以 $X_P = \bigcap_{P \in U \subset X} U$, 其中 $U$ 取遍包含 $P$ 的开集.
 
-  按习题 2.3 (6), 对任意包含 $P$ 的开集 $V$, 有 $H_P^i(X, \cF) \cong H_P^i(X_P, \cF_P)$.
+  按习题 2.3 (6), 对任意包含 $P$ 的开集 $V$, 有 $H_P^i(X, \sF) \cong H_P^i(X_P, \sF_P)$.
   若 $V \supset W$, 取 2.3 (5) 的长正合列, 有映射
   \[
     \begin{cd}
-      \cdots \ar[r] & H_P^i(V, \cF|_V) \ar[r] \ar[d, "\cong"]
-      & H^i(V, \cF|_V) \ar[r] \ar[d] & H^i(V \setminus \{P\}, \cF|_{V \setminus \{P\}}) \ar[r] \ar[d] & \cdots\\
-      \cdots \ar[r] & H_P^i(W, \cF|_W) \ar[r]
-      & H^i(W, \cF|_W) \ar[r] & H^i(W \setminus \{P\}, \cF|_{W \setminus \{P\}}) \ar[r] & \cdots
+      \cdots \ar[r] & H_P^i(V, \sF|_V) \ar[r] \ar[d, "\cong"]
+      & H^i(V, \sF|_V) \ar[r] \ar[d] & H^i(V \setminus \{P\}, \sF|_{V \setminus \{P\}}) \ar[r] \ar[d] & \cdots\\
+      \cdots \ar[r] & H_P^i(W, \sF|_W) \ar[r]
+      & H^i(W, \sF|_W) \ar[r] & H^i(W \setminus \{P\}, \sF|_{W \setminus \{P\}}) \ar[r] & \cdots
     \end{cd}
   \]
   取正向极限即得正合列
   \[
-    \cdots \to \varinjlim_{P \in V} H_P^i(V, \cF|_V)
-    \to \varinjlim_{P \in V} H^i(V, \cF|_V)
-    \to \varinjlim_{P \in V} H^i(V \setminus \{P\}, \cF|_{V \setminus \{P\}})
+    \cdots \to \varinjlim_{P \in V} H_P^i(V, \sF|_V)
+    \to \varinjlim_{P \in V} H^i(V, \sF|_V)
+    \to \varinjlim_{P \in V} H^i(V \setminus \{P\}, \sF|_{V \setminus \{P\}})
     \to \cdots.
   \]
   即
   \[
-    \cdots \to H_P^i(X, \cF)
-    \to \varinjlim_{P \in V} H^i(V, \cF)
-    \to \varinjlim_{P \in V} H^i(V \setminus \{P\}, \cF)
+    \cdots \to H_P^i(X, \sF)
+    \to \varinjlim_{P \in V} H^i(V, \sF)
+    \to \varinjlim_{P \in V} H^i(V \setminus \{P\}, \sF)
     \to \cdots.
   \]
   此外, 在 $X_P$ 上还有长正合列
   \[
-    \cdots \to H_P^i(X_P, \cF_P) \to H^i(X_P, \cF_P) \to H^i(X_P \setminus \{P\}, \cF_P) \to \cdots.
+    \cdots \to H_P^i(X_P, \sF_P) \to H^i(X_P, \sF_P) \to H^i(X_P \setminus \{P\}, \sF_P) \to \cdots.
   \]
-  因此只需证明有自然同构 $H^i(X_P, \cF_P) \cong \varinjlim_{P \in V} H^i(V, \cF)$
-  及 $H^i(X_P \setminus \{P\}, \cF_P) \cong \varinjlim_{P \in V} H^i(V \setminus \{P\}, \cF)$.
+  因此只需证明有自然同构 $H^i(X_P, \sF_P) \cong \varinjlim_{P \in V} H^i(V, \sF)$
+  及 $H^i(X_P \setminus \{P\}, \sF_P) \cong \varinjlim_{P \in V} H^i(V \setminus \{P\}, \sF)$.
 
   上面的引理事实上证明了在 $i = 0$ 时,
   \begin{align*}
-    \Gamma(X_P, \cF_P) &\cong \varinjlim_{P \in V} \Gamma(V, \cF) \\
-    \Gamma(X_P \setminus \{P\}, \cF_P) &\cong \varinjlim_{P \in V} \Gamma(V \setminus \{P\}, \cF).
+    \Gamma(X_P, \sF_P) &\cong \varinjlim_{P \in V} \Gamma(V, \sF) \\
+    \Gamma(X_P \setminus \{P\}, \sF_P) &\cong \varinjlim_{P \in V} \Gamma(V \setminus \{P\}, \sF).
   \end{align*}
-  并且引理还有显然的推论: 若 $\cF$ 松, 则 $\cF_P$ 松 (因为 $\varinjlim$ 的正合性).
-  因此立知: $H^i(X_P, -_P), H^i(X_P \setminus \{P\}, \cF_P)$ 都是可擦函子 (因为松层对于它们是零调对象).
+  并且引理还有显然的推论: 若 $\sF$ 松, 则 $\sF_P$ 松 (因为 $\varinjlim$ 的正合性).
+  因此立知: $H^i(X_P, -_P), H^i(X_P \setminus \{P\}, \sF_P)$ 都是可擦函子 (因为松层对于它们是零调对象).
   而 $\varinjlim H^i(V, -), \varinjlim H^i(V \setminus \{P\}, -)$ 显然也是可擦函子.
   因此由 $\delta$ 函子的万有性即得正合列的自然态射
   \[
     \begin{cd}
-      \cdots \ar[r] & H_P^i(X, \cF) \ar[r] \ar[d]
-      & \varinjlim_{P \in V} H^i(V, \cF|_V) \ar[r] \ar[d, "\cong"]
-      & \varinjlim_{P \in V} H^i(V \setminus \{P\}, \cF|_{V \setminus \{P\}}) \ar[r] \ar[d, "\cong"] & \cdots\\
-      \cdots \ar[r] & H_P^i(X_P, \cF_P) \ar[r]
-      & H^i(X_P, \cF_P) \ar[r] & H^i(X_P \setminus \{P\}, \cF_P|_{X_P \setminus \{P\}}) \ar[r] & \cdots
+      \cdots \ar[r] & H_P^i(X, \sF) \ar[r] \ar[d]
+      & \varinjlim_{P \in V} H^i(V, \sF|_V) \ar[r] \ar[d, "\cong"]
+      & \varinjlim_{P \in V} H^i(V \setminus \{P\}, \sF|_{V \setminus \{P\}}) \ar[r] \ar[d, "\cong"] & \cdots\\
+      \cdots \ar[r] & H_P^i(X_P, \sF_P) \ar[r]
+      & H^i(X_P, \sF_P) \ar[r] & H^i(X_P \setminus \{P\}, \sF_P|_{X_P \setminus \{P\}}) \ar[r] & \cdots
     \end{cd}
   \]
-  由五引理, 即知 $H_P^i(X, \cF) \to H_P^i(X_P, \cF_P)$ 亦为同构.
+  由五引理, 即知 $H_P^i(X, \sF) \to H_P^i(X_P, \sF_P)$ 亦为同构.
 \end{proofc}
 
 \begin{exercise}
-  令 $X$ 为 Noether 拓扑空间, $\{\cI_\alpha\}_{\alpha \in A}$ 为 $X$ 上内射层的有向系统. 证明 $\varinjlim \cI_\alpha$ 亦内射.
-  [\emph{提示:} 首先证明层 $\cI$ 内射当且仅当对 $X$ 的任意开子集 $U$, $\Z_U$ 的任意子层 $\cR$, 以及任意态射 $f \colon \cR \to \cI$,
-  其都可以扩张成 $\Z_U \to \cI$ 的映射.
-  其次, 证明这样的 $\cR$ 都有限生成, 因此 $\cR \to \varinjlim \cI_\alpha$ 穿过某个 $\cI_\alpha$.]
+  令 $X$ 为 Noether 拓扑空间, $\{\sI_\alpha\}_{\alpha \in A}$ 为 $X$ 上内射层的有向系统. 证明 $\varinjlim \sI_\alpha$ 亦内射.
+  [\emph{提示:} 首先证明层 $\sI$ 内射当且仅当对 $X$ 的任意开子集 $U$, $\Z_U$ 的任意子层 $\sR$, 以及任意态射 $f \colon \sR \to \sI$,
+  其都可以扩张成 $\Z_U \to \sI$ 的映射.
+  其次, 证明这样的 $\sR$ 都有限生成, 因此 $\sR \to \varinjlim \sI_\alpha$ 穿过某个 $\sI_\alpha$.]
 \end{exercise}
 
 \begin{proofc}
-  我们按照提示顺序证明. 首先证明层 $\cI$ 内射当且仅当对 $X$ 的任意开子集 $U$, $\Z_U$ 的任意子层 $\cR$, 以及任意态射 $f \colon \cR \to \cI$,
-  其都可以扩张成 $\Z_U \to \cI$ 的映射.
+  我们按照提示顺序证明. 首先证明层 $\sI$ 内射当且仅当对 $X$ 的任意开子集 $U$, $\Z_U$ 的任意子层 $\sR$, 以及任意态射 $f \colon \sR \to \sI$,
+  其都可以扩张成 $\Z_U \to \sI$ 的映射.
 
-  必要性显然. 考虑充分性. 设 $\cF$ 是 $X$ 上的层, $\cG \subseteq \cF$ 是其子层, $g \colon \cG \to \cI$ 是任意态射.
-  我们希望证明 $g$ 可以延拓为 $\cF \to \cI$.
-  记 $\Sigma = \{ (\cH, h) \mid \cG \subseteq \cH \subseteq \cF, h \colon \cH \to \cI, h|_{\cG} = g \}$,
-  其上给显然的偏序. 由 Zorn 引理, $\Sigma$ 中有极大元 $(\cH, h)$.
+  必要性显然. 考虑充分性. 设 $\sF$ 是 $X$ 上的层, $\sG \subseteq \sF$ 是其子层, $g \colon \sG \to \sI$ 是任意态射.
+  我们希望证明 $g$ 可以延拓为 $\sF \to \sI$.
+  记 $\Sigma = \{ (\sH, h) \mid \sG \subseteq \sH \subseteq \sF, h \colon \sH \to \sI, h|_{\sG} = g \}$,
+  其上给显然的偏序. 由 Zorn 引理, $\Sigma$ 中有极大元 $(\sH, h)$.
 
-  若 $\cH \neq \cF$, 取开集 $U$ 以及 $s \in \cF(U) \setminus \cH(U)$.
-  记映射 $\varphi \colon \Z_U \to \cF, \varphi(t_V) = t_Vs|_V$. 记 $\cR = \varphi^{-1}(\cH)$.
-  由假设, 映射 $h \circ \varphi \colon \cR \to \cI$ 可以延拓为 $\Z_U \to \cI$.
-  此映射和 $h \colon \cH \to \cI$ 拼接为 $(\cH + \Z_Us) \to \cI$, 与 $(\cH, h)$ 极大性矛盾. 因此只可能 $\cH = \cF$.
-  这里 $\cH + \Z_Us$ 定义为 $\cH \oplus \Z_U \to \cF$ 的像.
+  若 $\sH \neq \sF$, 取开集 $U$ 以及 $s \in \sF(U) \setminus \sH(U)$.
+  记映射 $\varphi \colon \Z_U \to \sF, \varphi(t_V) = t_Vs|_V$. 记 $\sR = \varphi^{-1}(\sH)$.
+  由假设, 映射 $h \circ \varphi \colon \sR \to \sI$ 可以延拓为 $\Z_U \to \sI$.
+  此映射和 $h \colon \sH \to \sI$ 拼接为 $(\sH + \Z_Us) \to \sI$, 与 $(\sH, h)$ 极大性矛盾. 因此只可能 $\sH = \sF$.
+  这里 $\sH + \Z_Us$ 定义为 $\sH \oplus \Z_U \to \sF$ 的像.
 
-  \emph{Hartshorne 声称 $\cR$ 应该是有限生成的. 我想他大约想表达 $\cR$ 是 Noether 的, 即其子对象升链总稳定. 换句话说其希望说明 $\Z_U$ 是 Noether 的.}
+  \emph{Hartshorne 声称 $\sR$ 应该是有限生成的. 我想他大约想表达 $\sR$ 是 Noether 的, 即其子对象升链总稳定. 换句话说其希望说明 $\Z_U$ 是 Noether 的.}
 
   接下来我们证明 $\Z_U$ 是 Abel 群层里的 Noether 对象, 即其子对象升链总稳定.
-  设 $\cF_1 \subseteq \cF_2 \subseteq \cdots \subseteq \Z_U$ 是 $\Z_U$ 的子对象的升链.
-  设 $U$ 的不可约分支为 $U_1, \dots, U_n$, 则只需证明每个 $\cF_k|_{U_i}$ 稳定. 所以不妨设 $U$ 不可约.
+  设 $\sF_1 \subseteq \sF_2 \subseteq \cdots \subseteq \Z_U$ 是 $\Z_U$ 的子对象的升链.
+  设 $U$ 的不可约分支为 $U_1, \dots, U_n$, 则只需证明每个 $\sF_k|_{U_i}$ 稳定. 所以不妨设 $U$ 不可约.
 
-  设 $V_k$ 为最大的使得 $\cF_k(V) \neq 0$ 的开集 (若 $\cF_k(V) = r\Z, \cF_k(V') = s\Z$, 显然有 $\cF_k(V \cup V') = \operatorname{lcm}(r, s)\Z$. 因此 $V_k$ 良定).
+  设 $V_k$ 为最大的使得 $\sF_k(V) \neq 0$ 的开集 (若 $\sF_k(V) = r\Z, \sF_k(V') = s\Z$, 显然有 $\sF_k(V \cup V') = \operatorname{lcm}(r, s)\Z$. 因此 $V_k$ 良定).
   则 $V_k$ 是开集升链, 从而稳定. 设其稳定到 $V$.
-  则 $\cF_k(V)$ 是 $\Z$ 的子模升链, 其必定稳定.
+  则 $\sF_k(V)$ 是 $\Z$ 的子模升链, 其必定稳定.
   设其稳定到 $m\Z$. 按定义, $m > 0$.
-  对 $m$ 的任意因子 $d$, 记 $C_k(d)$ 为 $d$ 在 $\Z_U / \cF_k$ 中的支集. 则 $C_k(d)$ 构成 (关于 $k$ 的) 闭集降链.
-  因此每个都稳定. 也就是说, 在 $k$ 充分大的时候, $\cF_k \to \cF_{k+1}$ 在每个茎上都是同构. 这也就是说 $\cF_k$ 稳定.
+  对 $m$ 的任意因子 $d$, 记 $C_k(d)$ 为 $d$ 在 $\Z_U / \sF_k$ 中的支集. 则 $C_k(d)$ 构成 (关于 $k$ 的) 闭集降链.
+  因此每个都稳定. 也就是说, 在 $k$ 充分大的时候, $\sF_k \to \sF_{k+1}$ 在每个茎上都是同构. 这也就是说 $\sF_k$ 稳定.
 
-  接下来, 设 $\cI_\alpha$ 为内射层的有向系统. 设 $U$ 是开集, $\cR$ 是 $\Z_U$ 的子层, $f \colon \cR \to \varinjlim \cI_\alpha$.
-  由于 $\Z_U$ 是 Noether 对象, $f^{-1}(\cI_\alpha)$ 稳定. 也就是说存在 $\alpha$ 使得 $f$ 穿过 $\cI_\alpha$.
-  因此由 $\cI_\alpha$ 的内射性, $f$ 可以延拓为 $\Z_U \to \cI_\alpha \to \varinjlim \cI_\alpha$. 综上, $\varinjlim \cI_\alpha$ 内射.
+  接下来, 设 $\sI_\alpha$ 为内射层的有向系统. 设 $U$ 是开集, $\sR$ 是 $\Z_U$ 的子层, $f \colon \sR \to \varinjlim \sI_\alpha$.
+  由于 $\Z_U$ 是 Noether 对象, $f^{-1}(\sI_\alpha)$ 稳定. 也就是说存在 $\alpha$ 使得 $f$ 穿过 $\sI_\alpha$.
+  因此由 $\sI_\alpha$ 的内射性, $f$ 可以延拓为 $\Z_U \to \sI_\alpha \to \varinjlim \sI_\alpha$. 综上, $\varinjlim \sI_\alpha$ 内射.
 \end{proofc}
 
 \begin{exercise}
   令 $\bS^1$ 为圆, 配备通常的拓扑. 令 $\Z$ 为其上的常值层.
   \begin{enumerate}[label=(\arabic*)]
     \item 证明 $H^1(\bS^1, \Z) \cong \Z$ (用我们定义的(层)上同调).
-    \item 现在令 $\cR$ 为 $\bS^1$ 上的连续实值函数层. 证明 $H^1(\bS^1, \cR) = 0$.
+    \item 现在令 $\sR$ 为 $\bS^1$ 上的连续实值函数层. 证明 $H^1(\bS^1, \sR) = 0$.
   \end{enumerate}
 \end{exercise}
 
@@ -469,24 +423,24 @@ pdfversion: hartshorne-3-2.pdf
   感谢名为 Daniel Schpler 的 MSE 用户.
 
   我们先处理 $\R$ (配备通常的拓扑) 上的上同调.
-  定义 $\R$ 上的层 $\cF$ 是\emph{区间松}的当且仅当对任意两个开区间 $I \supset J$, 都有 $\cF(I) \to \cF(J)$ 满.
+  定义 $\R$ 上的层 $\sF$ 是\emph{区间松}的当且仅当对任意两个开区间 $I \supset J$, 都有 $\sF(I) \to \sF(J)$ 满.
   下面我们证明区间松的层都是 $\Gamma(\R, -)$ 零调对象.
   \begin{enumerate}
-    \item 若 $0 \to \cF' \to \cF \to \cF'' \to 0$ 是 $\R$ 上层的正合列, 且 $\cF'$ 区间松, 则
+    \item 若 $0 \to \sF' \to \sF \to \sF'' \to 0$ 是 $\R$ 上层的正合列, 且 $\sF'$ 区间松, 则
           \[
-          0 \to \Gamma(U, \cF') \to \Gamma(U, \cF) \to \Gamma(U, \cF'') \to 0
+          0 \to \Gamma(U, \sF') \to \Gamma(U, \sF) \to \Gamma(U, \sF'') \to 0
           \]
           对所有开集 $U$ 正合. 由于开集总是开区间的不交并, 只需对 $U$ 为开区间证明.
-          只需证明 $\Gamma(\R, \cF) \to \Gamma(\R, \cF'')$ 满.
-          若 $t \in \Gamma(\R, \cF'')$, 设 $(I, s)$ 为其极大的区间上的提升.
-          在 $I$ 的端点附近取区间 $J$ 及 $s' \in \Gamma(J, \cF)$.
-          取 $r \in \Gamma(I, \cF)$ 使得 $r|_{I \cap J}$ 映射到 $s - s'$ (这由区间松得到),
+          只需证明 $\Gamma(\R, \sF) \to \Gamma(\R, \sF'')$ 满.
+          若 $t \in \Gamma(\R, \sF'')$, 设 $(I, s)$ 为其极大的区间上的提升.
+          在 $I$ 的端点附近取区间 $J$ 及 $s' \in \Gamma(J, \sF)$.
+          取 $r \in \Gamma(I, \sF)$ 使得 $r|_{I \cap J}$ 映射到 $s - s'$ (这由区间松得到),
           则 $s - r$ 和 $s'$ 可拼成 $I \cup J$ 上 $t$ 的提升.
-    \item 若 $0 \to \cF' \to \cF \to \cF'' \to 0$ 是 $\R$ 上层的正合列, 且 $\cF', \cF$ 区间松,
-          则 $\cF''$ 也区间松. 由上一条显然.
+    \item 若 $0 \to \sF' \to \sF \to \sF'' \to 0$ 是 $\R$ 上层的正合列, 且 $\sF', \sF$ 区间松,
+          则 $\sF''$ 也区间松. 由上一条显然.
     \item 内射层都区间松. 因为内射层都松, 所以也区间松.
   \end{enumerate}
-  综上即可证明 $H^i(\R, \cF) = 0$ 对任意 $i$ 和任意区间松 $\cF$ 成立.
+  综上即可证明 $H^i(\R, \sF) = 0$ 对任意 $i$ 和任意区间松 $\sF$ 成立.
 
   接下来证明原问题.
   \begin{enumerate}[label=(\arabic*)]
@@ -502,12 +456,12 @@ pdfversion: hartshorne-3-2.pdf
           \]
           而 $I_u$ 可以同构于 $\R$ 的闭子区间 $[0, 1]$. 将 $Z_u$ 以 $0$ 延拓到 $\R$ 上后, 显然其区间松. 因此 $H^1(I_u, \Z_u) = 0$.
           同理, $H^1(I_d, \Z_d) = 0$. 因此即可得出 $H^1(\bS^1, \Z) \cong \coker\bigl(\bigl[\begin{smallmatrix} 1 & 1 \\ -1 & -1 \end{smallmatrix}\bigr]\bigr) \cong \Z$.
-    \item 同上取 $\cR_u, \cR_d$, 记 $C(U, \R)$ 为 $U$ 上的连续函数族, 依然有长正合列
+    \item 同上取 $\sR_u, \sR_d$, 记 $C(U, \R)$ 为 $U$ 上的连续函数族, 依然有长正合列
           \[
           0 \to C(\bS^1, \R) \to C(I_u, \R) \oplus C(I_d, \R) \to \R^2
-          \to H^1(\bS^1, \cR) \to H^1(I_u, \cR_u) \oplus H^1(I_d, \cR_d) \to 0.
+          \to H^1(\bS^1, \sR) \to H^1(I_u, \sR_u) \oplus H^1(I_d, \sR_d) \to 0.
           \]
-          同理, $\cR_{u, d}$ 以 $0$ 延拓到 $\R$ 上后区间松, 因此上同调消失. 而 $C(I_u, \R) \oplus C(I_d, \R) \to \R^2$ 是满射.
-          因此 $H^1(\bS^1, \cR) = 0$. \qedhere
+          同理, $\sR_{u, d}$ 以 $0$ 延拓到 $\R$ 上后区间松, 因此上同调消失. 而 $C(I_u, \R) \oplus C(I_d, \R) \to \R^2$ 是满射.
+          因此 $H^1(\bS^1, \sR) = 0$. \qedhere
   \end{enumerate}
 \end{proofc}

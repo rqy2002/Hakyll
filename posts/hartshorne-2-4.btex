@@ -3,48 +3,9 @@ title: Hartshorne 第二章第四节习题
 tag: 数学
 date: 2022-11-30
 lastdate: 2023-02-23
-pdfversion: hartshorne-2-4.pdf
+pdf-version: hartshorne-2-4.pdf
+preamble: AG.btex
 ---
-
-\newtheorem{exercise}{习题}
-\newtheorem*{lemma*}{引理}
-\theoremstyle{remark}
-\newtheorem*{remark*}{注}
-
-\def\ga{\mathfrak{a}}
-\def\gp{\mathfrak{p}}
-\def\gq{\mathfrak{q}}
-\def\gm{\mathfrak{m}}
-\def\gn{\mathfrak{n}}
-\def\A{\mathbb{A}}
-\def\P{\mathbb{P}}
-\def\Z{\mathbb{Z}}
-\def\F{\mathbb{F}}
-\def\Q{\mathbb{Q}}
-\def\R{\mathbb{R}}
-\def\C{\mathbb{C}}
-\def\id{\mathrm{id}}
-\def\cO{\mathscr{O}}
-\def\Sch{\mathfrak{Sch}}
-\def\Rings{\mathfrak{Rings}}
-\def\spto{\rightsquigarrow}
-\def\red{\mathrm{red}}
-\def\spp{\operatorname{sp}}
-\def\Hom{\operatorname{Hom}}
-\def\Spec{\operatorname{Spec}}
-\def\Proj{\operatorname{Proj}}
-\def\Supp{\operatorname{Supp}}
-\def\coker{\operatorname{coker}}
-\def\im{\operatorname{im}}
-\def\dim{\operatorname{dim}}
-\def\codim{\operatorname{codim}}
-\def\height{\operatorname{height}}
-\def\Frac{\operatorname{Frac}}
-\def\trd{\operatorname{tr.d.}}
-\def\leq{\leqslant}
-\def\geq{\geqslant}
-\def\Stacks#1{\href{https://stacks.math.columbia.edu/tag/#1}{Stacks Project #1}}
-\def\clearfootnotes{\def\@printfootnotes{}}
 
 这里是 Hartshorne 第二章第四节习题. 目前还在做.
 
@@ -148,7 +109,7 @@ pdfversion: hartshorne-2-4.pdf
 
 \begin{exercise}
   令 $X$ 为域 $k$ 上的有限型整概形, 其函数域为 $K$.
-  如果 $K / k$ 的某个赋值的赋值环支配局部环 $\cO_{x, X}$, 其中 $x \in X$,
+  如果 $K / k$ 的某个赋值的赋值环支配局部环 $\sO_{x, X}$, 其中 $x \in X$,
   就说此赋值具有\emph{中心} $x$.
   \begin{enumerate}[label=(\alph*)]
     \item 若 $X$ 在 $k$ 上分离, 则 $K / k$ 的每个赋值的中心(如果存在)一定唯一.
@@ -157,9 +118,9 @@ pdfversion: hartshorne-2-4.pdf
           [\emph{提示: 虽然 (a) (b) 是赋值判别法的简单推论,
           但是逆命题需要不同的域中的赋值之间的比较.}]
     \item 若 $X$ 在 $k$ 上紧合, 且 $k$ 代数闭,
-          证明 $\Gamma(X, \cO_X) = k$.
+          证明 $\Gamma(X, \sO_X) = k$.
           这推广了 (I, 3.4a).
-          [\emph{提示: 令 $a \in \Gamma(X, \cO_X), a \notin k$,
+          [\emph{提示: 令 $a \in \Gamma(X, \sO_X), a \notin k$,
           证明存在 $K / k$ 的赋值环 $R$ 使得 $a^{-1} \in \gm_R$.
           然后使用 (b) 得出矛盾.}]
   \end{enumerate}
@@ -193,8 +154,8 @@ pdfversion: hartshorne-2-4.pdf
             \end{cd}\]
           由前提可知 $\Spec R \to X$ 的态射唯一 (或存在唯一).
           若有 $f \colon \Spec S \to X$,
-          则 $f$ 将 $\Spec S$ 的闭点映射到 $x \in X$, 且 $S$ 支配 $\cO_{x, X}$.
-          由于 $\cO_{x, X} \subset K$, 即知 $R$ 支配 $\cO_{x, X}$.
+          则 $f$ 将 $\Spec S$ 的闭点映射到 $x \in X$, 且 $S$ 支配 $\sO_{x, X}$.
+          由于 $\sO_{x, X} \subset K$, 即知 $R$ 支配 $\sO_{x, X}$.
           因此 $\Spec S \to X$ 的态射与 $\Spec R \to X$ 的态射一一对应,
           亦唯一 (或存在唯一).
 
@@ -221,7 +182,7 @@ pdfversion: hartshorne-2-4.pdf
             则 $e^{-1} \in \gm_R, e^{-1} \notin \gm_{R'}$, 这与 $R'$ 支配 $R$ 矛盾.
 
             若要给出 $R$ 在 $Y$ 中的一个中心, 就等价于给出一个 $y \in Y$
-            使得 $R$ 支配 $\cO_{y, Y}$. 那么 $R'$ 在 $K(X)$ 中支配 $\cO_{y, Y}$.
+            使得 $R$ 支配 $\sO_{y, Y}$. 那么 $R'$ 在 $K(X)$ 中支配 $\sO_{y, Y}$.
             因此我们有交换图
             \[\begin{cd}
                 \Spec K(X) \ar[r] \ar[d] & X \ar[d] \\
@@ -231,8 +192,8 @@ pdfversion: hartshorne-2-4.pdf
             也就是说对于 $R$ 在 $Y$ 中任意一个中心, 都存在恰好一个 $R'$ 在 $X$ 中的中心如此对应.
 
             反之, 若 $x$ 是 $R'$ 在 $X$ 中的中心, $y = f(x)$,
-            则 $\cO_{x, X}$ 支配 $\cO_{y, Y}$, 因此 $R'$ 也支配 $\cO_{y, Y}$.
-            而 $\cO_{y, Y} \subset K(Y)$, 因此 $R$ 支配 $\cO_{y, Y}$.
+            则 $\sO_{x, X}$ 支配 $\sO_{y, Y}$, 因此 $R'$ 也支配 $\sO_{y, Y}$.
+            而 $\sO_{y, Y} \subset K(Y)$, 因此 $R$ 支配 $\sO_{y, Y}$.
             (事实上就是说 $\Spec R'$ 是 $\Spec K(Y)$ 和 $\Spec R$ 在 $\Spec K(X)$ 上的推出).
             因此 $R'$ 在 $X$ 中的中心和 $R$ 在 $Y$ 中的中心以如下交换图的方式一一对应:
             \[\begin{cd}
@@ -258,31 +219,31 @@ pdfversion: hartshorne-2-4.pdf
           因此问题归约为: 若 $X$ 是域 $k$ 上的有限型正规整概形,
           $Z$ 是其不可约闭子概形, $X$ 满足条件 (a) 或 (b),
           那么 $Z$ 也满足相同的条件. 通过归纳, 我们不妨假设 $Z$ 在 $X$ 中具有余维数 $1$.
-          设 $Z$ 的一般点为 $z$, 则 $\cO_{z, X}$ 是一维整闭 Noether 局部整环,
+          设 $Z$ 的一般点为 $z$, 则 $\sO_{z, X}$ 是一维整闭 Noether 局部整环,
           因此是离散赋值环.
 
           现在设 $S \subset K(Z) = k(z)$ 是赋值环, $k \subset S$.
-          令 $\pi \colon \cO_{z, X} \to K(Z)$ 为商同态, $R = \pi^{-1}(S)$.
-          则 $R$ 是 $K$ 中的赋值环: 任取 $u \in K$, 由于 $\cO_{z, X}$ 是离散赋值环,
-          $u \in \cO_{z, X}$ 或 $u^{-1} \in \cO_{z, X}$.
+          令 $\pi \colon \sO_{z, X} \to K(Z)$ 为商同态, $R = \pi^{-1}(S)$.
+          则 $R$ 是 $K$ 中的赋值环: 任取 $u \in K$, 由于 $\sO_{z, X}$ 是离散赋值环,
+          $u \in \sO_{z, X}$ 或 $u^{-1} \in \sO_{z, X}$.
           不妨设为前者. 若 $u \in \gm_z$, 则 $u \in R$;
           否则 $\pi(u)$ 或 $\pi(u^{-1})$ 其中之一属于 $S$, 因此 $u \in R$ 或者 $u^{-1} \in R$.
           综上, 对任意 $u \in K$, 必然有 $u \in R$ 或 $u^{-1} \in R$ 至少一条成立.
           因此 $R$ 是赋值环.
 
           设 $z' \in Z$ 是 $S$ 在 $Z$ 中的中心,
-          则 $\cO_{z', X} = \pi^{-1}(\cO_{z', Z})$ 被 $R$ 支配, 从而 $z'$ 也是 $R$ 在 $X$ 里的中心.
+          则 $\sO_{z', X} = \pi^{-1}(\sO_{z', Z})$ 被 $R$ 支配, 从而 $z'$ 也是 $R$ 在 $X$ 里的中心.
           反之, 若 $z' \in X$ 是 $R$ 的中心,
-          则 $\cO_{z', X} \subseteq R \subseteq \cO_{z, X}$, 因此 $z' \in Z$,
+          则 $\sO_{z', X} \subseteq R \subseteq \sO_{z, X}$, 因此 $z' \in Z$,
           且显然 $z'$ 也是 $Z$ 中 $S$ 的中心. 因此即证.
-    \item 设 $a \in \Gamma(X, \cO_X), a \notin k$.
+    \item 设 $a \in \Gamma(X, \sO_X), a \notin k$.
           由于 $k$ 代数闭, $k[a^{-1}]$ 是整环. 考虑
           考虑 $A = k[a^{-1}]_{(a^{-1})} \subset K$.
           由 Zorn 引理, 存在极大的支配 $A$ 的局部环 $R \subset K$,
           即存在赋值环 $R$ 使得 $a^{-1} \in \gm_R$.
 
-          由 (b), 存在 $x \in X$ 使得 $R$ 支配 $\cO_{x, X}$.
-          因此 $a \in \Gamma(X, \cO_X) \subseteq \cO_{x, X} \subseteq R$.
+          由 (b), 存在 $x \in X$ 使得 $R$ 支配 $\sO_{x, X}$.
+          因此 $a \in \Gamma(X, \sO_X) \subseteq \sO_{x, X} \subseteq R$.
           但是这与 $a^{-1} \in \gm_R$ 矛盾. \qedhere
   \end{enumerate}
 \end{proofc}
@@ -552,8 +513,8 @@ pdfversion: hartshorne-2-4.pdf
 
           \begin{proofc}
             若 $X$ 既约, 可以取 $Z$ 为 $\overline{i(X)}$ 上的既约闭子概形.
-            若 $i$ 拟紧, 由于其分离, 即知 $i_*\cO_X$ 是 $Y$ 上的拟凝聚层,
-            从而 $\mathcal{I} = \ker(\cO_Y \to i_*\cO_X)$ 是拟凝聚理想层.
+            若 $i$ 拟紧, 由于其分离, 即知 $i_*\sO_X$ 是 $Y$ 上的拟凝聚层,
+            从而 $\mathcal{I} = \ker(\sO_Y \to i_*\sO_X)$ 是拟凝聚理想层.
             设 $Z$ 为 $\mathcal{I}$ 对应的闭子概形.
             在两种情况下, 都易知 $Z$ 是 $i$ 的概形论像, 并且 $X \cong Z \times_Y U$:
             既约的情形可以由泛性质立得, 而拟紧的情形可以在局部上验证.
@@ -604,19 +565,19 @@ pdfversion: hartshorne-2-4.pdf
   如果可以证明一些困难的交换代数命题, 并且只考虑 Noether 概形,
   那么我们可以只用\emph{离散}赋值环来叙述赋值判别法.
   \begin{enumerate}[label=(\alph*)]
-    \item 设 $\cO, \gm$ 是 Noether 局部整环, 其分式域为 $K$,
+    \item 设 $\sO, \gm$ 是 Noether 局部整环, 其分式域为 $K$,
           且 $L$ 是 $K$ 上有限生成域扩张,
-          那么存在 $L$ 的离散赋值环 $R$ 支配 $\cO$.
+          那么存在 $L$ 的离散赋值环 $R$ 支配 $\sO$.
           按以下步骤证明这个结论:
-          首先取 $\cO$ 的多项式环, 归约到 $L$ 是 $K$ 的有限扩域的情形.
+          首先取 $\sO$ 的多项式环, 归约到 $L$ 是 $K$ 的有限扩域的情形.
           接下来证明可以取 $\gm$ 的一组合适的生成元 $x_1, \dots, x_n$,
-          使得 $\cO' = \cO[x_2 / x_1, \dots, x_n / x_1]$ 中 $\ga = (x_1)$ 是真子理想.
-          接下来令 $\gp$ 为 $\ga$ 的一个极小素理想, 并设 $\cO'_{\gp}$ 为 $\cO'$ 在 $\gp$ 的局部化.
-          它是支配 $\cO$ 的一维 Noether 局部整环.
-          令 $\tilde{\cO}'_{\gp}$ 为 $\cO'_{\gp}$ 在 $L$ 中的整闭包.
+          使得 $\sO' = \sO[x_2 / x_1, \dots, x_n / x_1]$ 中 $\ga = (x_1)$ 是真子理想.
+          接下来令 $\gp$ 为 $\ga$ 的一个极小素理想, 并设 $\sO'_{\gp}$ 为 $\sO'$ 在 $\gp$ 的局部化.
+          它是支配 $\sO$ 的一维 Noether 局部整环.
+          令 $\tilde{\sO}'_{\gp}$ 为 $\sO'_{\gp}$ 在 $L$ 中的整闭包.
           使用 Krull--秋月(Akizuki) 定理 (见 Nagata [7, p. 115])
-          证明 $\tilde{\cO}'_{\gp}$ 也是一维 Noether 整环.
-          最后取 $\tilde{\cO}'_{\gp}$ 在任意极大理想处的局部化.
+          证明 $\tilde{\sO}'_{\gp}$ 也是一维 Noether 整环.
+          最后取 $\tilde{\sO}'_{\gp}$ 在任意极大理想处的局部化.
     \item 令 $f \colon X \to Y$ 为 Noether 概形之间的有限型态射.
           证明 $f$ 分离 (或紧合) 当且仅当赋值判别法对一切\emph{离散}赋值环成立.
   \end{enumerate}
@@ -625,7 +586,7 @@ pdfversion: hartshorne-2-4.pdf
 \begin{proofc}
   对于 (a). 首先, 显然该命题若对 $L / F$ 和 $F / K$ 都成立, 则它也对 $L / K$ 成立.
   因此对任意 $L / K$, 取其中一组超越基 $x_1, \dots, x_n \in L$, 考虑 $K_m = K(x_1, \dots, x_m), K_0 = K$.
-  对于 $K_m / K_{m - 1}$, 只需对 $\cO_{m - 1} \subset K_{m - 1}$, 定义 $\cO_m = \cO[x_m]_{(x_m)}$ 即可.
+  对于 $K_m / K_{m - 1}$, 只需对 $\sO_{m - 1} \subset K_{m - 1}$, 定义 $\sO_m = \sO[x_m]_{(x_m)}$ 即可.
   也就是说, 只需要考虑 $L / K_n$, 即域扩张有限的情况.
 
   下面设 $L / K$ 有限.
@@ -633,13 +594,13 @@ pdfversion: hartshorne-2-4.pdf
   否则存在一个 $k$ 使得对每个 $i$ 都有 $x_i^k \in \gm^{k + 1}$,
   因此不难知道 $\gm^{nk} = (x_1, \dots, x_n)^{nk} \subseteq \gm^{nk+1}$, 矛盾.
 
-  不妨设 $x_1$ 满足上述性质. 设 $\cO' = \cO[\frac{x_2}{x_1}, \dots, \frac{x_n}{x_1}]$,
-  不难发现上述条件蕴含 $\ga = (x_1) \subsetneq \cO'$.
-  令 $\gp$ 为 $\ga$ 的某个极小素理想, $\cO'_{\gp}$ 为对应的局部化, 则其是支配 $\cO$ 的一维\footnote{Krull 维数.} Noether 局部环.
+  不妨设 $x_1$ 满足上述性质. 设 $\sO' = \sO[\frac{x_2}{x_1}, \dots, \frac{x_n}{x_1}]$,
+  不难发现上述条件蕴含 $\ga = (x_1) \subsetneq \sO'$.
+  令 $\gp$ 为 $\ga$ 的某个极小素理想, $\sO'_{\gp}$ 为对应的局部化, 则其是支配 $\sO$ 的一维\footnote{Krull 维数.} Noether 局部环.
 
-  令 $\tilde{\cO}'_{\gp}$ 为 $\cO'_{\gp}$ 在 $L$ 中的整闭包. 由 Krull--秋月(Akizuki)定理
+  令 $\tilde{\sO}'_{\gp}$ 为 $\sO'_{\gp}$ 在 $L$ 中的整闭包. 由 Krull--秋月(Akizuki)定理
   \footnote{若 $A$ 是一维既约 Noether 环, $K$ 为其全分式环, $L$ 为 $K$ 的有限扩张, $B$ 是 $L$ 中包含 $A$ 的子环, 那么 $B$ 也是一维 Noether 环.},
-  $\tilde{\cO}'_{\gp}$ 也是一维 Noether 环.
+  $\tilde{\sO}'_{\gp}$ 也是一维 Noether 环.
   取 $R$ 为其在任一极大理想处的局部化, 则 $R$ 即为所需的离散赋值环.
 
   对于 (b), ``仅当''的部分比原本的赋值判别法弱, 因此立即成立.
@@ -657,13 +618,13 @@ pdfversion: hartshorne-2-4.pdf
           因此它们构成的集合恰好就是 (I, \S6) 中所有的抽象非奇异曲线 $C_K$.
     \item 若 $K/k$ 是二维函数域, 那么有若干种类赋值. 设 $X$ 是函数域为 $K$ 的完备非奇异曲面.
           \begin{enumerate}[label=(\arabic*)]
-            \item 若 $Y$ 是 $X$ 上的不可约曲线, 其一般点为 $x_1$, 那么局部环 $R = \cO_{x_1, X}$ 是 $K/k$ 中的离散赋值环, 其中心为 (非闭点) $x_1$.
+            \item 若 $Y$ 是 $X$ 上的不可约曲线, 其一般点为 $x_1$, 那么局部环 $R = \sO_{x_1, X}$ 是 $K/k$ 中的离散赋值环, 其中心为 (非闭点) $x_1$.
             \item 若 $f \colon X' \to X$ 为双有理态射, $Y'$ 是 $X'$ 中的不可约曲线, 其在 $X$ 中的像为闭点 $x_0$,
                   那么 $Y'$ 的一般点处的局部环 $R$ 是 $K/k$ 中的离散赋值环, 其中心为 $x_0$.
             \item 令 $x_0 \in X$ 为一闭点. 设 $f \colon X_1 \to X$ 为 $x_0$ 处的爆破 (I, \S4), 而 $E_1 = f^{-1}(E_0)$ 为例外曲线.
                   在 $E_1$ 中择一闭点 $x_1$, 令 $f_2 \colon X_2 \to X_1$ 为 $x_1$ 处的爆破, $E_2 = f_2^{-1}(x_1)$ 为例外曲线.
-                  重复这个过程, 我们得到一系列概形 $X_i$ 以及其中选定的闭点 $x_i$, 并且对任意 $i$, 局部环 $\cO_{x_{i+1}, X_{i+1}}$ 支配 $\cO_{x_i, X_i}$.
-                  令 $R_0 = \bigcup_{i = 0}^\infty \cO_{x_i, X_i}$. 则 $R_0$ 也是局部环, 因此其被 $K/k$ 中某个赋值环 $R$ 所支配 (I, 6.1A).
+                  重复这个过程, 我们得到一系列概形 $X_i$ 以及其中选定的闭点 $x_i$, 并且对任意 $i$, 局部环 $\sO_{x_{i+1}, X_{i+1}}$ 支配 $\sO_{x_i, X_i}$.
+                  令 $R_0 = \bigcup_{i = 0}^\infty \sO_{x_i, X_i}$. 则 $R_0$ 也是局部环, 因此其被 $K/k$ 中某个赋值环 $R$ 所支配 (I, 6.1A).
                   证明 $R$ 在 $X$ 上以 $x_0$ 为中心. $R$ 何时是离散赋值环?
           \end{enumerate}
   \end{enumerate}

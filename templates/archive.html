@@ -4,7 +4,7 @@
     $for(posts)$
         <li>
             <a href="$url$">$title$</a> - $date$
-            $if(pdfversion)$; pdf 版本: <a href="/tex/$pdfversion$"> $pdfversion$ </a>$endif$
+            $if(pdf-version)$; pdf 版本: <a href="/tex/$pdf-version$"> $pdf-version$ </a>$endif$
         </li>
     $endfor$
 </ul>
