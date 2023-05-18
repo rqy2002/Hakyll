@@ -9,3 +9,4 @@ tex/*.aux
 tex/*.log
 tex/*.out
 .stack-work/
+posts/test.*
