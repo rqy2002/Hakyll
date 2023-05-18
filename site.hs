@@ -14,6 +14,8 @@ import Data.Aeson (encode, object, (.=), FromJSON, parseJSON, decode, withObject
 import System.Process
 import Network.HTTP.Client as HTTP
 import Deploy
+import Text.HTML.TagSoup (Tag (..), parseTags, renderTags)
+import Text.HTML.TagSoup as TS
 
 ------------------------------------------------------------------------------
 -- Btex compiler
@@ -44,6 +46,21 @@ btexToHtml (BtexResult html dataa errors warnings) =
   concatMap (\t -> "<div class=\"warning-message\"><b>警告 </b>" ++ t ++ "</div>\n") warnings ++
   html
 
+-- Move the toc up the btex-output
+btexMoveOutToc :: String -> String
+btexMoveOutToc str = let (t1, t2, t3) = findToc $ parseTags str in TS.renderTags (t2 ++ t1 ++ t3) where
+  isTocOpen (TagOpen "div" l) = ("class", "toc") `elem` l
+  isTocOpen _ = False
+  elemLevel (TagOpen _ _) = 1
+  elemLevel (TagClose _) = -1
+  elemLevel _ = 0
+  findToc tags = findToc' $ break isTocOpen tags
+  findToc'  (pre, (tocbegin : last)) =
+    let taglist = zip last $ scanl1 (+) $ map elemLevel last in
+    let (mid, ((tocend, _) : post)) = break (\(_, k) -> k < 0) taglist in
+      (pre, [tocbegin] ++ map fst mid ++ [tocend], map fst post)
+  findToc' (u, []) =  (u, [], [])
+
 btexCompiler :: Compiler (Item String)
 btexCompiler = getResourceBody >>= withItemBody (\content -> do
   let reqBody = object [ "code" .= content ]
@@ -58,7 +75,7 @@ btexCompiler = getResourceBody >>= withItemBody (\content -> do
     let result = decode (responseBody response) :: Maybe BtexResult
     case result of
       Nothing -> return ""
-      Just s -> return $ btexToHtml s)
+      Just s -> return $ btexMoveOutToc $ btexToHtml s)
 
 ------------------------------------------------------------------------------
 pandocCodeStyle :: Style
